@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>th的个人博客</title>
+  <title>JavaEE day03 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="th的个人博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+  <meta name="description" content="JavaScript入门 &amp;amp; DOMJavaScript的string对象">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE day03">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;28&#x2F;day03%20JavaScript&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="JavaScript入门 &amp;amp; DOMJavaScript的string对象">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-30T07:25:51.429Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
@@ -138,16 +140,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-day03 JavaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-day03 JavaScript" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/28/day03%20JavaScript/">JavaEE day03</a>
+    <h1 class="article-title" itemprop="name">
+      JavaEE day03
     </h1>
   
 
@@ -160,12 +160,132 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="JavaScript入门-amp-DOM"><a href="#JavaScript入门-amp-DOM" class="headerlink" title="JavaScript入门 &amp; DOM"></a>JavaScript入门 &amp; DOM</h3><h5 id="JavaScript的string对象"><a href="#JavaScript的string对象" class="headerlink" title="JavaScript的string对象"></a>JavaScript的string对象</h5>
-        
-          <a class="article-more-a" href="/2019/10/28/day03%20JavaScript/#more">more >></a>
-        
+        <h3 id="JavaScript入门-amp-DOM"><a href="#JavaScript入门-amp-DOM" class="headerlink" title="JavaScript入门 &amp; DOM"></a>JavaScript入门 &amp; DOM</h3><h5 id="JavaScript的string对象"><a href="#JavaScript的string对象" class="headerlink" title="JavaScript的string对象"></a>JavaScript的string对象</h5><a id="more"></a>
+
+<blockquote>
+<p>创建string对象</p>
+<p>string的部分属性及方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"abc"</span>;</span><br><span class="line">a.length;  <span class="comment">//3</span></span><br><span class="line">a.bold(); <span class="comment">//对字符串加粗显示</span></span><br><span class="line">a.fontcolor(<span class="string">"red"</span>); <span class="comment">//设置字体颜色</span></span><br><span class="line">a.fontsize(<span class="number">5</span>);<span class="comment">//设置字体大小</span></span><br><span class="line">a.link(<span class="string">"thwang.top"</span>);<span class="comment">//将字符串显示为超链接</span></span><br><span class="line">a.sub();<span class="comment">//显示为下标  </span></span><br><span class="line">a.sup();<span class="comment">//显示为上标</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="JavaScript的Array对象"><a href="#JavaScript的Array对象" class="headerlink" title="JavaScript的Array对象"></a>JavaScript的Array对象</h5><blockquote>
+<p>Array的性质及部分操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2=[];<span class="comment">//空数组</span></span><br><span class="line"><span class="keyword">var</span> arr3 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line">arr1.length;<span class="comment">//3 请注意，直接给Array的length赋一个新的值会导致Array大小的变化：</span></span><br><span class="line">arr1.indexOf(<span class="number">1</span>);<span class="comment">//0 索引</span></span><br><span class="line">arr1.slice(<span class="number">0</span>,<span class="number">1</span>);<span class="comment">//[1] 对应于string的substring方法</span></span><br><span class="line">arr1.push(<span class="string">'A'</span>);<span class="comment">//[1,2,3,'A']  向末尾添加  注意不要直接将一整个数组作为参数添加进去，否则会将整个数组当作一个整体字符串元素</span></span><br><span class="line">arr1.pop();<span class="comment">//返回'A' 删除末尾元素    unshift和shift对应与push和pop,区别在于unshift和shift在头部操作</span></span><br><span class="line">arr1.splice(<span class="number">2</span>,<span class="number">1</span>,<span class="string">"Google"</span>);<span class="comment">//从指定的索引开始删除若干元素，然后再从该位置添加若干元素</span></span><br><span class="line">arr1.concat([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);<span class="comment">//把当前的Array和另一个Array连接起来，并返回一个新的Array</span></span><br><span class="line">arr1.join(<span class="string">'-'</span>);<span class="comment">//"1-2-3"把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串</span></span><br><span class="line">arr1.reverse();<span class="comment">//将数组颠倒顺序</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="JavaScript的Date对象"><a href="#JavaScript的Date对象" class="headerlink" title="JavaScript的Date对象"></a>JavaScript的Date对象</h5><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//创建一个Date对象</span></span><br><span class="line">&gt;date.toLocaleString();<span class="comment">//2015年5月24日 19:49:22</span></span><br><span class="line">&gt;now; <span class="comment">// Wed Jun 24 2015 19:49:22 GMT+0800 (CST)</span></span><br><span class="line">&gt;now.getFullYear(); <span class="comment">// 2015, 年份</span></span><br><span class="line">&gt;now.getMonth(); <span class="comment">// 5, 月份，注意月份范围是0~11，5表示六月</span></span><br><span class="line">&gt;now.getDate(); <span class="comment">// 24, 表示24号</span></span><br><span class="line">&gt;now.getDay(); <span class="comment">// 3, 表示星期三 取值为(0~6)，0表示星期天</span></span><br><span class="line">&gt;now.getHours(); <span class="comment">// 19, 24小时制</span></span><br><span class="line">&gt;now.getMinutes(); <span class="comment">// 49, 分钟</span></span><br><span class="line">&gt;now.getSeconds(); <span class="comment">// 22, 秒</span></span><br><span class="line">&gt;now.getMilliseconds(); <span class="comment">// 875, 毫秒数</span></span><br><span class="line">&gt;now.getTime(); <span class="comment">// 1435146562875 , 以number形式表示的时间戳</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：JavaScript的月份范围用整数表示是0~11，0表示一月，1表示二月</p>
+<p>注意：当前时间是浏览器从本机操作系统获取的时间，所以不一定准确，因为用户可以把当前时间设定为任何值。</p>
+</blockquote>
+<h5 id="JavaScript的Math对象"><a href="#JavaScript的Math对象" class="headerlink" title="JavaScript的Math对象"></a>JavaScript的Math对象</h5><blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.ceil(<span class="number">10.4</span>);     <span class="comment">//向上取整，即11</span></span><br><span class="line"><span class="built_in">Math</span>.floor(<span class="number">10.4</span>);    <span class="comment">//向下取整，即10</span></span><br><span class="line"><span class="built_in">Math</span>.round(<span class="number">10.4</span>);    <span class="comment">//四舍五入</span></span><br><span class="line"><span class="built_in">Math</span>.random();       <span class="comment">//0~1之间的伪随机数</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="JavaScript的全局函数"><a href="#JavaScript的全局函数" class="headerlink" title="JavaScript的全局函数"></a>JavaScript的全局函数</h5><blockquote>
+<p>不属于任何一个对象，可以直接写名称使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="string">"alert("</span><span class="number">1234</span><span class="string">");"</span>);   <span class="comment">//执行js代码的函数</span></span><br><span class="line"><span class="keyword">var</span> code = <span class="built_in">encodeURI</span>(<span class="string">"测试"</span>); <span class="comment">//对字符进行编码</span></span><br><span class="line"><span class="keyword">var</span> decode = <span class="built_in">decodeURI</span>(code);<span class="comment">//对字符进行解码</span></span><br><span class="line"><span class="built_in">isNaN</span>(<span class="string">"123"</span>);        <span class="comment">//判断是否为NaN,即false</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">"123"</span>)+<span class="number">1</span>;     <span class="comment">//解析字符串并返回一个整数，即124</span></span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<h5 id="JavaScript函数的重载"><a href="#JavaScript函数的重载" class="headerlink" title="JavaScript函数的重载"></a>JavaScript函数的重载</h5><blockquote>
+<p>JavaScript不存在重载，只会调用最后一个方法</p>
+<p>但是，我们可以通过某些方法模拟重载的效果</p>
+<p>JavaScript还有一个免费赠送的关键字arguments，它只在函数内部起作用，并且永远指向当前函数的调用者传入的所有参数。arguments类似Array但它不是一个Array</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="built_in">arguments</span>.length;i++)</span><br><span class="line">        sum += <span class="built_in">arguments</span>[i];</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);   <span class="comment">//类似重载的效果</span></span><br></pre></td></tr></table></figure>
+
+<p>ES6标准引入了rest参数，上面的函数可以改写为:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b,...rest</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = a+b;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; rest.length;i++)</span><br><span class="line">        sum += rest[i];</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>rest参数只能写在最后，前面用…标识，从运行结果可知，传入的参数先绑定a、b，多余的参数以数组形式交给变量rest，所以，不再需要arguments我们就获取了全部参数</p>
+</blockquote>
+<h5 id="JavaScript的bom对象"><a href="#JavaScript的bom对象" class="headerlink" title="JavaScript的bom对象"></a>JavaScript的bom对象</h5><blockquote>
+<p><strong>bom</strong>:浏览器对象模型</p>
+<p><strong>navigator</strong> ：可以获取客户机浏览器的信息</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">navigator.appName;   <span class="comment">//浏览器名称</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>screen</strong>：可以获取屏幕信息(高度、宽度、分辨率等)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen.width;</span><br><span class="line">screen.height;</span><br></pre></td></tr></table></figure>
+
+<p><strong>location</strong>:请求url地址</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到当前请求的url地址</span></span><br><span class="line">location.href;</span><br><span class="line"><span class="comment">//设置点击按钮后页面跳转地址  </span></span><br><span class="line"><span class="comment">//鼠标点击事件 onclick</span></span><br><span class="line">&lt;input type=<span class="string">"button"</span> value=<span class="string">"url"</span> onclick=<span class="string">"jump();"</span>&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jump</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    location.href = <span class="string">"thwang.top"</span>;</span><br><span class="line">&#125;  <span class="comment">//点击按钮后调用jump()方法</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>history</strong>：请求的url的历史纪录</p>
+<p>例如有三个页面 ：1、a.html  页面中有一个超链接跳转到 b.html</p>
+<p>2、b.html页面中有一个超链接跳转到c.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- b.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"back"</span> <span class="attr">onclick</span>=<span class="string">"back();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"next"</span> <span class="attr">onclick</span>=<span class="string">"next();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">        history.back();            <span class="comment">//a.html</span></span></span><br><span class="line"><span class="actionscript">        history.go(<span class="number">-1</span>);            <span class="comment">//相同的效果</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        history.forward();         <span class="comment">//c.html</span></span></span><br><span class="line"><span class="actionscript">        history.go(<span class="number">1</span>);             <span class="comment">//相同的效果</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>window</strong>：表示一个窗口对象，顶层对象（所有的bom对象都是在window里面操作的）</p>
+<p>方法：</p>
+<p>1.window.alert() 即 alert()</p>
+<p>2.window.confirm(“是否删除”): 确认框，该方法有返回值，点确定为true，点取消为false</p>
+<p>3.window.prompt(“pleasre input:”,”0”); 输入对话框，较为少用，第一个参数表示输入框显示内容，第二个值表示框内默认值</p>
+<p>4.window.open(“打开的新窗口的地址”,”一般为空”,”窗口特征，例如窗口的宽度与高度”);打开一个新的窗口</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"open"</span> <span class="attr">onclick</span>=<span class="string">"open();"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">open</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.open(<span class="string">"thwang.top"</span>,<span class="string">""</span>,<span class="string">"width=400,height=300"</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>5.window.close();关闭一个窗口（浏览器兼容性较差）</p>
+<p>6.做定时器</p>
+<p>window.setInterval(“js代码”,毫秒数);</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.setInterval(<span class="string">"alert('123');"</span>,<span class="number">3000</span>); <span class="comment">//每三秒alert一次</span></span><br></pre></td></tr></table></figure>
+
+<p>window.setTimeout(“js代码”,毫秒数);</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.setTimeout(<span class="string">"alert('123');"</span>,<span class="number">4000</span>);  <span class="comment">//在4秒后执行，只会执行一次</span></span><br></pre></td></tr></table></figure>
+
+<p>7.window.clearInterval(id_of_setInterval);清除掉setInterval设置的定时器,id_of_setInterval为setInterval时返回的id值</p>
+<p>window.clearTineout(id_of_setTimeout);清除掉setTimeout设置的定时器，id_of_setTimeout为setTimeout时返回的id值</p>
+</blockquote>
+<h5 id="JavaScript的dom对象"><a href="#JavaScript的dom对象" class="headerlink" title="JavaScript的dom对象"></a>JavaScript的dom对象</h5><blockquote>
+<p>document object model 文档对象模型</p>
+<p>HTML文档被浏览器解析后就是一棵dom树，要改变HTML的结构，就需要通过JavaScript来操作dom</p>
+<p>解析过程：根据html的层级结构，在内存中分配一个树形结构，需要把html中的每部分封装成对象：document对象（整个文档）、element对象（标签对象）、属性对象、文本对象</p>
+<p>Node节点对象：这个对象是以上对象的父对象</p>
+<p><strong>DHTML：</strong></p>
+<p>简介：DHTML 指动态 HTML（Dynamic HTML）</p>
+<p>DHTML技术：HTML4.0  层叠样式表(CSS)  文档对象模型(DOM)  JavaScript</p>
+</blockquote>
+<h5 id="document对象"><a href="#document对象" class="headerlink" title="document对象"></a>document对象</h5><blockquote>
+<p>每个载入浏览器的HTML文档都会成为document对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"Hello World!"</span>); <span class="comment">//可向文档写入HTML表达式或 JavaScript代码</span></span><br></pre></td></tr></table></figure>
+
+<p>在操作一个DOM节点前，我们需要通过各种方式先拿到这个DOM节点。最常用的方法是document.getElementById()，document.getElementsByName和document.getElementsByTagName()，以及CSS选择器document.getElementsByClassName()。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">id</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"text"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> dom = <span class="built_in">document</span>.getElementById(<span class="string">"id"</span>);   <span class="comment">//由于ID在HTML文档中是唯一的，所以document.getElementById()可以直接定位唯一的一个DOM节点</span></span><br><span class="line">dom.name;<span class="comment">//该dom节点的name值</span></span><br><span class="line">dom.value = <span class="string">"1234"</span>; <span class="comment">//为dom节点的value赋值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doms = <span class="built_in">document</span>.getElementsByName(<span class="string">"name"</span>);  <span class="comment">//返回的是一个数组</span></span><br><span class="line">alert(doms.length);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doms = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>); <span class="comment">//返回的是一个数组</span></span><br><span class="line">alert(doms.length);</span><br></pre></td></tr></table></figure></blockquote>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -185,16 +305,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/28/day03%20JavaScript/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/28/day03%20JavaScript/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/27/leetcode%205240/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-5240 (第160场周赛)刷题笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -214,557 +393,14 @@
 
 
 
-
   
-    <article id="post-leetcode 5240" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/leetcode%205240/">leetcode-5240 (第160场周赛)刷题笔记</a>
-    </h1>
   
 
-        
-        <a href="/2019/10/27/leetcode%205240/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>leetcode 5240 maximum length of a concatenated string with unique characters</p>
-<p>本题是一道经典的回溯问题</p>
-        
-          <a class="article-more-a" href="/2019/10/27/leetcode%205240/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/27/leetcode%205240/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-day02 css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/26/day02%20css/">JAVAEE 学习 day02 css部分</a>
-    </h1>
   
 
-        
-        <a href="/2019/10/26/day02%20css/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="CSS入门"><a href="#CSS入门" class="headerlink" title="CSS入门"></a>CSS入门</h2><h5 id="css简介"><a href="#css简介" class="headerlink" title="css简介"></a>css简介</h5><blockquote>
-<p> 层叠样式表，是为了解决内容与表现分离的问题</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/10/26/day02%20css/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/26/day02%20css/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-day02 JavaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/26/day02%20JavaScript/">day02 JavaScript</a>
-    </h1>
   
 
-        
-        <a href="/2019/10/26/day02%20JavaScript/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="JavaScript-入门"><a href="#JavaScript-入门" class="headerlink" title="JavaScript 入门"></a>JavaScript 入门</h3><h5 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h5><p>JavaScript：基于对象和事件驱动的语言，应用于客户端，是一种弱类型语言。</p>
-<blockquote>
-<p>事件驱动：html对应网站静态效果，JavaScript对应动态效果</p>
-</blockquote>
-<p>JavaScript的特点</p>
-<blockquote>
-<p>(1)交互性：信息的动态交互</p>
-<p>(2)安全性：js不能访问本地磁盘的问价</p>
-<p>(3)跨平台性：只有能够支持js的浏览器，都可以运行</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2019/10/26/day02%20JavaScript/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/26/day02%20JavaScript/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-day 01 html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/day%2001%20html/">JavaEE 学习 day01</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/25/day%2001%20html/" class="archive-article-date">
-  	<time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="html语言入门"><a href="#html语言入门" class="headerlink" title="html语言入门"></a>html语言入门</h2><p>html语言：超文本标记语言</p>
-<p>超文本：超出文本的范畴，使用html可以轻松实现操作</p>
-<p>标记：html所有的操作都是通过标记实现的，标记就是标签，&lt;标签&gt;</p>
-<p>网页语言</p>
-<br>
-        
-          <a class="article-more-a" href="/2019/10/25/day%2001%20html/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/day%2001%20html/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode 300" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/24/leetcode%20300/">Leetcode-300 刷题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/24/leetcode%20300/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>leetcode 300 Longest Increasing Subsequence<br>方法一：<br>动态规划<br>新建一个与nums长度相同的数组dp<br>dp[i]为以i结尾的最长升序字串长度<br>返回dp最大值即可<br>时间复杂度O(n^2)</p>
-        
-          <a class="article-more-a" href="/2019/10/24/leetcode%20300/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/24/leetcode%20300/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode 410" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/24/leetcode%20410/">Leetcode-410 刷题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/24/leetcode%20410/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>leetcode 410 Split Array Largest Sum(hard)<br>方法一：<br>对于子数组nums[0…i]并将其分为j段，其子数组和的最大值设为f[i][j]<br>f[i][j] 可以从 max(f[k][j - 1], nums[k + 1] + … + nums[i]) 这个公式中得到<br>我们只需遍历i,j,k就可以得到f[n][m](n = nums.length)<br>时间复杂度为O(n^2*m)</p>
-        
-          <a class="article-more-a" href="/2019/10/24/leetcode%20410/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/24/leetcode%20410/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-leetcode 530" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/24/leetcode%20530/">leetcode-530 刷题笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/24/leetcode%20530/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>leetcode 530 Minimum Absolute Difference inBST</p>
-<p>方法一：最平凡的方法即为用一个ArrayList按照中序遍历存储每一个节点，然后依次比较</p>
-        
-          <a class="article-more-a" href="/2019/10/24/leetcode%20530/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/24/leetcode%20530/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -788,8 +424,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
