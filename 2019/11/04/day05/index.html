@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>day02 JavaScript | th的个人博客</title>
+  <title>JavaEE day05 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript 入门JavaScript简介JavaScript：基于对象和事件驱动的语言，应用于客户端，是一种弱类型语言。  事件驱动：html对应网站静态效果，JavaScript对应动态效果  JavaScript的特点  (1)交互性：信息的动态交互 (2)安全性：js不能访问本地磁盘的问价 (3)跨平台性：只有能够支持js的浏览器，都可以运行">
-<meta name="keywords" content="JavaScript">
+  <meta name="description" content="XML入门表单提交方式">
+<meta name="keywords" content="XML">
 <meta property="og:type" content="article">
-<meta property="og:title" content="day02 JavaScript">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;day02%20JavaScript&#x2F;index.html">
+<meta property="og:title" content="JavaEE day05">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;day05&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="JavaScript 入门JavaScript简介JavaScript：基于对象和事件驱动的语言，应用于客户端，是一种弱类型语言。  事件驱动：html对应网站静态效果，JavaScript对应动态效果  JavaScript的特点  (1)交互性：信息的动态交互 (2)安全性：js不能访问本地磁盘的问价 (3)跨平台性：只有能够支持js的浏览器，都可以运行">
+<meta property="og:description" content="XML入门表单提交方式">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-27T11:20:49.095Z">
+<meta property="og:updated_time" content="2019-11-11T11:59:18.178Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
@@ -140,109 +140,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-day02 JavaScript" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-day05" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      day02 JavaScript
+      JavaEE day05
     </h1>
   
 
         
-        <a href="/2019/10/26/day02%20JavaScript/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
+        <a href="/2019/11/04/day05/" class="archive-article-date">
+  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="JavaScript-入门"><a href="#JavaScript-入门" class="headerlink" title="JavaScript 入门"></a>JavaScript 入门</h3><h5 id="JavaScript简介"><a href="#JavaScript简介" class="headerlink" title="JavaScript简介"></a>JavaScript简介</h5><p>JavaScript：基于对象和事件驱动的语言，应用于客户端，是一种弱类型语言。</p>
+        <h3 id="XML入门"><a href="#XML入门" class="headerlink" title="XML入门"></a>XML入门</h3><h5 id="表单提交方式"><a href="#表单提交方式" class="headerlink" title="表单提交方式"></a>表单提交方式</h5><a id="more"></a>
+
 <blockquote>
-<p>事件驱动：html对应网站静态效果，JavaScript对应动态效果</p>
+<p>1.使用button提交表单(submit方法)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">		<span class="function"><span class="keyword">function</span> <span class="title">formSubmit</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">			<span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>).submit();</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"myForm"</span> <span class="attr">action</span>=<span class="string">"/i/eg_smile.gif"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></span><br><span class="line">         名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"firstname"</span> <span class="attr">size</span>=<span class="string">"20"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">         姓：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"lastname"</span> <span class="attr">size</span>=<span class="string">"20"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">onclick</span>=<span class="string">"formSubmit()"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.onfocus(得到鼠标焦点)与onblur(失去鼠标焦点) </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"myId"</span> <span class="attr">name</span>=<span class="string">"myText"</span> <span class="attr">value</span>=<span class="string">"please input"</span> <span class="attr">onfocus</span>=<span class="string">"myFocus();"</span> <span class="attr">onblur</span>=<span class="string">"myBlur();"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">myFocus</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> myInput = <span class="built_in">document</span>.getElementById(<span class="string">"myId"</span>);</span></span><br><span class="line"><span class="actionscript">        myInput.value = <span class="string">""</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">myBlur</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> myInput = <span class="built_in">document</span>.getElementById(<span class="string">"myId"</span>);</span></span><br><span class="line"><span class="actionscript">        myInput.value = <span class="string">"please input"</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>JavaScript的特点</p>
+<h5 id="XML简介"><a href="#XML简介" class="headerlink" title="XML简介"></a>XML简介</h5><blockquote>
+<p>XML：可扩展标记语言</p>
+<p>用途：html是用于显示数据，xml也可以显示数据，但xml主要功能是为了存储数据</p>
+<p>对 XML 最好的描述是：XML 是独立于软件和硬件的信息传输工具。</p>
+</blockquote>
+<h5 id="XML的文档声明"><a href="#XML的文档声明" class="headerlink" title="XML的文档声明"></a>XML的文档声明</h5><blockquote>
+<p>创建一个.xml文件，每个xml文件必须有一个文档声明：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">person</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：文档声明必须写在第一行第一列</p>
+<p>属性: </p>
 <blockquote>
-<p>(1)交互性：信息的动态交互</p>
-<p>(2)安全性：js不能访问本地磁盘的问价</p>
-<p>(3)跨平台性：只有能够支持js的浏览器，都可以运行</p>
+<p> version: xml的版本 有 1.0  1.1两个版本，一般选取1.0</p>
+<p>encoding：编码方式</p>
+<p>standalone：是否需要依赖其他文件 yes(需要)/no(不需要) （很少用）</p>
 </blockquote>
-<a id="more"></a>
+</blockquote>
+<h5 id="XML的中文乱码"><a href="#XML的中文乱码" class="headerlink" title="XML的中文乱码"></a>XML的中文乱码</h5><blockquote>
+<p>将保存时的编码格式设置为与打开时编码相一致</p>
+</blockquote>
+<h5 id="XML元素的定义"><a href="#XML元素的定义" class="headerlink" title="XML元素的定义"></a>XML元素的定义</h5><blockquote>
+<p>1.标签定义必须有开始有结束：&lt;person&gt;&lt;/person&gt;</p>
+<p>2.标签没有内容，可以在标签内结束：&lt;a/&gt;</p>
+<p>3.标签必须合理嵌套，不合理嵌套：&lt;aa&gt;&lt;bb&gt;&lt;/aa&gt;&lt;/bb&gt;</p>
+<p>4.一个xml中，只能有一个根标签，其他标签都是他的子标签</p>
+<p>5.在xml中把空格和换行都当成内容来解析</p>
+<p>6.在xml中标签区分大小写，且不能以数字和下划线开头，不能以xml、XML等开头，标签不能包含空格和冒号，可以是中文</p>
+</blockquote>
+<h5 id="XML属性的定义"><a href="#XML属性的定义" class="headerlink" title="XML属性的定义"></a>XML属性的定义</h5><blockquote>
+<p>属性定义的要求：</p>
+<p>1.一个标签可以有多个属性，属性名称不能相同</p>
+<p>2.属性名称和属性值之间使用=，属性值使用引号包起来</p>
+<p>3.xml属性的名称规范和元素的名称规范一致</p>
+</blockquote>
+<h5 id="XML的注释"><a href="#XML的注释" class="headerlink" title="XML的注释"></a>XML的注释</h5><blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--这是一个注释--&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>Java与JavaScript没有任何关系</p>
-<p>JavaScript的组成</p>
-<blockquote>
-<p>(1)ECMAScprit</p>
-<p>(2)BOM (broswer object model 浏览器对象模型)</p>
-<p>(3)DOM (document object model 即文档对象模型)</p>
+<p>注意：注释不能有嵌套，第一行必须放文档声明，注释也不能放在第一行</p>
 </blockquote>
-<br>
+<h5 id="XML的特殊字符"><a href="#XML的特殊字符" class="headerlink" title="XML的特殊字符"></a>XML的特殊字符</h5><blockquote>
+<p>与html转义字符相同</p>
+<p>&lt; &amp;lt;</p>
+<p>&gt; &amp;gt;</p>
+</blockquote>
+<h5 id="CDATA区"><a href="#CDATA区" class="headerlink" title="CDATA区"></a>CDATA区</h5><blockquote>
+<p>解决多个字符都需要转义的操作 例如：if (a&gt;b &amp;&amp; c&gt;d &amp;&amp; e&gt;f)</p>
+<p>可以把这些内容放入CDATA区</p>
+<p>写法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[内容]]&gt;</span><br></pre></td></tr></table></figure>
 
-<h5 id="js和html结合方式"><a href="#js和html结合方式" class="headerlink" title="js和html结合方式"></a>js和html结合方式</h5><blockquote>
-<p>(1)使用标签 </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span> js代码 <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>把特殊字符当作文本内容，而不是标签</p>
+</blockquote>
+<h5 id="PI指令"><a href="#PI指令" class="headerlink" title="PI指令"></a>PI指令</h5><blockquote>
+<p>可以在xml中设置样式</p>
+<p>写法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml-stylesheet type="text/css" href="css文件路径"?&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>(2)使用script标签引入一个外部的js文件，不要再往标签内写代码，不会被执行 </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"1.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不常用，样式一般由html与css表述，且不对中文标签名称起作用</p>
+</blockquote>
+<h5 id="XML的约束"><a href="#XML的约束" class="headerlink" title="XML的约束"></a>XML的约束</h5><blockquote>
+<p>为什么需要约束：例如现在定义一个person的XML文件，只想要这个文件里面保存人的信息，比如name,age，但是如果在XML文件中写入了一个标签&lt;猫&gt;，这不属于人的信息，但是由于符合XML语法因此可以被正确定义。因此需要约束来规定xml中只能出现的元素。</p>
+<p>XML的两种约束：DTD 与 schema</p>
+</blockquote>
+<h6 id="DTD的快速入门"><a href="#DTD的快速入门" class="headerlink" title="DTD的快速入门"></a>DTD的快速入门</h6><blockquote>
+<p>创建一个dtd文件，my.dtd</p>
+<p>步骤：（1）看xml中有多少个元素，有几个元素，在dtd文件中写几个&lt;!ELEMENT&gt;</p>
+<p>(2) 判断元素是简单元素还是复杂元素</p>
+<p>​    复杂元素：&lt;!ELEMENT 元素名称 (子元素)&gt;</p>
+<p>​    简单元素：&lt;!ELEMENT 元素名称 (#PCDATA)&gt;</p>
+<p>(3) 在XML文件中引入dtd文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE 根元素名称 SYSTEM "dtd文件的路径"&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>事实上不必显式地把<code>type</code>指定为JavaScript，默认的<code>type</code>就是JavaScript</p>
-</blockquote>
-<h5 id="js的原始类型"><a href="#js的原始类型" class="headerlink" title="js的原始类型"></a>js的原始类型</h5><blockquote>
-<p>string  number  boolean  null  undifined</p>
-<p>typeof()函数可以查看当前变量类型</p>
-<p>要特别注意相等运算符==。JavaScript在设计时，有两种比较运算符： </p>
-<p>第一种是==比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；第二种是===比较，它不会自动转换数据类型，如果数据类型不一致，返回false，如果一致，再比较。</p>
-<p>由于JavaScript这个设计缺陷，<em>不要</em>使用==比较，始终坚持使用===比较。</p>
-<p>NaN表示Not a Number，当无法计算结果时用NaN表示</p>
-<p>Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</p>
-<p>NaN和Infinity都属于Number</p>
-</blockquote>
-<h5 id="js的基本语句"><a href="#js的基本语句" class="headerlink" title="js的基本语句"></a>js的基本语句</h5><blockquote>
-<p>if判断语句，switch语句，循环语句（for循环，for…in循环，while循环）</p>
-<p>弹出: alert  </p>
-<p>直接把元素输出到 HTML 文档中：document.write()</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.write(<span class="string">"&lt;hr/&gt;"</span>);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h5 id="js的运算符"><a href="#js的运算符" class="headerlink" title="js的运算符"></a>js的运算符</h5><blockquote>
-<p>注意js不区分整数和小数 123/1000*1000===123</p>
-</blockquote>
-<h5 id="js的数组"><a href="#js的数组" class="headerlink" title="js的数组"></a>js的数组</h5><blockquote>
-<p>定义：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cars = [<span class="string">"Saab"</span>,<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> cars = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"Saab"</span>,<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br><span class="line"><span class="keyword">var</span> cars = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">6</span>);<span class="comment">//未指定元素内容，仅说明数组长度</span></span><br></pre></td></tr></table></figure>
+<p>(4) 也可以直接在XML文档中引入：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE note [</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT note (to,from,heading,body)&gt;</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT to      (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT from    (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT heading (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta">  &lt;!ELEMENT body    (#PCDATA)&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">note</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">to</span>&gt;</span>George<span class="tag">&lt;/<span class="name">to</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">from</span>&gt;</span>John<span class="tag">&lt;/<span class="name">from</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">heading</span>&gt;</span>Reminder<span class="tag">&lt;/<span class="name">heading</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span>Don't forget the meeting!<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">note</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>数组的长度是可变的，且可以存放不同类型的元素</p>
-<p>indexOf：与String类似，<code>Array</code>也可以通过<code>indexOf()</code>来搜索一个指定的元素的位置</p>
-<p>slice：对应String的substring()</p>
-<p>push和pop：push()向Array的末尾添加若干元素，pop()则把Array的最后一个元素删除掉</p>
-<p>unshift和shift：如果要往Array的头部添加若干元素，使用unshift()方法，shift()方法则把Array的第一个元素删掉：</p>
-<p>sort：sort()可以对当前Array进行排序，它会直接修改当前Array的元素位置，直接调用时，按照默认顺序排序</p>
-<p>reverse：reverse()把整个Array的元素给掉个个，也就是反转</p>
-<p>splice：splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素：</p>
-<p>concat：concat()方法把当前的Array和另一个Array连接起来，并返回一个新的Array</p>
-<p>join：join()方法是一个非常实用的方法，它把当前Array的每个元素都用指定的字符串连接起来，然后返回连接后的字符串</p>
+<p>(5)使用外部的dtd文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE 根元素 PUBLIC "DTD名称" "DTD文档的URL"&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
-<h5 id="js的函数"><a href="#js的函数" class="headerlink" title="js的函数"></a>js的函数</h5><blockquote>
-<p>函数定义</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function abs(x) &#123;</span><br><span class="line">    if (x &gt;= 0) &#123;</span><br><span class="line">        return x;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var abs = function (x) &#123; //和上一种函数定义方式完全等价</span><br><span class="line">    if (x &gt;= 0) &#123;</span><br><span class="line">        return x;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return -x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="dtd语法定义"><a href="#dtd语法定义" class="headerlink" title="dtd语法定义"></a>dtd语法定义</h5><blockquote>
+<p>简单元素：&lt;!ELEMENT 元素名称 (#PCDATA)&gt;</p>
+<p>1.(#PCDATA)：约束元素内容为字符串类型</p>
+<p>2.EMPTY：元素为空（没有内容）</p>
+<p>3.ANY：任意</p>
+<p>复杂元素：&lt;!ELEMENT 元素名称 (子元素1+,子元素2?,子元素3*,子元素4)&gt;</p>
+<p>1.表示子元素出现的次数：+（至少1次）?（一次或零次）*（任意次）</p>
+<p>2.子元素间以逗号隔开，表示子元素必须按顺序出现</p>
+<p>3.子元素以|隔开，表示元素出现其中任意一个</p>
+<p>4.可以用括号分组   (a|b),c,(d|e)</p>
+</blockquote>
+<h5 id="dtd定义属性"><a href="#dtd定义属性" class="headerlink" title="dtd定义属性"></a>dtd定义属性</h5><blockquote>
+<p>语法：</p>
+<p>&lt;!ATTLIST 元素名称</p>
+<p>​    属性名称 属性类型 属性的约束</p>
+<p>&gt;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ATTLIST birthday</span><br><span class="line">    ID1 CDATA #REQUIRED</span><br><span class="line">&gt;</span><br><span class="line">&lt;!ATTLIST age</span><br><span class="line">	ID2 (11|12|13) #IMPLIED    &lt;!--枚举--&gt;</span><br><span class="line">&gt;</span><br><span class="line">&lt;!ATTLIST sex</span><br><span class="line">    ID3 CDATA #FIXED &quot;male&quot;</span><br><span class="line">&gt;</span><br><span class="line">&lt;!ATTLIST school</span><br><span class="line">    ID4 CDATA &quot;Tingshua&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 
+<p>属性类型：</p>
+<p>CDATA(属性值必须是字符串)  </p>
+<p>枚举(属性值只能在一定的范围内取值，但一次只能出现其中一个)  </p>
+<p>ID(属性值只能是字母或下划线开头)</p>
+<p>属性约束：</p>
+<p>#REQUIRED 属性值必须存在</p>
+<p>#IMPLIED 属性值可有可无</p>
+<p>#FIXED “字符串” 属性值固定为字符串内容 </p>
+<p>直接值 若在元素中未定义属性值，则默认采用该值，若定义则采用定义值</p>
 </blockquote>
-<h5 id="js的全局变量和局部变量"><a href="#js的全局变量和局部变量" class="headerlink" title="js的全局变量和局部变量"></a>js的全局变量和局部变量</h5><blockquote>
-<p>全局变量：在script标签里面定义一个变量，这个变量在页面中js部分都可以使用</p>
-<p>局部变量：在方法内部定义一个变量，只能在方法内使用</p>
-</blockquote>
-<h5 id="script标签放置的位置"><a href="#script标签放置的位置" class="headerlink" title="script标签放置的位置"></a>script标签放置的位置</h5><blockquote>
-<p>通常情况下，JavaScript 代码是和 HTML 代码一起使用的，可以将 JavaScript 代码放置在 HTML 文档的任何地方。但放置的地方，会对 JavaScript 代码的正常执行会有一定影响，具体如下所述。</p>
-<p><strong>放置于&lt;head&gt;&lt;/head&gt;之间</strong></p>
-<p>将 JavaScript 代码放置于 HTML 文档的 &lt;head&gt;&lt;/head&gt; 标签之间是一个通常的做法。由于 HTML 文档是由浏览器从上到下依次载入的，将 JavaScript 代码放置于&lt;head&gt;&lt;/head&gt; 标签之间，可以确保在需要使用脚本之前，它已经被载入了</p>
-<p><strong>放置&lt;body&gt;&lt;/body&gt;于之间</strong></p>
-<p> 也有部分情况将 JavaScript 代码放置于 &lt;body&gt;&lt;/body&gt; 之间的。设想如下一种情况：我们有一段 JavaScript 代码需要操作 HTML 元素。但由于 HTML 文档是由浏览器从上到下依次载入的，为避免 JavaScript 代码操作 HTML 元素时，HTML 元素还未载入而报错（对象不存在），因此需要将这段代码写到 HTML 元素后面，例子如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">		<span class="built_in">document</span>.getElementById(<span class="string">"div1"</span>).innerHTML=<span class="string">"测试文字"</span>;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="dtd定义实体"><a href="#dtd定义实体" class="headerlink" title="dtd定义实体"></a>dtd定义实体</h5><blockquote>
+<p>在DTD中定义：&lt;!ENEITY copyright “thwang”&gt;</p>
+<p>在XML中引用：&amp;copyright;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENEITY TEST &quot;hello&quot;&gt;</span><br><span class="line">&lt;name ID3=&quot;1&quot;&gt;&amp;TEST;&lt;/name&gt;</span><br></pre></td></tr></table></figure>
 
-<p>但通常情况下，我们操作页面元素一般都是通过事件来驱动的，所以上面这种情况并不多见。另外我们不建议将 JavaScript 代码写到 &lt;html&gt;&lt;/html&gt; 之外。</p>
+<p>注意：定义实体需要卸载内部dtd里面，如果写在外部的dtd里面，有某些浏览器下将会出现内容得不到的情况。</p>
 </blockquote>
+<h5 id="XML的解析"><a href="#XML的解析" class="headerlink" title="XML的解析"></a>XML的解析</h5><blockquote>
+<p>xml的解析方式：dom和sax</p>
+<p>dom:</p>
+<p>根据xml层级结构，在内存中分配一个树形结构，把xml中每部分都封装成对象。优点：很方便地实现增删改操作。缺点：如果文件过大，会造成内存溢出。</p>
+<p>sax：</p>
+<p>采用事件驱动，边读边解析。从上到下逐行解析，解析到某一个对象时将对象名称返回。优点：不会造成内存溢出，实现查询。缺点：不能实现增删改操作。</p>
+</blockquote>
+<h5 id="解析器"><a href="#解析器" class="headerlink" title="解析器"></a>解析器</h5><blockquote>
+<p>sun公司 ：jaxp</p>
+<p>dom4j组织：dom4j</p>
+<p>jdom组织：jdom</p>
+</blockquote>
+<h5 id="jaxp"><a href="#jaxp" class="headerlink" title="jaxp"></a>jaxp</h5><blockquote>
+<p>jaxp是JavaSE的一部分，在javax.xml.parsers包中</p>
+<p>4个类，分别针对dom和sax使用</p>
+<p><strong>dom</strong>: </p>
+<p>DocumentBuilder：解析器类，这个类是一个抽象类，实例可以从DocumentBuilderFactory. newDocumentBuilder()方法获取</p>
+<p>解析xml：parse(“xml路径”) 返回是Document(整个文档)</p>
+<p>Document是一个接口，父节点是Node</p>
+<p>getElementsByTagName(String s)方法，返回一个集合NodeList</p>
+<p>createElement(String tagname)方法 创建标签</p>
+<p>createTextNode(String data) 创建文本</p>
+<p>appendChild(Node newChild) 把文本添加到标签下边(Node的方法)</p>
+<p>removeChild(Node oldChild) 删除子节点</p>
+<p>getParentNode() 返回父节点</p>
+<p>getFirstChild() \ getLastChild()</p>
+<p>getTextContent() 得到标签内容，string类型</p>
+<p>setTextContent(String s) 修改标签内容</p>
+<p>NodeList:</p>
+<p>​    getLength() 得到集合长度</p>
+<p>​    item(int index) 由下标去到具体的值</p>
+<p>DocumentBuilderFactory：解析器工厂，这个类也是一个抽象类，实例可以由newInstance()方法获取</p>
+<p>sax: SAXParser SAXParserFactory</p>
+</blockquote>
+<h5 id="jaxp查询节点"><a href="#jaxp查询节点" class="headerlink" title="jaxp查询节点"></a>jaxp查询节点</h5><blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">person</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">person-1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">person-1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">person-2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Jack<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>22<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">person-2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">select</span><span class="params">(Stringp[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    <span class="comment">//创建工厂解析器</span></span><br><span class="line">    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();</span><br><span class="line">    <span class="comment">//创建解析器</span></span><br><span class="line">    DocumentBuilder builder = builderFactory.newDocumentBuilder();</span><br><span class="line">    <span class="comment">//解析xml返回document</span></span><br><span class="line">    Document document = builder.parse(<span class="string">"src/person.xml"</span>);</span><br><span class="line">    <span class="comment">//得到所有的name元素</span></span><br><span class="line">    NodeList list = document.getElementsByTagName(<span class="string">"name"</span>);</span><br><span class="line">    <span class="comment">//遍历list</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; list.getLength();i++) &#123;</span><br><span class="line">        Node name = list.item(i);</span><br><span class="line">        System.out.println(name.getTextContent());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="jaxp添加节点"><a href="#jaxp添加节点" class="headerlink" title="jaxp添加节点"></a>jaxp添加节点</h5><blockquote>
+<p>在person-1的子节点末尾添加性别节点</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addNode</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">//创建工厂解析器</span></span><br><span class="line">    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();</span><br><span class="line">    <span class="comment">//创建解析器</span></span><br><span class="line">    DocumentBuilder builder = builderFactory.newDocumentBuilder();</span><br><span class="line">    <span class="comment">//解析xml返回document</span></span><br><span class="line">    Document document = builder.parse(<span class="string">"src/person.xml"</span>);</span><br><span class="line">    <span class="comment">//得到person-1节点</span></span><br><span class="line">    NodeList list = document.getElementsByTagName(<span class="string">"person-1"</span>);</span><br><span class="line">    Node person = list.item(<span class="number">0</span>);</span><br><span class="line">    Element sex = document.createElement(<span class="string">"sex"</span>);</span><br><span class="line">    Text text = document.createTextNode(<span class="string">"male"</span>);</span><br><span class="line">    sex.appendChild(text);</span><br><span class="line">    person.appendChild(sex);</span><br><span class="line">    <span class="comment">//做添加操作时到目前为止都在操作内存中的xml文档，需要一步回写操作将添加的节点写入文件中</span></span><br><span class="line">    <span class="comment">//回写</span></span><br><span class="line">    TransformerFactory transformerFactory = TransformerFactory.newInstance();</span><br><span class="line">    Transformer transformer = transformerFactory.newTransformer();</span><br><span class="line">    transformer.transform(<span class="keyword">new</span> DOMSource(document),<span class="keyword">new</span> StreamResult(<span class="string">"src/person.xml"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
 
       
 
@@ -287,7 +368,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
         		</li>
       		
 		</ul>
@@ -343,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/26/day02%20JavaScript/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/04/day05/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -357,18 +438,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/27/leetcode%205240/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          leetcode-5240 (第160场周赛)刷题笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/26/day02%20css/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JAVAEE 学习 day02 css部分</div>
+    <a href="/2019/10/31/day04/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaEE day04</div>
       <i class="icon-circle-right"></i>
     </a>
   
