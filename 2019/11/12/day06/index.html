@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | th的个人博客</title>
+  <title>JavaEE day06 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="th的个人博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="XML入门XML的schema约束 dtd语法：&amp;lt;!ELEMENT 元素名称 约束&amp;gt; schema符合xml语法规范 一个xml中可以有多个schema，使用名称空间区分（类似于java的包名） schema相比dtd支持更多的数据类型 schema语法更加复杂，schema的出现是为了替代dtd">
+<meta name="keywords" content="XML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE day06">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;12&#x2F;day06&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="XML入门XML的schema约束 dtd语法：&amp;lt;!ELEMENT 元素名称 约束&amp;gt; schema符合xml语法规范 一个xml中可以有多个schema，使用名称空间区分（类似于java的包名） schema相比dtd支持更多的数据类型 schema语法更加复杂，schema的出现是为了替代dtd">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-16T02:26:15.023Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
@@ -138,36 +140,173 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-day06" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      JavaEE day06
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/12/day06/" class="archive-article-date">
+
+        
+        <a href="/2019/11/12/day06/" class="archive-article-date">
   	<time datetime="2019-11-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/12/day06/">JavaEE day06</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="XML入门"><a href="#XML入门" class="headerlink" title="XML入门"></a>XML入门</h3><h5 id="XML的schema约束"><a href="#XML的schema约束" class="headerlink" title="XML的schema约束"></a>XML的schema约束</h5><blockquote>
+<p>dtd语法：&lt;!ELEMENT 元素名称 约束&gt;</p>
+<p>schema符合xml语法规范</p>
+<p>一个xml中可以有多个schema，使用名称空间区分（类似于java的包名）</p>
+<p>schema相比dtd支持更多的数据类型</p>
+<p>schema语法更加复杂，schema的出现是为了替代dtd</p>
+</blockquote>
+<a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<h5 id="schema快速入门"><a href="#schema快速入门" class="headerlink" title="schema快速入门"></a>schema快速入门</h5><blockquote>
+<p>创建一个schema文件（my.xsd），他的根节点就是&lt;schema&gt;</p>
+<p>xsd 的意思为 XML Schema Definition</p>
+<p>在schema文件中有w3c提供的属性和标签，使用它们来约束xml文件</p>
+<p>根节点&lt;schema&gt;,属性xmlns=&quot;<a href="http://www.w3.org/2001/XMLSchema&quot;" target="_blank" rel="noopener">http://www.w3.org/2001/XMLSchema&quot;</a> 表示当前xml文件是一个约束文件，targetNamespace=”<a href="http://www.itcast.cn/20151111&quot;表示使用schema约束文件是通过这个地址引入的" target="_blank" rel="noopener">http://www.itcast.cn/20151111&quot;表示使用schema约束文件是通过这个地址引入的</a></p>
+<p>在xml文件中引入约束文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">person</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.itcast.cn/20151111"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.itcast.cn/20151111 my.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>约束文件(my.xsd)：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">schema</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2001/XMLSchema"</span> <span class="attr">targetNamespace</span>=<span class="string">"http://www.itcast.cn/20151111"</span> <span class="attr">elementFormDefault</span>=<span class="string">"qualified"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"person"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">complexType</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">sequence</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">maxOccurs</span>=<span class="string">"unbounded"</span>&gt;</span><span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">element</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span><span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">sequence</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">complexType</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">element</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">schema</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="schema指示器"><a href="#schema指示器" class="headerlink" title="schema指示器"></a>schema指示器</h5><blockquote>
+<p>&lt;sequence&gt;表示复杂元素的子元素必须按顺序出现</p>
+<p>&lt;all&gt;元素只能出现一次,可以按照任意顺序出现</p>
+<p>&lt;choice&gt;元素只能选择其中一个出现</p>
+<p>maxOccurs=”unbounded” 表示元素最大出现次数(unbounded为无限制)</p>
+<p>minOccurs=”2” 表示元素最小出现次数</p>
+</blockquote>
+<h5 id="schema属性约束"><a href="#schema属性约束" class="headerlink" title="schema属性约束"></a>schema属性约束</h5><blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">attribute</span> <span class="attr">name</span>=<span class="string">"id1"</span> <span class="attr">typr</span>=<span class="string">"string"</span> <span class="attr">use</span>=<span class="string">"required"</span>&gt;</span><span class="tag">&lt;/<span class="name">attribute</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>表示xml文件中必须有名为id1的属性，该属性的值的类型为string，且必须出现，该语句写在&lt;complexType&gt;之前</p>
+<p>use的值可选optional，required，prohibited</p>
+<p>type可选string，decimal，integer，boolean，date，time</p>
+<p>属性约束只对复杂元素有效</p>
+</blockquote>
+<h5 id="复杂schema约束"><a href="#复杂schema约束" class="headerlink" title="复杂schema约束"></a>复杂schema约束</h5><blockquote>
+<p>对于引入多个schema文件的xml文件，使用名称空间来防止重名。</p>
+</blockquote>
+<h5 id="sax的解析原理"><a href="#sax的解析原理" class="headerlink" title="sax的解析原理"></a>sax的解析原理</h5><blockquote>
+<p>dom原理：根据xml的层级结构在内存中分配一个树形结构，把xml中标签、属性、文本封装成对象</p>
+<p>sax原理：事件驱动，边读边解析</p>
+<p>在javax.xml.parsers包里面，含有类SAXParser与SAXParserFactory</p>
+<p>SAXParser的实例可以从 SAXParserFactory.newSAXParser() 方法获得</p>
+<p>SAXParserFactory的实例可以由newInstance()方法得到</p>
+<p>SAXParser执行parser方法，需要传递两个参数，一个是xml路径，一个是事件处理器DefaultHandler。把事件处理器传递进来，相当于在方法里绑定了一个事件。</p>
+<p>DefaultHandler的方法：startElement（读到开始标签时自动执行），characters（读到文本时自动执行），endElement（读到结束标签自动执行）</p>
+</blockquote>
+<h5 id="使用jaxp的sax方式解析xml"><a href="#使用jaxp的sax方式解析xml" class="headerlink" title="使用jaxp的sax方式解析xml"></a>使用jaxp的sax方式解析xml</h5><blockquote>
+<p>sax方式不能实现增删改操作，只能查询</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">all-persons</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Tom<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>20<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">person</span> <span class="attr">id</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>Jack<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">age</span>&gt;</span>30<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">all-persons</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="comment">//获取xml文档内容</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();</span><br><span class="line">        SAXParser saxParser = saxParserFactory.newSAXParser();</span><br><span class="line">        <span class="comment">//parse方法的第一个参数是xml文件路径，第二个参数为事件处理器</span></span><br><span class="line">        saxParser.parse(<span class="string">"person.xml"</span>,<span class="keyword">new</span> MyDefault());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDefault</span> <span class="keyword">extends</span> <span class="title">DefaultHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startElement</span><span class="params">(String uri,String localName,String qName,Attributes attributes)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"&lt;"</span> + qname+<span class="string">"&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">characters</span><span class="params">(<span class="keyword">char</span>[] ch,<span class="keyword">int</span> start,<span class="keyword">int</span> length)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"text:"</span> + <span class="keyword">new</span> String(ch,start,length));</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">endElement</span><span class="params">(String uri,String localName,String qName)</span> <span class="keyword">throws</span> SAXException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"&lt;/"</span>+qName+<span class="string">"&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用dom4j解析xml"><a href="#使用dom4j解析xml" class="headerlink" title="使用dom4j解析xml"></a>使用dom4j解析xml</h5><blockquote>
+<p>dom4j不是JavaSE的一部分，到<a href="https://dom4j.github.io/下载" target="_blank" rel="noopener">https://dom4j.github.io/下载</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//得到document文档</span></span><br><span class="line">SAXReader reader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">Document document = reader.read(url);</span><br></pre></td></tr></table></figure>
+
+<p>document是一个接口，父接口是Node</p>
+<p>document的方法：getRootElement()：获取根节点，返回的是Element</p>
+<p>Element也是一个接口，父接口是Node</p>
+<p>Element的方法：getParent()：获取父节点</p>
+</blockquote>
+<h5 id="使用dom4j查询xml"><a href="#使用dom4j查询xml" class="headerlink" title="使用dom4j查询xml"></a>使用dom4j查询xml</h5><blockquote>
+<p>element(qname):表示获取标签下名为qname第一个子标签</p>
+<p>elements(qname):获取标签下名为qname所有的子标签（一层）</p>
+<p>elements():获取标签下的所有子标签（一层）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDom4j</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        selectName();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//查询xml中所有name元素的值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectName</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">        Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">        Element root = document.getRootElement();</span><br><span class="line">        List&lt;Element&gt; list = root.elements(<span class="string">"person"</span>);</span><br><span class="line">        <span class="keyword">for</span> (Element element : list) &#123;</span><br><span class="line">            Element name = element.element(<span class="string">"name"</span>);</span><br><span class="line">            <span class="comment">//得到name标签的值</span></span><br><span class="line">            System.out.println(name.getText());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用dom4j实现添加操作"><a href="#使用dom4j实现添加操作" class="headerlink" title="使用dom4j实现添加操作"></a>使用dom4j实现添加操作</h5><blockquote>
+<p>在第一个person标签末尾添加一个元素&lt;sex&gt;&lt;/sex&gt;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addSex</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    Element person = root.element(<span class="string">"person"</span>);</span><br><span class="line">    <span class="comment">//在person下添加元素</span></span><br><span class="line">    Element sex = person.addElement(<span class="string">"sex"</span>);</span><br><span class="line">    <span class="comment">//为sex元素添加文本</span></span><br><span class="line">    sex.addText(<span class="string">"male"</span>);</span><br><span class="line">    <span class="comment">//回写</span></span><br><span class="line">    OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">    XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"person.xml"</span>),format);</span><br><span class="line">    xmlWriter.write(document);</span><br><span class="line">    xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OutputFormat.createPrettyPrint()与OutputFormat.createCompactFormat()的区别在于createPrettyPrint()会保留缩进效果，createCompactFormat()不会。</p>
+</blockquote>
+<h5 id="在特定位置添加标签"><a href="#在特定位置添加标签" class="headerlink" title="在特定位置添加标签"></a>在特定位置添加标签</h5><blockquote>
+<p>在第一个person下的age标签前添加&lt;school&gt;标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addBeforeAge</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">	SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    Element person = root.element(<span class="string">"person"</span>);</span><br><span class="line">    List list = person.elements();</span><br><span class="line">    <span class="comment">//创建school标签</span></span><br><span class="line">    Element school = DocumentHelper.createElement(<span class="string">"school"</span>);</span><br><span class="line">    school.setText(<span class="string">"MIT"</span>);</span><br><span class="line">    list.add(<span class="number">1</span>,school);</span><br><span class="line">    <span class="comment">//回写</span></span><br><span class="line">    OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">    XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"person.xml"</span>),format);</span><br><span class="line">    xmlWriter.write(document);</span><br><span class="line">    xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用dom4j修改节点"><a href="#使用dom4j修改节点" class="headerlink" title="使用dom4j修改节点"></a>使用dom4j修改节点</h5><blockquote>
+<p>修改第一个person的age的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">modifyAge</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    Element person = root.element(<span class="string">"person"</span>);</span><br><span class="line">    Element age = person.element(<span class="string">"age"</span>);</span><br><span class="line">    <span class="comment">//修改节点</span></span><br><span class="line">    age.setText(<span class="string">"18"</span>);</span><br><span class="line">    <span class="comment">//回写</span></span><br><span class="line">    OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">    XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"person.xml"</span>),format);</span><br><span class="line">    xmlWriter.write(document);</span><br><span class="line">    xmlWriter.close();</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用dom4j删除节点"><a href="#使用dom4j删除节点" class="headerlink" title="使用dom4j删除节点"></a>使用dom4j删除节点</h5><blockquote>
+<p>删除第一个节点的age标签</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delAge</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    Element person = root.element(<span class="string">"person"</span>);</span><br><span class="line">    Element age = person.element(<span class="string">"age"</span>);</span><br><span class="line">    <span class="comment">//删除元素</span></span><br><span class="line">    person.remove(age);</span><br><span class="line">    <span class="comment">//回写</span></span><br><span class="line">    OutputFormat format = OutputFormat.createPrettyPrint();</span><br><span class="line">    XMLWriter xmlWriter = <span class="keyword">new</span> XMLWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">"person.xml"</span>),format);</span><br><span class="line">    xmlWriter.write(document);</span><br><span class="line">    xmlWriter.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用dom4j获得属性"><a href="#使用dom4j获得属性" class="headerlink" title="使用dom4j获得属性"></a>使用dom4j获得属性</h5><blockquote>
+<p>获取person的属性值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getValue</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    Element root = document.getRootElement();</span><br><span class="line">    Element person = root.element(<span class="string">"person"</span>);</span><br><span class="line">    <span class="comment">//得到person的属性值</span></span><br><span class="line">    <span class="keyword">return</span> person.attributeValue(<span class="string">"id"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="XPATH相关操作"><a href="#XPATH相关操作" class="headerlink" title="XPATH相关操作"></a>XPATH相关操作</h5><blockquote>
+<p>第一种书写形式：/all-persons/person/age（按层次书写）</p>
+<p>第二种形式：//person（表示只要和这个名称相同，都可以得到）</p>
+<p>第三种形式：/person/* （表示person标签下的所有元素）</p>
+<p>第四种形式：/all-persons/person[1] （表示all-persons标签下的第一个person元素） /all-persons/person[last()] （…最后一个person元素）</p>
+<p>第五种形式：//person[@id] （只要person标签中有id属性，都会被得到）</p>
+<p>第六种形式：//person[@id=”1”] （元素名称为person且person有id属性且属性值为1）</p>
+</blockquote>
+<h5 id="使用dom4j支持XPATH"><a href="#使用dom4j支持XPATH" class="headerlink" title="使用dom4j支持XPATH"></a>使用dom4j支持XPATH</h5><blockquote>
+<p>默认情况下dom4j不支持xpath</p>
+<p>需要引入支持xpath的jar包，使用 jaxen-1.1-beta-6.jar，需要把jar包导入到项目中</p>
+<p>在dom4j中提供了两个方法用来支持xpath</p>
+<blockquote>
+<p>selectNodes(“xpath表达式”)  //获取多个节点</p>
+<p>selectSingleNode(“xpath表达式”) //获取一个节点</p>
+</blockquote>
+<p>得到xml中所有name元素的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testXpath</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    SAXReader saxReader = <span class="keyword">new</span> SAXReader();</span><br><span class="line">    Document document = saxReader.read(<span class="string">'person.xml'</span>);</span><br><span class="line">    List&lt;Node&gt; list = document.selectNodes(<span class="string">"//name"</span>);</span><br><span class="line">    <span class="keyword">for</span> (Node node : list) &#123;</span><br><span class="line">        System.out.println(node.getText());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -179,364 +318,105 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/12/day06/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/10/leetcode%201253/" class="archive-article-date">
-  	<time datetime="2019-11-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/10/leetcode%201253/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">leetcode-1253 (第162场周赛)刷题笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/10/leetcode%201253/">leetcode-1253 (第162场周赛)刷题笔记</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/04/day05/" class="archive-article-date">
-  	<time datetime="2019-11-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/04/day05/">JavaEE day05</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">XML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/31/day04/" class="archive-article-date">
-  	<time datetime="2019-10-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/31/day04/">javaEE day04</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/28/day03%20JavaScript/" class="archive-article-date">
-  	<time datetime="2019-10-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/28/day03%20JavaScript/">JavaEE day03</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/leetcode%205240/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/leetcode%205240/">leetcode-5240 (第160场周赛)刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/day02%20css/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/day02%20css/">JAVAEE 学习 day02 css部分</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/day02%20JavaScript/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/day02%20JavaScript/">day02 JavaScript</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/25/day%2001%20html/" class="archive-article-date">
-  	<time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/day%2001%20html/">JavaEE 学习 day01</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/24/leetcode%20530/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/leetcode%20530/">leetcode-530 刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">JAVA</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
@@ -561,8 +441,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
