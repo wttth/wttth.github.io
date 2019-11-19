@@ -17,7 +17,7 @@
 <meta property="og:description" content="MySQL 入门NoSQL  你可能还听说过NoSQL数据库，也就是非SQL的数据库，包括MongoDB、Cassandra、Dynamo等等，它们都不是关系数据库。有很多人鼓吹现代Web程序已经无需关系数据库了，只需要使用NoSQL就可以。但事实上，SQL数据库从始至终从未被取代过。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;19&#x2F;Sq4jORV3sNl7oLB.png">
-<meta property="og:updated_time" content="2019-11-19T03:04:21.529Z">
+<meta property="og:updated_time" content="2019-11-19T11:24:23.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;19&#x2F;Sq4jORV3sNl7oLB.png">
   
@@ -253,10 +253,26 @@
 </blockquote>
 <h5 id="DDL"><a href="#DDL" class="headerlink" title="DDL"></a>DDL</h5><blockquote>
 <p>查看所有数据库：SHOW DATABASES</p>
+<p> 其中，<code>information_schema</code>、<code>mysql</code>、<code>performance_schema</code>和<code>sys</code>是系统库，不要去改动它们。其他的是用户创建的数据库。</p>
 <p>切换（选择要操作的）数据库：USE 数据库名</p>
 <p>创建数据库：CREATE DATABASE [IF NOT TXISTS] nydb [CHARSET=uff8]</p>
 <p>方括号中为可选内容，意思是该数据库不存在时则创建(注意不要将方括号真的写出来，只是表示内容为可选)</p>
 <p>删除数据库：DROP DATABASE [IF EXISTS] mydb</p>
+<p> 列出当前数据库的所有表：SHOW TABLES</p>
+<p>查看一个表的结构：DESC 表名（例如：DESC students）</p>
+<p> 可以使用这个命令查看创建表的SQL语句： SHOW CREATE TABLE 表名</p>
+<p>创建表使用CREATE TABLE语句，而删除表使用DROP TABLE语句：DROP TABLE students</p>
+</blockquote>
+<h5 id="表修改"><a href="#表修改" class="headerlink" title="表修改"></a>表修改</h5><blockquote>
+<p>如果我们想要修改表的结构，则应使用以下语句</p>
+<p>如果要给students表新增一列birth，使用：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">ADD</span> <span class="keyword">COLUMN</span> birth <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>要修改birth列，例如把列名改为birthday，类型改为VARCHAR(20)：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">CHANGE</span> <span class="keyword">COLUMN</span> birth birthday <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<p>要删除列，使用：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> students <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> birthday;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h5 id="DQL（查询语句）"><a href="#DQL（查询语句）" class="headerlink" title="DQL（查询语句）"></a>DQL（查询语句）</h5><blockquote>
 <p>假设表名是students，要查询students表的所有行，我们用如下SQL语句：</p>
@@ -485,6 +501,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/11/19/day10/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaEE day10
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/11/17/day08/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">JavaEE day08</div>
@@ -616,6 +641,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -624,15 +653,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
