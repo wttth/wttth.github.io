@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | th的个人博客</title>
+  <title>JavaEE day11 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="th的个人博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;page&#x2F;2&#x2F;index.html">
+  <meta name="description" content="TomcatTomcat简介 Tomcat是常见的免费的web服务器.Tomcat 这个名字的来历，Tomcat是一种野外的猫科动物，不依赖人类，独立生活。 Tomcat的作者，取这个名字的初衷是希望，这一款服务器可以自力更生，自给自足，像Tomcat这样一种野生动物一般，不依赖其他插件，而可以独立达到提供web 服务的效果。">
+<meta name="keywords" content="tomcat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE day11">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;20&#x2F;day11&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="TomcatTomcat简介 Tomcat是常见的免费的web服务器.Tomcat 这个名字的来历，Tomcat是一种野外的猫科动物，不依赖人类，独立生活。 Tomcat的作者，取这个名字的初衷是希望，这一款服务器可以自力更生，自给自足，像Tomcat这样一种野生动物一般，不依赖其他插件，而可以独立达到提供web 服务的效果。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-21T16:32:31.023Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
@@ -138,291 +140,416 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-day11" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaEE day11
+    </h1>
+  
+
+        
+        <a href="/2019/11/20/day11/" class="archive-article-date">
+  	<time datetime="2019-11-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-20</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><h5 id="Tomcat简介"><a href="#Tomcat简介" class="headerlink" title="Tomcat简介"></a>Tomcat简介</h5><blockquote>
+<p>Tomcat是常见的免费的web服务器.<br>Tomcat 这个名字的来历，Tomcat是一种野外的猫科动物，不依赖人类，独立生活。 Tomcat的作者，取这个名字的初衷是希望，这一款服务器可以自力更生，自给自足，像Tomcat这样一种野生动物一般，不依赖其他插件，而可以独立达到提供web 服务的效果。 </p>
+</blockquote>
+<a id="more"></a>
+
+<h5 id="访问html"><a href="#访问html" class="headerlink" title="访问html"></a>访问html</h5><blockquote>
+<p>不使用tomcat也可以打开html页面，但是可以在浏览器的地址里看到 <strong>file:d:/test.html</strong> 这样的格式，是通过打开本地文件的形式打开的</p>
+<p>但是我们平时上网看到的html网址一般都是:<a href="http://12306.com/index.html" target="_blank" rel="noopener">http://12306.com/index.html</a> 这样的形式，这是因为有web服务器的存在 </p>
+<p>使用tomcat后，可以这样 <strong>127.0.0.1:8080/test.html</strong> 像访问一个网站似的，访问一个html文件了。这是因为tomcat本身是一个web 服务器，test.html部署在了这个web服务器上，所以就可以这样访问了。 </p>
+</blockquote>
+<h5 id="部署网页"><a href="#部署网页" class="headerlink" title="部署网页"></a>部署网页</h5><blockquote>
+<p>部署一个功能完备的web应用 有很多种方式，但是如果只是部署一个test.html，很简单，把test.html 复制到 <strong>D:\tomcat\webapps\ROOT</strong> 目录下就可以通过 <a href="http://127.0.0.1:8080/test.html" target="_blank" rel="noopener">http://127.0.0.1:8080/test.html</a> 访问了 </p>
+<p>其中 8080是tomcat默认使用的端口号 </p>
+</blockquote>
+<h5 id="更改端口号"><a href="#更改端口号" class="headerlink" title="更改端口号"></a>更改端口号</h5><blockquote>
+<p>用记事本打开 D:\tomcat\conf\server.xml </p>
+<p>可以找到一下这句话</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span>             <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">redirectPort</span>=<span class="string">"8543"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 这就表明使用的是8080端口，把它修改为80，保存。</p>
+<p>接着，必须<strong>重启tomcat</strong> </p>
+<p>接着就可以直接通过 <a href="http://127.0.0.1/test.html" target="_blank" rel="noopener">http://127.0.0.1/test.html</a> 访问网页了。</p>
+<p>80端口就是web服务默认的端口号，所以就不需要显式写这个端口号了。 </p>
+</blockquote>
+<h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><h5 id="Servlet简介"><a href="#Servlet简介" class="headerlink" title="Servlet简介"></a>Servlet简介</h5><blockquote>
+<p>Servlet是sun公司提供的一门用于开发动态web资源的技术。<br>Sun公司在其API中提供了一个servlet接口，用户若想用发一个动态web资源(即开发一个Java程序向浏览器输出数据)，需要完成以下2个步骤：<br>　1、编写一个Java类，实现servlet接口。<br>　2、把开发好的Java类部署到web服务器中。<br>　按照一种约定俗成的称呼习惯，通常我们也把实现了servlet接口的java程序，称之为Servlet</p>
+</blockquote>
+<h4 id="第一个servlet程序-可以参考站长的教程"><a href="#第一个servlet程序-可以参考站长的教程" class="headerlink" title="第一个servlet程序(可以参考站长的教程)"></a>第一个servlet程序(<a href="https://how2j.cn/k/servlet/servlet-eclipse/558.html#nowhere" target="_blank" rel="noopener">可以参考站长的教程</a>)</h4><h5 id="get与post"><a href="#get与post" class="headerlink" title="get与post"></a>get与post</h5><blockquote>
+<p>注意get和post的区别：</p>
+<p>get：<br>    是form默认的提交方式<br>    如果通过一个超链访问某个地址，是get方式<br>    如果在地址栏直接输入某个地址，是get方式<br>    提交数据会在浏览器显示出来<br>    <strong>不可以</strong>用于提交二进制数据，比如上传文件<br>post：<br>    必须在form上通过 method=”post” 显示指定<br>    提交数据<strong>不会</strong>在浏览器显示出来<br>    可以用于提交二进制数据，比如上传文件 </p>
+<p>在HelloServlet的编写中，因为在浏览器中输入地址提交数据的方式是GET，所以该Servlet需要提供一个对应的doGet方法，在本例中doGet方法应输出html，分别是标题元素h1和当前时间的字符串 。</p>
+</blockquote>
+<h5 id="配置web-xml文件"><a href="#配置web-xml文件" class="headerlink" title="配置web.xml文件"></a>配置web.xml文件</h5><blockquote>
+<p>web.xml提供路径与servlet的映射关系</p>
+<p>&lt;servlet&gt; 标签下的&lt;servlet-name&gt;与&lt;servlet-mapping&gt; 标签下的 &lt;servlet-name&gt; 必须一样</p>
+<p>&lt;servlet-name&gt;与&lt;servlet-class&gt;可以不一样，但是为了便于理解与维护，一般都会写的一样。 一目了然 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">     </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>LoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>LoginServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>LoginServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/login<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span>   </span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出：</p>
+<p>/hello路径与HelloServlet方法相对应</p>
+<p>/login路径与LoginServlet方法相对应</p>
+</blockquote>
+<h5 id="Servlet获取参数"><a href="#Servlet获取参数" class="headerlink" title="Servlet获取参数"></a>Servlet获取参数</h5><blockquote>
+<p>创建login.html如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>登录页面<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">账号: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">密码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>因为浏览器中的<strong>form的method是post</strong>,所以LoginServlet需要提供一个<strong>doPost</strong>方法</p>
+<p>action=”login”表示标题会提交到login路径，login路径在后续步骤会映射到LoginServlet</p>
+<p>在doPost方法中，通过<strong>request.getParameter</strong> 根据name取出对应的账号和密码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//得到账号与密码</span></span><br><span class="line">        String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">        String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="返回响应"><a href="#返回响应" class="headerlink" title="返回响应"></a>返回响应</h5><blockquote>
+<p>判断账号密码是否分别为 <code>admin</code> <code>123</code>，如果是就打印success，否则就打印 fail</p>
+<p>根据账号密码，创建对应的html字符串。</p>
+<p>然后通过response.getWriter().println() 发送到浏览器。</p>
+<p><strong>注意:</strong> 比较的时候把常量字符串”admin” “123”放前面，因为用户可能没有输入账号密码就提交，servlet会获取到null。这样就规避了空指针异常的问题。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">    String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    String html = <span class="keyword">null</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"admin"</span>.equals(name) &amp;&amp; <span class="string">"123"</span>.equals(password))</span><br><span class="line">        html = <span class="string">"&lt;div style='color:green'&gt;success&lt;/div&gt;"</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        html = <span class="string">"&lt;div style='color:red'&gt;fail&lt;/div&gt;"</span>;</span><br><span class="line">  </span><br><span class="line">    PrintWriter pw = response.getWriter();</span><br><span class="line">    pw.println(html);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="servlet调用流程"><a href="#servlet调用流程" class="headerlink" title="servlet调用流程"></a>servlet调用流程</h5><blockquote>
+<p>首先访问<code>http://127.0.0.1/login.html</code>打开一个静态的html页面，在这个页面中可以通过form，以post的形式提交数据</p>
+<p>在上一步的login.html中，用form，把账号和密码，提交到/login这个路径，并且附带method=”post”</p>
+<p>tomcat接受到一个新的请求<code>http://127.0.0.1/login</code>, 其路径是/login，接着就到配置文件(web.xml)进行匹配，发现/login，对应的Servlet类是 LoginServlet。接下来的工作，就会基于这个LoginServlet进行。 </p>
+<p>Tomcat根据页面login.html提交信息的时候带的method=”post”，去调用对应的doPost方法。 </p>
+<p>在这个方法中，通过参数request，把页面上传递来的账号和密码信息取出来</p>
+<p>接着，根据账号和密码是否正确(判断是否是admin和123)， 创建不同的html字符串。然后把html字符串通过如下方式，设置在了response对象上。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PrintWriter pw = response.getWriter();</span><br><span class="line">pw.println(html);</span><br></pre></td></tr></table></figure>
+
+<p>到这里，Servlet的工作就做完了。</p>
+<p>在Servlet完成工作之后，tomcat拿到被Servlet修改过的response，根据这个response生成html 字符串，然后再通过HTTP协议将这个html字符串回发给浏览器，浏览器再根据HTTP协议获取这个html字符串，并<strong>渲染</strong>在界面上。</p>
+<p>这样在效果上，浏览器就可以看到Servlet中生成的字符串了。 </p>
+</blockquote>
+<h5 id="service方法"><a href="#service方法" class="headerlink" title="service方法"></a>service方法</h5><blockquote>
+<p>当浏览器使用get方式提交数据的时候，servlet需要提供doGet()方法。</p>
+<p>哪些是get方式：</p>
+<p>​    form默认的提交方式<br>​    如果通过一个超链访问某个地址<br>​    如果在地址栏直接输入某个地址<br>​    ajax指定使用get方式的时候 </p>
+<p>当浏览器使用post方式提交数据的时候，servlet需要提供doPost()方法。</p>
+<p>哪些是post方式呢？<br>    在form上显示设置 method=”post”的时候<br>    ajax指定post方式的时候</p>
+<p>实际上，在执行doGet()或者doPost()之前，都会先执行service()</p>
+<p>由service()方法进行判断，到底该调用doGet()还是doPost()</p>
+<p>可以发现，service(), doGet(), doPost() 三种方式的参数列表都是一样的。</p>
+<p>所以，有时候也会<strong>直接重写service()</strong>方法，在其中提供相应的服务，就不用区分到底是get还是post了。</p>
+<p>比如把前面的登录的LoginServlet，改为提供service方法，也可以达到相同的效果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line"> </span><br><span class="line">    String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">    String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    String html = <span class="keyword">null</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"admin"</span>.equals(name) &amp;&amp; <span class="string">"123"</span>.equals(password))</span><br><span class="line">        html = <span class="string">"&lt;div style='color:green'&gt;success&lt;/div&gt;"</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        html = <span class="string">"&lt;div style='color:red'&gt;fail&lt;/div&gt;"</span>;</span><br><span class="line"> </span><br><span class="line">    PrintWriter pw = response.getWriter();</span><br><span class="line">    pw.println(html);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="Servlet中文问题"><a href="#Servlet中文问题" class="headerlink" title="Servlet中文问题"></a>Servlet中文问题</h5><blockquote>
+<p>为了成功<strong>获取中文参数</strong>，需要做如下操作</p>
+<p>login.html中添加语句<code>&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</code>,并且将form的method修改为post，在servlet中添加语句<code>request.setCharacterEncoding(&quot;UTF-8&quot;);</code></p>
+<p>html文件如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    账号 ： <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span> </span><br><span class="line">    密码: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如下所示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">    String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">    String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    System.out.println(<span class="string">"name:"</span> + name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>为了<strong>返回中文的响应</strong>，需要在Servlet中添加语句<code>response.setContentType(&quot;text/html; charset=UTF-8&quot;);</code></p>
+<p>如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span>         <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">    String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">    String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">    String html = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"admin"</span>.equals(name) &amp;&amp; <span class="string">"123"</span>.equals(password))</span><br><span class="line">        html = <span class="string">"&lt;div style='color:green'&gt;登录成功&lt;/div&gt;"</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        html = <span class="string">"&lt;div style='color:red'&gt;登录失败&lt;/div&gt;"</span>;</span><br><span class="line"> </span><br><span class="line">    response.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">    PrintWriter pw = response.getWriter();</span><br><span class="line">    pw.println(html);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Servlet生命周期（重点）"><a href="#Servlet生命周期（重点）" class="headerlink" title="Servlet生命周期（重点）"></a>Servlet生命周期（重点）</h4><h5 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h5><blockquote>
+<p>一个Servlet的生命周期由实例化、初始化、提供服务、销毁、被回收几个步骤组成。</p>
+</blockquote>
+<h5 id="实例化"><a href="#实例化" class="headerlink" title="实例化"></a>实例化</h5><blockquote>
+<p>当用户通过浏览器输入一个路径，这个路径对应的servlet被调用的时候，该Servlet就会被实例化</p>
+<p>我们为LoginServlet显式提供一个构造方法 LoginServlet()，然后通过浏览器访问，就可以观察到<code>&quot;LoginServlet 构造方法 被调用&quot;</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LoginServlet</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"LoginServlet 构造方法 被调用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">            <span class="comment">//略</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无论访问了多少次LoginServlet，LoginServlet构造方法<strong>只会执行一次</strong>，所以Servlet是<strong>单实例的</strong></p>
+</blockquote>
+<h5 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h5><blockquote>
+<p>LoginServlet 继承了HttpServlet，同时也继承了init(ServletConfig) 方法。</p>
+<p>init 方法是一个实例方法，所以会在构造方法执行后执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">LoginServlet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"LoginServlet 构造方法 被调用"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"init(ServletConfig)"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 略</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>无论访问了多少次LoginSerlvet，init初始化<strong>只会执行一次</strong></p>
+</blockquote>
+<h5 id="提供服务"><a href="#提供服务" class="headerlink" title="提供服务"></a>提供服务</h5><blockquote>
+<p>接下来就是执行service()方法，然后通过浏览器传递过来的信息进行判断，是调用doGet()还是doPost()方法</p>
+<p>在service()中就会编写我们的<strong>业务代码</strong>，在本例中就是判断用户输入的账号和密码是否正确</p>
+</blockquote>
+<h5 id="销毁"><a href="#销毁" class="headerlink" title="销毁"></a>销毁</h5><blockquote>
+<p>在如下几种情况下，会调用destroy()：</p>
+<ol>
+<li>该Servlet所在的web应用重新启动 </li>
+<li>关闭tomcat的时候 destroy()方法会被调用，但是这个一般都发生的很快，不易被发现。 </li>
+</ol>
+</blockquote>
+<h5 id="被回收"><a href="#被回收" class="headerlink" title="被回收"></a>被回收</h5><blockquote>
+<p>当该Servlet被销毁后，就满足垃圾回收的条件了。当下一次垃圾回收GC来临的时候，就有可能被回收。</p>
+</blockquote>
+<p>以上就是Servlet的生命周期</p>
+<h4 id="跳转"><a href="#跳转" class="headerlink" title="跳转"></a>跳转</h4><blockquote>
+<p>页面跳转是开发一个web应用经常会发生的事情。比如登录成功或是失败后，分别会跳转到不同的页面。</p>
+<p>跳转的方式有两种，<strong>服务端跳转</strong>和客户端跳转。</p>
+</blockquote>
+<h5 id="服务端跳转"><a href="#服务端跳转" class="headerlink" title="服务端跳转"></a>服务端跳转</h5><blockquote>
+<p>首先新建success.html与fail.html两个html文件</p>
+<p>在Servlet中进行服务端跳转的方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"success.html"</span>).forward(request, response);</span><br></pre></td></tr></table></figure>
+
+<p>服务端跳转可以看到浏览器的地址依然是/login 路径，并不会变成success.html</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">        String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"admin"</span>.equals(name) &amp;&amp; <span class="string">"123"</span>.equals(password)) &#123;</span><br><span class="line">            request.getRequestDispatcher(<span class="string">"success.html"</span>).forward(request, response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>服务端跳转可以看到浏览器的地址依然是/login路径，并不会变成success.html</p>
+</blockquote>
+<h5 id="客户端跳转"><a href="#客户端跳转" class="headerlink" title="客户端跳转"></a>客户端跳转</h5><blockquote>
+<p>在Servlet中进行客户端跳转的方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"fail.html"</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        String name = request.getParameter(<span class="string">"name"</span>);</span><br><span class="line">        String password = request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">"admin"</span>.equals(name) &amp;&amp; <span class="string">"123"</span>.equals(password)) &#123;</span><br><span class="line">            request.getRequestDispatcher(<span class="string">"success.html"</span>).forward(request, response);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            response.sendRedirect(<span class="string">"fail.html"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以观察到，浏览器地址发生了变化</p>
+</blockquote>
+<h5 id="跳转详解"><a href="#跳转详解" class="headerlink" title="跳转详解"></a>跳转详解</h5><blockquote>
+<p>服务端：服务器首先会调用LoginServlet，调用过程中发现用户名与密码均正确，于是在服务器内部访问success.html</p>
+<p>客户端：服务器首先会调用LoginServlet，调用过程中发现用户名密码错误，服务端发送一条消息给浏览器让浏览器访问fail.html，而后浏览器访问fail.html，服务端获取fail.html的内容，发送给浏览器。</p>
+</blockquote>
+<h5 id="Servlet自启动"><a href="#Servlet自启动" class="headerlink" title="Servlet自启动"></a>Servlet自启动</h5><blockquote>
+<p>有的时候会有这样的业务需求：tomcat一启动，就需要执行一些初始化的代码，比如校验数据库的完整性等。但是Servlet的生命周期是在用户访问浏览器对应的路径开始的。如果没有用户的第一次访问，就无法执行相关代码。</p>
+<p>这个时候，就需要Servlet实现<strong>自启动</strong>，即伴随着tomcat的启动，自动启动初始化，在初始化方法init()中，就可以进行一些业务代码的工作了。 </p>
+<p>实现方法：在web.xml中，配置Hello Servlet的地方，增加一句 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>10<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>取值范围是1-99</p>
+<p>即表明该Servlet会随着Tomcat的启动而初始化。 </p>
+<p>其中的<strong>10</strong>表示启动顺序，如果有多个Servlet都配置了自动启动，数字越小，启动的优先级越高。</p>
+</blockquote>
+<h4 id="Servlet-request的常见方法"><a href="#Servlet-request的常见方法" class="headerlink" title="Servlet request的常见方法"></a>Servlet request的常见方法</h4><blockquote>
+<p>request对象的类是HttpServletRequest，提供了很多有实用价值的方法，如下所示：</p>
+<p>request.getRequestURL(): 浏览器发出请求时的完整URL，包括协议、主机名、端口(如果有)</p>
+<p>request.getRequestURI(): 浏览器发出请求的资源名部分，去掉了协议和主机名</p>
+<p>request.getQueryString(): 请求行中的参数部分，只能显示以get方式发出的参数，post方式的看不到</p>
+<p>request.getRemoteAddr(): 浏览器所处于的客户机的IP地址</p>
+<p>request.getRemoteHost(): 浏览器所处于的客户机的主机名</p>
+<p>request.getRemotePort(): 浏览器所处于的客户机使用的网络端口</p>
+<p>request.getLocalAddr(): 服务器的IP地址</p>
+<p>request.getLocalName(): 服务器的主机名</p>
+<p>request.getMethod(): 得到客户机请求方式一般是GET或者POST</p>
+<p>还有如下<strong>获取参数</strong>的方法：</p>
+<p>request.getParameter(): 是常见的方法，用于获取单值的参数</p>
+<p>request.getParameterValues(): 用于获取具有多值的参数，比如注册时候提交的 “hobits”，可以是多选的。</p>
+<p>request.getParameterMap(): 用于遍历所有的参数，并返回Map类型。 </p>
+<p>使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"获取单值参数name:"</span> + request.getParameter(<span class="string">"name"</span>));</span><br><span class="line">        String[] hobits = request.getParameterValues(<span class="string">"hobits"</span>);</span><br><span class="line">        System.out.println(<span class="string">"获取具有多值的参数hobits: "</span> + Arrays.asList(hobits));</span><br><span class="line"> </span><br><span class="line">        System.out.println(<span class="string">"通过 getParameterMap 遍历所有的参数： "</span>);</span><br><span class="line">        Map&lt;String, String[]&gt; parameters = request.getParameterMap();</span><br><span class="line">        Set&lt;String&gt; paramNames = parameters.keySet();</span><br><span class="line">        <span class="keyword">for</span> (String param : paramNames) &#123;</span><br><span class="line">            String[] value = parameters.get(param);</span><br><span class="line">            System.out.println(param + <span class="string">":"</span> + Arrays.asList(value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>获取头信息</strong>：</p>
+<p>request.getHeader()：获取浏览器传递过来的头信息。比如getHeader(“user-agent”) 可以获取浏览器的基本资料，这样就能判断是firefox、IE、chrome、或者是safari浏览器<br>request.getHeaderNames()：获取浏览器所有的<strong>头信息名称</strong>，根据头信息名称就能遍历出所有的头信息</p>
+<p>使用方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"init of Hello Servlet"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span>&#123;</span><br><span class="line">     </span><br><span class="line">        Enumeration&lt;String&gt; headerNames= request.getHeaderNames();</span><br><span class="line">        <span class="keyword">while</span>(headerNames.hasMoreElements())&#123;</span><br><span class="line">            String header = headerNames.nextElement();</span><br><span class="line">            String value = request.getHeader(header);</span><br><span class="line">            System.out.printf(<span class="string">"%s\t%s%n"</span>,header,value);</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            response.getWriter().println(<span class="string">"&lt;h1&gt;Hello Servlet!&lt;/h1&gt;"</span>);</span><br><span class="line">            response.getWriter().println(<span class="keyword">new</span> Date().toLocaleString());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>服务器传参</strong>：</p>
+<p>setAttribute和getAttribute可以用来在进行服务端跳转的时候，在不同的Servlet之间进行数据共享</p>
+</blockquote>
+<h4 id="Servlet-response用法"><a href="#Servlet-response用法" class="headerlink" title="Servlet response用法"></a>Servlet response用法</h4><blockquote>
+<p>response是HttpServletResponse的实例，用于提供给浏览器的响应信息</p>
+</blockquote>
+<h5 id="设置相应内容"><a href="#设置相应内容" class="headerlink" title="设置相应内容"></a>设置相应内容</h5><blockquote>
+<p>通过response设置响应已经用得比较多了，在前面的Servlet学习中都是用到<code>PrintWriter pw= response.getWriter();</code><br>通过response.getWriter()；获取一个PrintWriter 对象，可以使用println(),append(),write(),format()等等方法设置返回给浏览器的html内容。 </p>
+</blockquote>
+<h5 id="设置响应编码"><a href="#设置响应编码" class="headerlink" title="设置响应编码"></a>设置响应编码</h5><blockquote>
+<p>设置响应编码有两种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setContentType(<span class="string">"text/html; charset=UTF-8"</span>);</span><br><span class="line">response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：这两种方式都需要在response.getWriter调用之前执行才能生效。</p>
+<p>他们的区别在于第一种 不仅发送到浏览器的内容会使用UTF-8编码，而且还通知浏览器使用UTF-8编码方式进行显示，所以总能正常显示中文。而第二种仅仅是发送的浏览器的内容是UTF-8编码的，至于浏览器是用哪种编码方式显示不管，所以当浏览器的显示编码方式不是UTF-8的时候，就会看到乱码，需要手动再进行一次设置。</p>
+</blockquote>
+<h5 id="301或302客户端跳转"><a href="#301或302客户端跳转" class="headerlink" title="301或302客户端跳转"></a>301或302客户端跳转</h5><blockquote>
+<p>客户端有两种跳转：302 表示临时跳转、301 表示永久性跳转</p>
+<p>302就是前面在客户端跳转章节用到过的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"fail.html"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>301要使用另外的手段：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(<span class="number">301</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>, <span class="string">"fail.html"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>301和302的区别主要在搜索引擎对页面排名的时候有影响，这是属于SEO范畴的概念，在此就不展开了。(302重定向只是暂时的重定向，搜索引擎会抓取新的内容而保留旧的地址，因为服务器返回302，所以搜索搜索引擎认为新的网址是暂时的。而301重定向是永久的重定向，搜索引擎在抓取新的内容的同时也将旧的网址替换为了重定向之后的网址。)</p>
+</blockquote>
+<h5 id="设置不使用缓存"><a href="#设置不使用缓存" class="headerlink" title="设置不使用缓存"></a>设置不使用缓存</h5><blockquote>
+<p>使用缓存可以加快页面的加载，降低服务端的负担。但是也可能看到过时的信息，可以通过如下手段通知浏览器不要使用缓存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">response.setDateHeader(<span class="string">"Expires"</span>,<span class="number">0</span> );</span><br><span class="line">response.setHeader(<span class="string">"Cache-Control"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">response.setHeader(<span class="string">"pragma"</span>,<span class="string">"no-cache"</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="Servlet-上传文件"><a href="#Servlet-上传文件" class="headerlink" title="Servlet 上传文件"></a>Servlet 上传文件</h5><blockquote>
+<p>在上传页面有以下两点需要注意：</p>
+<p>1.method必须是post的，get不能上传文件，还需要加上<code>enctype=&quot;multipart/form-data&quot;</code> 表示提交的数据是二进制文件 </p>
+<p>2.还需要提供<code>type=&quot;file&quot;</code>的字段进行上传</p>
+<p>即表单的参考写法为：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"uploadPhoto"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">  姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"heroName"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  照片:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"filepath"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"上传"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>紧接着准备UploadPhotoServlet，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UploadPhotoServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">  </span><br><span class="line">        String filename = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            DiskFileItemFactory factory = <span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">            ServletFileUpload upload = <span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">            <span class="comment">// 设置上传文件的大小限制为1M</span></span><br><span class="line">            factory.setSizeThreshold(<span class="number">1024</span> * <span class="number">1024</span>);</span><br><span class="line">             </span><br><span class="line">            List items = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                items = upload.parseRequest(request);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (FileUploadException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">  </span><br><span class="line">            Iterator iter = items.iterator();</span><br><span class="line">            <span class="keyword">while</span> (iter.hasNext()) &#123;</span><br><span class="line">                FileItem item = (FileItem) iter.next();</span><br><span class="line">                <span class="keyword">if</span> (!item.isFormField()) &#123;</span><br><span class="line">  </span><br><span class="line">                    <span class="comment">// 根据时间戳创建头像文件</span></span><br><span class="line">                    filename = System.currentTimeMillis() + <span class="string">".jpg"</span>;</span><br><span class="line">                     </span><br><span class="line">                    <span class="comment">//通过getRealPath获取上传文件夹，如果项目在e:/project/j2ee/web,那么就会自动获取到 e:/project/j2ee/web/uploaded</span></span><br><span class="line">                    String photoFolder =request.getServletContext().getRealPath(<span class="string">"uploaded"</span>);</span><br><span class="line">                     </span><br><span class="line">                    File f = <span class="keyword">new</span> File(photoFolder, filename);</span><br><span class="line">                    f.getParentFile().mkdirs();</span><br><span class="line">  </span><br><span class="line">                    <span class="comment">// 通过item.getInputStream()获取浏览器上传的文件的输入流</span></span><br><span class="line">                    InputStream is = item.getInputStream();</span><br><span class="line">  </span><br><span class="line">                    <span class="comment">// 复制文件</span></span><br><span class="line">                    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(f);</span><br><span class="line">                    <span class="keyword">byte</span> b[] = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">                    <span class="keyword">int</span> length = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> (-<span class="number">1</span> != (length = is.read(b))) &#123;</span><br><span class="line">                        fos.write(b, <span class="number">0</span>, length);</span><br><span class="line">                    &#125;</span><br><span class="line">                    fos.close();</span><br><span class="line">  </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    System.out.println(item.getFieldName());</span><br><span class="line">                    String value = item.getString();</span><br><span class="line">                    value = <span class="keyword">new</span> String(value.getBytes(<span class="string">"ISO-8859-1"</span>), <span class="string">"UTF-8"</span>);</span><br><span class="line">                    System.out.println(value);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">             </span><br><span class="line">            String html = <span class="string">"&lt;img width='200' height='150' src='uploaded/%s' /&gt;"</span>;</span><br><span class="line">            response.setContentType(<span class="string">"text/html"</span>);</span><br><span class="line">            PrintWriter pw= response.getWriter();</span><br><span class="line">             </span><br><span class="line">            pw.format(html, filename);</span><br><span class="line">             </span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.前部分代码是固定写法，用来做一些准备工作。 直到遍历出Item,一个Item就是对应一个浏览器提交的数据，通过item.getInputStream可以打开浏览器上传的文件的输入流。</p>
+<p>2.客户提交的文件名有可能是一样的，所以在服务端保存文件的时候，不能使用客户提交的文件名。这里使用的是一种粗糙的解决文件名重复的办法，即使用时间戳。</p>
+<p>3.读取输入流中的数据，保存在服务端的目录下 e:/project/j2ee/web/uploaded，这个目录是通过getRealPath获取到的。 如果项目部署在其他地方，那么会自动做相应的变化。</p>
+<p>4.根据临时生成的文件名，创建一个html img元素，然后通过response返回浏览器 </p>
+</blockquote>
+<h5 id="处理其他非File字段"><a href="#处理其他非File字段" class="headerlink" title="处理其他非File字段"></a>处理其他非File字段</h5><blockquote>
+<p>因为浏览器指定了以二进制的形式提交数据，那么就不能通过常规的手段获取非File字段，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getParameter(<span class="string">"heroName"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>在遍历Item时(Item即对应浏览器提交的字段)，可以通过<code>item.isFormField</code> 来判断 是常规字段还是提交的文件。当item.isFormField返回true的时候，就表示是常规字段。然后通过item.getFieldName()和item.getString()就知道分别是哪个字段，以及字段的值了。</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/27/leetcode%205240/" class="archive-article-date">
-  	<time datetime="2019-10-26T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/27/leetcode%205240/">leetcode-5240 (第160场周赛)刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">tomcat</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/20/day11/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/day02%20css/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/11/19/day10/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaEE day10</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/day02%20css/">JAVAEE 学习 day02 css部分</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/26/day02%20JavaScript/" class="archive-article-date">
-  	<time datetime="2019-10-25T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/26/day02%20JavaScript/">day02 JavaScript</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/25/day%2001%20html/" class="archive-article-date">
-  	<time datetime="2019-10-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/25/day%2001%20html/">JavaEE 学习 day01</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/24/leetcode%20530/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/leetcode%20530/">leetcode-530 刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/24/leetcode%20410/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/leetcode%20410/">Leetcode-410 刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/24/leetcode%20300/" class="archive-article-date">
-  	<time datetime="2019-10-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/24/leetcode%20300/">Leetcode-300 刷题笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2019/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -447,8 +574,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
