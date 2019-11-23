@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: MySQL | th的个人博客</title>
+  <title>JavaEE day13 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="th的个人博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;MySQL&#x2F;index.html">
+  <meta name="description" content="HTTP协议与JSP入门HTTP协议概念">
+<meta name="keywords" content="HTTP,JSP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaEE day13">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;22&#x2F;day13&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="HTTP协议与JSP入门HTTP协议概念">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;23&#x2F;3uEYGyXIhJOonZ4.png">
+<meta property="og:updated_time" content="2019-11-23T08:36:33.748Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2019&#x2F;11&#x2F;23&#x2F;3uEYGyXIhJOonZ4.png">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
   
@@ -138,98 +142,390 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-day13" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/19/day10/" class="archive-article-date">
-  	<time datetime="2019-11-18T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/19/day10/">JavaEE day10</a>
+    <h1 class="article-title" itemprop="name">
+      JavaEE day13
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/22/day13/" class="archive-article-date">
+  	<time datetime="2019-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="HTTP协议与JSP入门"><a href="#HTTP协议与JSP入门" class="headerlink" title="HTTP协议与JSP入门"></a>HTTP协议与JSP入门</h3><h5 id="HTTP协议概念"><a href="#HTTP协议概念" class="headerlink" title="HTTP协议概念"></a>HTTP协议概念</h5><a id="more"></a>
+
+<blockquote>
+<p>HTTP 超文本传输协议 <strong>H</strong>yper <strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol</p>
+<p>当我们在浏览器的地址栏输入一个地址的时候，就能够访问服务器的某个页,这个过程本身就是两个应用程序之间的交互，一个应用程序是浏览器，另一个应用程序是服务器。 </p>
+<p><strong>协议是什么？</strong> 协议就是不同的应用程序之间按照事先做好的约定进行的通信。这样就能互相<strong>读懂</strong>对方的意思。</p>
+<p>浏览器和WEB服务器之间，使用的就是一种叫做HTTP的协议。 这样是BS (Browser Server )架构模型的基础。</p>
+<p>HTTP协议由请求和响应两种类型组成</p>
+</blockquote>
+<h5 id="HTTP请求协议"><a href="#HTTP请求协议" class="headerlink" title="HTTP请求协议"></a>HTTP请求协议</h5><blockquote>
+<p>请求消息由请求行，请求头部，空行和请求数据4部分组成</p>
+<p><strong>请求行</strong>：我们打开网页<code>http://127.0.0.1/addHero.html</code>并新增一条英雄数据，在浏览器中可以看到两个重要信息<code>POST addHero</code>，他们组成了请求行，表示提交的method是POST，访问的路径是addHero</p>
+<p><strong>请求头部</strong>： 请求头部信息提供了如下信息:<br>Host: 主机名<br>User-Agent: 浏览器基本资料<br>Accept: 浏览器能够识别的响应类型<br>Accept-Language: 浏览器默认语言<br>Accept-Encoding: 浏览器能够识别的压缩方式<br>Referer: 来路页面，/addHero 这个路径是通过addHero.html这个页面跳转过来的。<br>Connecton：是否保持连接 </p>
+<p>这些信息也可以通过request获取</p>
+<p><strong>请求数据</strong>：即本次提交所传递的参数 </p>
+</blockquote>
+<h5 id="HTTP响应协议"><a href="#HTTP响应协议" class="headerlink" title="HTTP响应协议"></a>HTTP响应协议</h5><blockquote>
+<p><strong>状态行</strong>：例如<code>200 OK</code> 即表示响应成功</p>
+<p><strong>消息报头</strong>： 消息报头中提供如下信息：<br>Content-Length: 表示长度<br>Content-Type: 内容格式<br>Date: 日期<br>Server: 服务器类型 </p>
+<p><strong>响应正文</strong>：在响应正文里就会是具体的html内容了。当然访问不同的页面，就不一定是html，有可能是css,js,甚至图片了。</p>
+</blockquote>
+<h5 id="HTTP响应代码"><a href="#HTTP响应代码" class="headerlink" title="HTTP响应代码"></a>HTTP响应代码</h5><blockquote>
+<p>200 表示响应成功了</p>
+<p>301 表示客户端跳转，永久性的跳转</p>
+<p>302 客户端跳转，临时性的跳转 </p>
+<p>304 表示资源未被修改，当不是第一次访问一个静态页面或者图片的时候，就会得到这么一个提示。这是服务端提示浏览器，这个<strong>资源没有发生改变</strong>，你直接使用上一次下载的就行了，不需要重新下载。这样就节约了带宽，并且浏览器的加载速度也更快。</p>
+<p>404 表示访问的页面不存在</p>
+<p>500 表示服务端错误，即服务端代码在运行时报错</p>
+<p>还有很多就不一一列举了…</p>
+</blockquote>
+<h4 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h4><blockquote>
+<p>通过Servlet进行整个网站的开发是可以的。 不过在Servlet中输出html代码，特别是稍微复杂一点的html代码，就会给人一种很<strong>酸爽</strong>的感觉。</p>
+<p>如果能够直接使用html代码，然后在html中写java代码，就好了~</p>
+<p>JSP就可以干这个事情。 </p>
+</blockquote>
+<h5 id="Hello-JSP"><a href="#Hello-JSP" class="headerlink" title="Hello JSP"></a>Hello JSP</h5><blockquote>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;</span><br><span class="line">你好 JSP</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;%=<span class="keyword">new</span> Date().toLocaleString()%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>代码解释：</p>
+<p><code>&lt;%@page contentType=&quot;text/html; charset=UTF-8&quot;  pageEncoding=&quot;UTF-8&quot; import=&quot;java.util.*&quot;%&gt;</code> 是JSP的<code>&lt;%@page指令</code>，其中<code>contentType=&quot;text/html; charset=UTF-8&quot;</code> 相当于<code>response.setContentType(&quot;text/html; charset=UTF-8&quot;);</code> ，意思是通知浏览器以UTF-8进行中文解码，而<code>pageEncoding=&quot;UTF-8&quot;</code>意思是如果JSP文件中出现了中文，这些中文用UTF-8进行编码，<code>import=&quot;java.util.*</code>指导入类，如果需要导入多个类，彼此用逗号隔开即可。例如<code>import=&quot;java.util.*,java.sql.*&quot;</code></p>
+<p><code>&lt;%=new Date().toLocaleString()%&gt;</code>  的意思是输出当前时间，相当于在Servlet中使用进行输出<code>response.getWriter().println(new Date().toLocaleString());</code></p>
+</blockquote>
+<h5 id="JSP执行过程"><a href="#JSP执行过程" class="headerlink" title="JSP执行过程"></a>JSP执行过程</h5><blockquote>
+<p>1.把 hello.jsp<strong>转译</strong>为hello_jsp.java<br>2.hello_jsp.java 位于d:\tomcat\work\Catalina\localhost_\org\apache\jsp<br>3.hello_jsp.java<strong>是一个servlet</strong><br>4.把hello_jsp.java <strong>编译</strong>为hello_jsp.class<br>5.执行hello_jsp，生成html<br>6.通过http协议把html 响应返回给浏览器 </p>
+<p>为什么hello_jsp.java是Servlet?</p>
+<p>在之前的笔记中，我们说HelloServlet是一个Servlet，不是因为它的类名里有一个”Servlet”，而是因为它继承了<strong>HttpServlet</strong>。</p>
+<p>打开转译hello.jsp 后得到的hello_jsp.java，可以发现它继承了类<code>org.apache.jasper.runtime.HttpJspBase</code>，而HttpJspBase 继承了HttpServlet，所以我们说hello_.jsp.java 是一个Servlet。</p>
+</blockquote>
+<h5 id="JSP页面元素"><a href="#JSP页面元素" class="headerlink" title="JSP页面元素"></a>JSP页面元素</h5><blockquote>
+<p>jsp由这些页面元素组成：<br>1.静态内容<br>就是html,css,javascript等内容<br>2.指令<br>以&lt;%@开始 %&gt; 结尾，比如&lt;%@page import=”java.util.*”%&gt;<br>3.表达式 &lt;%=%&gt;<br>用于输出一段html<br>4.Scriptlet<br>在&lt;%%&gt; 之间，可以写任何java 代码<br>5.声明<br>在&lt;%!%&gt; 之间可以声明字段或者方法。但是不建议这么做。<br>6.动作<br>&lt;jsp:include page=”Filename” &gt; 在jsp页面中包含另一个页面。在后面的章节有详细的讲解<br>7.注释 &lt;%– – %&gt;<br>不同于 html的注释 &lt;!– –&gt; 通过jsp的注释，浏览器也看不到相应的代码，相当于在servlet中注释掉了 </p>
+<p>以上就是JSP的页面元素</p>
+<p><code>&lt;%=&quot;hello jsp&quot;%&gt;</code>就相当于<code>&lt;%out.println(&quot;hello jsp&quot;);%&gt;</code>，out是JSP的隐式对象，可以直接使用。一共有9种隐式对象，请参考后续章节。</p>
+<p>for循环：</p>
+<p>结合for循环在jsp里输出html是常见的做法。</p>
+<p>下面是一段实例，以供参考：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    List&lt;String&gt; words = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">    words.add(<span class="string">"today"</span>);</span><br><span class="line">    words.add(<span class="string">"is"</span>);</span><br><span class="line">    words.add(<span class="string">"a"</span>);</span><br><span class="line">    words.add(<span class="string">"great"</span>);</span><br><span class="line">    words.add(<span class="string">"day"</span>);</span><br><span class="line">%&gt;</span><br><span class="line">  </span><br><span class="line">&lt;table width=<span class="string">"200px"</span> align=<span class="string">"center"</span> border=<span class="string">"1"</span> cellspacing=<span class="string">"0"</span>&gt;</span><br><span class="line">  </span><br><span class="line">&lt;%<span class="keyword">for</span> (String word : words) &#123;%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;tr&gt;</span><br><span class="line">    &lt;td&gt;&lt;%=word%&gt;&lt;/td&gt;</span><br><span class="line">&lt;/tr&gt;</span><br><span class="line">  </span><br><span class="line">&lt;%&#125;%&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="JSP-include"><a href="#JSP-include" class="headerlink" title="JSP include"></a>JSP include</h5><blockquote>
+<p>每个网页的最下方都有版权声明等信息。如果不使用包含，那么每个网页都需要单独写，如果版权声明要修改，则需要很大的工作量。</p>
+<p>使用include的办法，只需要准备一个footer.jsp，然后在其他页面包含footer.jsp即可。</p>
+<p>修改的时候，只需要修改footer.jsp所有的页面就都修改了，维护成本降低了很多。 </p>
+<p> include有两种方式：指令include 和 动作include</p>
+<p>首先准备一个footer.jsp：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr /&gt;</span><br><span class="line">&lt;p style="text-align:center"&gt;copyright@2016&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下来通过指令在Hello.jsp中包含该页面（指令include）：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;     </span><br><span class="line">你好  JSP </span><br><span class="line">&lt;%<span class="meta">@include</span> file=<span class="string">"footer.jsp"</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过动作在Hello.jsp中包含该页面（动作include）：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;     </span><br><span class="line">你好  JSP</span><br><span class="line">&lt;jsp:include page=<span class="string">"footer.jsp"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>指令include与动作incude的区别</strong>：</p>
+<p>通过之前的学习知道，JSP最后会被转译成Servlet</p>
+<p>如果是指令include，footer.jsp的内容<strong>会被插入到</strong>hello.jsp转译成的hello_jsp.java中，最后<strong>只会生成一个hello_jsp.java文件</strong></p>
+<p>如果是动作include，footer.jsp的内容<strong>不会被插入到</strong>hello.jsp转译成的hello_jsp.java中，<strong>还会有一个footer_jsp.java独立存在</strong>。hello_jsp.java会在服务端访问footer_jsp.java，然后把返回的结果，嵌入到响应中。 </p>
+<p><strong>传参</strong>：因为使用指令&lt;%@include 会导致两个jsp合并成为同一个java文件，所以就不存在传参的问题，在发出hello.jsp 里定义的变量，直接可以在footer.jsp中访问。</p>
+<p>而动作&lt;jsp:include /&gt;其实是对footer.jsp进行了一次独立的访问，那么就有传参的需要。</p>
+<p>如本例：<br>1.在hello.jsp中使用动作&lt;jsp:include，并通过&lt;jsp:param带上参数</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:include page=<span class="string">"footer.jsp"</span>&gt;</span><br><span class="line">	&lt;jsp:param  name=<span class="string">"year"</span> value=<span class="string">"2017"</span> /&gt;</span><br><span class="line">&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 2.在footer.jsp中，使用<strong>request.getParameter(“year”)</strong>取出year </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;hr /&gt;</span><br><span class="line">&lt;p style="text-align:center"&gt;copyright@&lt;%=request.getParameter("year")%&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="JSP-跳转"><a href="#JSP-跳转" class="headerlink" title="JSP 跳转"></a>JSP 跳转</h5><blockquote>
+<p>和Servlet的跳转一样，JSP的跳转也分服务端跳转和客户端跳转。</p>
+<p>客户端跳转：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">    response.sendRedirect(<span class="string">"hello.jsp"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>服务端跳转：</p>
+<p>与Servlet服务端跳转相同，也可以使用</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%</span><br><span class="line">	request.getRequestDispatcher(<span class="string">"hello.jsp"</span>).forward(request, response);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用动作，简化代码：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:forward page=<span class="string">"hello.jsp"</span>/&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="Servlet-cookie"><a href="#Servlet-cookie" class="headerlink" title="Servlet cookie"></a>Servlet cookie</h5><blockquote>
+<p>cookie在平时生活中的应用：</p>
+<p>有的网站，登陆的时候，会出现一个选项，问你是否要一周内或者一个月内保持登陆状态。如果你选了，那么一周之内，都不需要再输入账号密码。这个功能，就是靠cookie来实现的。</p>
+<p>什么是cookie：</p>
+<p>Cookie是一种浏览器和服务器交互数据的方式。Cookie是由服务器端创建，但是<strong>不会保存在服务器</strong>。创建好之后，发送给浏览器。浏览器<strong>保存在用户本地</strong>。下一次访问网站的时候，就会把该Cookie发送给服务器。</p>
+<p>setCookie.jsp：</p>
+<p>在web目录下创建一个文件setCookie.jsp</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"javax.servlet.http.Cookie"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    <span class="comment">// 创建一个cookie，名字是“name”，值是“Green”</span></span><br><span class="line">    Cookie c = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>, <span class="string">"Gareen"</span>);</span><br><span class="line">	<span class="comment">// 表示这个cookie可以保留一天 </span></span><br><span class="line">    c.setMaxAge(<span class="number">60</span> * <span class="number">24</span> * <span class="number">60</span>);</span><br><span class="line">	<span class="comment">// 表示访问服务器的所有应用都会提交这个cookie到服务端，如果其值是 /a, 那么就表示仅仅访问 /a 路径的时候才会提交 cookie</span></span><br><span class="line">    c.setPath(<span class="string">"/"</span>);</span><br><span class="line">	<span class="comment">// 通过reponse把这个cookie保存在浏览器端</span></span><br><span class="line">    response.addCookie(c);</span><br><span class="line">%&gt;</span><br><span class="line">&lt;a href="getCookie.jsp"&gt;跳转到获取cookie的页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>getCookie.jsp</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"javax.servlet.http.Cookie"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">	<span class="comment">//获取所有浏览器传过来的cookie</span></span><br><span class="line">    Cookie[] cookies = request.getCookies();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> != cookies)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> d = <span class="number">0</span>;d &lt; cookies.length;d++) &#123;</span><br><span class="line">            out.print(cookies[d].getName() + <span class="string">":"</span> + cookies[d].getValue() + <span class="string">"&lt;br&gt;"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注：SESSIONID 这个不是我们自己设置的cookie，这是tomcat设置的cookie</p>
+<p>原理：浏览器访问setCookie.jsp时，tomcat把用户名保存在cookie中，通过响应把cookie发送给浏览器端，而后保存在本地，通过访问getCookie.jsp，提交保存在本地的cookie信息，服务端获取到用户名并显示。</p>
+</blockquote>
+<h5 id="JSP-session"><a href="#JSP-session" class="headerlink" title="JSP session"></a>JSP session</h5><blockquote>
+<p><strong>举例</strong>：</p>
+<p>考虑这个场景：<br>李佳汜到健身房去练胸肌，<strong>首先领了钥匙</strong>，然后进了更衣间，把衣服，裤子，手机，钱包都放在盒子里面。</p>
+<p>毛竞也到健身房，去练<strong>翘臀</strong>。<strong>首先领了钥匙</strong>，然后 进了更衣间，把衣服，裤子，手机，《Java 21天从入门到精通》也放在了一个盒子里，但是这个盒子是和李佳汜的是不同的。</p>
+<p>健身房，就相当于服务器，盒子，就是会话Session。 </p>
+<p>切换到我们常见的购物网站的场景里：<br>李佳汜登陆天猫之后，在购物车里看到的物品是蜡烛和皮鞭<br>毛竞登陆天猫之后，在购物车里看到的物品是手铐和《Java 21天从入门到精通》 </p>
+<p><strong>什么是session</strong>：</p>
+<p>Session对应的中文翻译是会话。<br><strong>会话</strong>指的是从用户打开浏览器访问一个网站开始，无论在这个网站中访问了多少页面，点击了多少链接，都属于同一个会话。 直到该用户关闭浏览器为止，都属于同一个会话。</p>
+<p><strong>setSession.jsp</strong>：</p>
+<p>session对象保存数据的方式，有点像Map的键值对(key-value)<br>“name”是键，”teemo” 是值，setSession.jsp编写如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"javax.servlet.http.Cookie"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">   session.setAttribute(<span class="string">"name"</span>, <span class="string">"teemo"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;a href="getSession.jsp"&gt;跳转到获取session的页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p>getSession.jsp编写如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"javax.servlet.http.Cookie"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">    String name = (String)session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"> </span><br><span class="line">session中的name: &lt;%=name%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Session和Cookie的关系</strong>：</p>
+<p>李佳汜和毛竞都有自己的盒子，那么他们怎么知道哪个盒子是自己的呢？<br>通过钥匙就能找到自己的盒子了。</p>
+<p>盒子对应服务器上的Session。<br>钥匙对应浏览器上的Cookie。</p>
+<p><strong>Session原理如下图所示</strong>：</p>
+<p><img src="https://i.loli.net/2019/11/23/3uEYGyXIhJOonZ4.png" alt="捕获.PNG"></p>
+<p>cookie与sessionid的区别在于：cookie保存在客户端而安全性低；session保存在服务器而安全性好</p>
+<p>jsessionid只是tomcat对于sessionid的叫法</p>
+<p><strong>如果没有cookie</strong>：</p>
+<p>如果浏览器把cookie功能关闭，那么服务端就无法获取jsessionid,每一次访问，都会生成一个新的session对象。</p>
+<p>为了解决这个问题，可以使用<code>response.encodeURL(&quot;getSession.jsp&quot;)</code>方法，该方法会把<code>getSession.jsp</code>这个url转换为<code>getSession.jsp;jsessionid=22424AEA86ADBE89F335EEB649D997A8</code>，通过这个方式，提交jsessionid到服务器。服务器根据这个jsessionid匹配到对应的session. 与session相关的功能，就可以正常工作了。</p>
+<p>对应setSession.jsp编写如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"javax.servlet.http.Cookie"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">   session.setAttribute(<span class="string">"name"</span>, <span class="string">"teemo"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;a href="&lt;%=response.encodeURL("getSession.jsp")%&gt;"&gt;跳转到获取session的页面&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>session有效期</strong>：</p>
+<p>比如登录一个网站，登录后，在短时间内，依然可以继续访问而不用重新登录。但是较长时间不登录，依然会要求重新登录，这是因为服务端的session在一段时间不使用后，就失效了。这个时间，在Tomcat默认配置下，是30分钟。可以通过<code>tomcat/conf/web.xml</code>中的session-config配置进行调整 </p>
+</blockquote>
+<h5 id="JSP作用域"><a href="#JSP作用域" class="headerlink" title="JSP作用域"></a>JSP作用域</h5><blockquote>
+<p>JSP有4个作用域，分别是：<br><strong>pageContext</strong> 当前页面<br><strong>requestContext</strong> 一次请求<br><strong>sessionContext</strong> 当前会话<br><strong>applicationContext</strong> 全局，所有用户共享 </p>
+<p><strong>pageContext</strong>：</p>
+<p>通过pageContext.setAttribute(key,value)的数据，只能在当前页面访问，在其他页面就不能访问了。例如：</p>
+<p>setContext.jsp</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%</span><br><span class="line"> pageContext.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%=pageContext.getAttribute(<span class="string">"name"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>getContext.jsp</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%=pageContext.getAttribute(<span class="string">"name"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>访问setContest.jsp，输出<code>gareen</code>；访问getContext.jsp，输出null，表示未得到name的值。</p>
+<p><strong>requestContext</strong>：</p>
+<p>常用写法如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>); </span><br><span class="line">request.getAttribute(<span class="string">"name"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>也可以用pageContext来写，但不常用：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pageContext.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>,pageContext.REQUEST_SCOPE);</span><br><span class="line">pageContext.getAttribute(<span class="string">"name"</span>,pageContext.REQUEST_SCOPE);</span><br></pre></td></tr></table></figure>
+
+<p>requestContext指的是<strong>一次请求</strong>，其中如果发生了<strong>服务端跳转</strong>，从setContext.jsp跳转到getContext.jsp，这其实<strong>还是一次请求</strong>。所以在getContext.jsp中，可以取到在requestContext中设置的值，这也是一种<strong>页面间传递数据的方式</strong>，代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line"> request.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>);</span><br><span class="line">%&gt;</span><br><span class="line"></span><br><span class="line">&lt;jsp:forward page=<span class="string">"getContext.jsp"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"></span><br><span class="line">&lt;%=request.getAttribute(<span class="string">"name"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：发生客户端跳转时，浏览器会发生一次新的访问，新的访问会产生一个<strong>新的request对象。</strong>所以页面间<strong>客户端跳转</strong>的情况下，是<strong>无法通过request传递数据</strong>的。</p>
+<p><strong>sessionContext</strong>：</p>
+<p>sessionContext 指的是会话，从<strong>一个用户</strong>打开网站的那一刻起，无论访问了多少网页，链接都属于同一个会话，直到浏览器关闭。所以页面间传递数据，也是可以通过session传递的。但是，不同用户对应的session是不一样的，所以session无法在不同的用户之间共享数据。代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    session.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>);</span><br><span class="line">    response.sendRedirect(<span class="string">"getContext.jsp"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%=session.getAttribute(<span class="string">"name"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>虽然执行的是客户端跳转，但仍然能取到数据。</p>
+<p><strong>applicationContext</strong>：</p>
+<p>applicationContext 指的是全局，所有用户共享同一个数据</p>
+<p>在JSP中使用application对象，application对象是<strong>ServletContext接口的实例</strong>，也可以通过 request.getServletContext()来获取。所以 application == request.getServletContext() 会返回true，application映射的就是web应用本身。代码如下：</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    application.setAttribute(<span class="string">"name"</span>,<span class="string">"gareen"</span>);</span><br><span class="line">    System.out.println(application == request.getServletContext());</span><br><span class="line">    response.sendRedirect(<span class="string">"getContext.jsp"</span>);</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span> pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%=application.getAttribute(<span class="string">"name"</span>)%&gt;</span><br></pre></td></tr></table></figure>
+
+<p>可以得到数据。</p>
+</blockquote>
+<h5 id="JSP隐式对象"><a href="#JSP隐式对象" class="headerlink" title="JSP隐式对象"></a>JSP隐式对象</h5><blockquote>
+<p> JSP的隐式对象指的是不需要显示定义，直接就可以使用的对象</p>
+<p> JSP一共有9个隐式对象，分别是：<br> request,response,out</p>
+<p> pageContext, session,application</p>
+<p> page,config,exception </p>
+<p> 其中前三个我们已经很熟悉了，request代表请求，reponse代表响应，out代表输出</p>
+<p> 中间三个我们在上文也讲过了，pageContext代表当前页面作用域session代表当会话作用域，application代表当全局作用域</p>
+<p> <strong>page</strong>：</p>
+<p> page对象即表示当前对象<br> 我们说过JSP会被编译为一个Servlet类，运行的时候是一个Servlet实例。 page即代表this</p>
+ <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line"> pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span>%&gt;</span><br><span class="line">   </span><br><span class="line">page:&lt;%=page%&gt;</span><br><span class="line">&lt;br&gt;</span><br><span class="line"><span class="keyword">this</span>:&lt;%=<span class="keyword">this</span>%&gt;</span><br></pre></td></tr></table></figure>
+
+<p> <strong>config</strong>：</p>
+<p> config可以获取一些在web.xml中初始化的参数。 在JSP中使用config比较复杂且不常见，我们不做过多讨论。</p>
+<p> <strong>exception</strong>：</p>
+<p> exception 对象只有当前页面的&lt;%@page 指令设置为isErrorPage=”true”的时候才可以使用。同时，在其他页面也需要设置&lt;%@page 指令errorPage=”” 来指定一个专门处理异常的页面。具体使用方法如下：</p>
+<p> 1.准备一个try.jsp<br> 设置errorPage=”catch.jsp”，表示有异常产生的话，就交给catch.jsp处理<br> 故意在里面造成数组越界异常</p>
+<p> 2.准备一个catch.jsp<br> 设置 isErrorPage=”true”，表示当前页面可以使用exception对象</p>
+ <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> errorPage=<span class="string">"catch.jsp"</span>%&gt;</span><br><span class="line"> </span><br><span class="line">&lt;%</span><br><span class="line">    <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">    a[<span class="number">20</span>] = <span class="number">5</span>;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    pageEncoding=<span class="string">"UTF-8"</span> isErrorPage=<span class="string">"true"</span>%&gt;</span><br><span class="line">     </span><br><span class="line">&lt;%=exception%&gt;</span><br></pre></td></tr></table></figure></blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTTP</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/18/day09/" class="archive-article-date">
-  	<time datetime="2019-11-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/18/day09/">JavaEE day09</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JSP</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/22/day13/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/11/22/day12/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JavaEE day12
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/11/20/day11/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaEE day11</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -253,9 +549,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
