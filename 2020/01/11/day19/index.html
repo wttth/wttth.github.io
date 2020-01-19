@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: FILTER | th的个人博客</title>
+  <title>Spring入门(一) | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="个人技术博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="th的个人博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;FILTER&#x2F;index.html">
+  <meta name="description" content="Spring 入门本节为《Spring 实战阅读笔记》 第一部分 Spring的核心">
+<meta name="keywords" content="Spring">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring入门(一)">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;11&#x2F;day19&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="个人技术博客">
+<meta property="og:description" content="Spring 入门本节为《Spring 实战阅读笔记》 第一部分 Spring的核心">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;16&#x2F;j7U5qbDm4B8Yhve.png">
+<meta property="og:updated_time" content="2020-01-19T02:11:50.796Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;16&#x2F;j7U5qbDm4B8Yhve.png">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
   
@@ -138,68 +142,575 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-day19" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/23/day14/" class="archive-article-date">
-  	<time datetime="2019-11-22T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/23/day14/">JavaEE day14</a>
+    <h1 class="article-title" itemprop="name">
+      Spring入门(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/01/11/day19/" class="archive-article-date">
+  	<time datetime="2020-01-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Spring-入门"><a href="#Spring-入门" class="headerlink" title="Spring 入门"></a>Spring 入门</h1><p>本节为《Spring 实战阅读笔记》</p>
+<h2 id="第一部分-Spring的核心"><a href="#第一部分-Spring的核心" class="headerlink" title="第一部分 Spring的核心"></a>第一部分 Spring的核心</h2><a id="more"></a>
+
+<h4 id="第一章-Spring之旅"><a href="#第一章-Spring之旅" class="headerlink" title="第一章 Spring之旅"></a>第一章 Spring之旅</h4><h5 id="依赖注入-Dependency-Inject"><a href="#依赖注入-Dependency-Inject" class="headerlink" title="依赖注入(Dependency Inject)"></a>依赖注入(Dependency Inject)</h5><blockquote>
+<p><strong>DI功能是如何实现的</strong></p>
+<p>举例如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DamselRescuingKnight</span> <span class="keyword">implements</span> <span class="title">Knight</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> RescueDamselQuest quest;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="title">DamselRescuingKnight</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">this</span>.quest = <span class="keyword">new</span> RescueDamselQuest();</span><br><span class="line">    	&#125;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">embarkOnQuest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	quest.embark();</span><br><span class="line">    	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>可以看到，<code>DamselRescuingKnight</code>在他的构造函数中自行创建了<code>RescueDamselQuest</code>。这使得<code>DamselRescuingKnight</code>紧密地和<code>RescueDamselQuest</code>耦合到了一起，因此极大地限制了这个骑士的探险能力。如果一个少女需要救援，这个骑士能够完成；而如果一条恶龙需要杀掉，那这个骑士就爱莫能助了。</p>
+<p>耦合具有两面性。一方面，紧密耦合的代码难以测试、难以复用、难以理解。另一方面，一定程度的耦合又是必须的–完全没有耦合的代码什么也做不了。</p>
+<p>通过DI，对象的依赖关系将由系统中负责协调各对象的第三方组件在创建对象的时候进行设定，对象无需自行创建或管理它们的依赖关系，依赖关系将被自动注入到需要它们的对象当中去。我们查看以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BraveKnight</span> <span class="keyword">implements</span> <span class="title">Knight</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> Quest quest;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="title">BraveKnight</span><span class="params">(Quest quest)</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">this</span>.quest = quest;</span><br><span class="line">    	&#125;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">embarkOnQuest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	quest.embark();</span><br><span class="line">    	&#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>不同于之前的<code>DamselRescuingKnight</code>，<code>BraveKnight</code>没有自行创建探险任务，而是在构造的时候把探险任务作为构造器参数传入。这是依赖注入的方式之一，即构造器注入（constructor injection）。</p>
+<p>更重要的是，传入的探险类型是<code>Quest</code>，也就是所有探险任务都必须实现的一个接口，所以<code>BraveKnight</code>能够响应任意的<code>Quest</code>实现。</p>
+<p>这里的要点是<code>BraveKnight</code>没有与任意的<code>Quest</code>发生耦合。对他来说，被要求挑战的探险任务只要实现了<code>Quest</code>接口，那么具体是哪种类型的探险就无关紧要了。这就是DI带来的最大收益–松耦合。</p>
+<p><strong>将Quest注入到Knight中</strong></p>
+<p><code>SlayDragonQuest</code>是要注入到<code>BraveKnight</code>中的<code>Quest</code>实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SlayDragonQuest</span> <span class="keyword">implements</span> <span class="title">Quest</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> PrintStream stream;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="title">SlayDragonQuest</span><span class="params">(PrintStream stream)</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">this</span>.stream = stream;</span><br><span class="line">    	&#125;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">embark</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	stream.println(<span class="string">"Embarking on quest to slay the dragon!"</span>)</span><br><span class="line">    	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>SlayDragonQuest</code>实现了<code>Quest</code>接口，这样它就适合注入到<code>BraveKnight</code>中去了。现在的问题是，我们该如何将<code>SlayDragonQuest</code>交给<code>BraveKnight</code>呢？又如何将<code>PrintStream</code>交给<code>SlayDragonQuest</code>呢？</p>
+<p>创建引用组件之间的协作的行为通常称为装配（wiring）。Spring有很多种装配bean的方式，采用XML是一种很常见的方式(完整代码参考《Spring 实战》)：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"knight"</span> <span class="attr">class</span>=<span class="string">"BraveKnight"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">ref</span>=<span class="string">"quest"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"quest"</span> <span class="attr">class</span>=<span class="string">"SlayDragonQuest"</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">value</span>=<span class="string">"#&#123;T(System).out&#125;"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>Spring</code>还支持使用Java来描述配置。</p>
+<p>尽管<code>BraveKnight</code>依赖于<code>Quest</code>，但是它并不知道传递给它的是什么类型的Quest，也不知道这个<code>Quest</code>来自哪里。与之类似，<code>SlayDragonQuest</code> 依赖于 <code>PrintStream</code> ，但是在编码时它并不需要知道这个<code>PrintStream</code> 是什么样子的。只有<code>Spring</code>通过它的配置，能够了解这些组成部分时如何装配起来的。</p>
+<p><strong>观察它如何工作</strong></p>
+<p><code>Spring</code>通过应用上下文（Application Context）装载<code>bean</code>的定义并把它们组装起来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">KnightMain</span> </span>&#123;</span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        	ClassPathXmlApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"knights.xml"</span>);</span><br><span class="line">        	Knight knight = context.getBean(Knight.class);</span><br><span class="line">        	knight.embarkOnQuest();</span><br><span class="line">        	context.close();</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意这个类完全不知道我们的英雄骑士接受哪种任务，而且完全没有意识到这是由<code>BraveKnight</code>来执行的。只有<code>knights.xml</code>知道哪个骑士执行那种任务。</p>
+</blockquote>
+<h5 id="控制反转-IoC"><a href="#控制反转-IoC" class="headerlink" title="控制反转(IoC)"></a>控制反转(IoC)</h5><blockquote>
+<p>Inversion of Control</p>
+<p>控制反转通过依赖注入(DI)方式实现对象之间的松耦合关系。</p>
+<p>程序运行时，依赖对象由辅助程序动态生成并注入到被依赖对象中，动态绑定两者的使用关系。</p>
+<p>Spring IoC容器就是这样的辅助程序，它负责对象的生成和依赖的注入，然后再交由我们使用。</p>
+<p>简而言之，就是：IoC就是<strong>一个对象定义其依赖关系而不创建它们的过程</strong>。</p>
+</blockquote>
+<h5 id="bean"><a href="#bean" class="headerlink" title="bean"></a>bean</h5><blockquote>
+<p>Spring 官方文档对 bean 的解释是：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and otherwise managed by a Spring IoC container.</span><br></pre></td></tr></table></figure>
+
+<p>概念简单明了，我们提取处关键的信息：</p>
+<p>① bean是对象，一个或者多个不限定</p>
+<p>② bean由Spring IoC管理</p>
+<p>③ 我们的应用程序由一个个bean构成</p>
+</blockquote>
+<h5 id="应用切面"><a href="#应用切面" class="headerlink" title="应用切面"></a>应用切面</h5><blockquote>
+<p>DI能够让相互协作的软件组件保持松散耦合，而面向切面编程（aspect-oriented programming，AOP）允许你把遍布应用各处的功能分离出来形成可重用的组件。</p>
+</blockquote>
+<h5 id="容纳你的bean"><a href="#容纳你的bean" class="headerlink" title="容纳你的bean"></a>容纳你的bean</h5><blockquote>
+<p>容器是Spring 框架的核心。Spring容器使用DI管理构成应用的组件，他会创建相互协作的组件之间的关联。</p>
+<p>Spring容器并不是只有一个。Spring自带了多个容器实现，可以归为两种不同的类型：</p>
+<p>bean工厂(<code>BeanFactory</code>)：是最简单的容器，提供基本的DI支持。但是对大多数应用来说往往太低级了。无法支持Spring插件，例如：AOP、Web应用等功能。 </p>
+<p>应用上下文(<code>ApplicationContext</code>)：基于 <code>BeanFactory</code> 构建，并提供应用框架级别的服务。</p>
+<p><code>ApplicationContext</code> 是一个接口，Spring提供了多种类型的实现：</p>
+<p>① AnnotationConfigApplicationContext:从一个或多个基于java的配置类中加载上下文定义，适用于java注解的方式；</p>
+<p>② ClassPathXmlApplicationContext:从类路径下的一个或多个xml配置文件中加载上下文定义，适用于xml配置的方式；</p>
+<p>③ FileSystemXmlApplicationContext:从文件系统下的一个或多个xml配置文件中加载上下文定义，也就是说系统盘符中加载xml配置文件；</p>
+<p>④ AnnotationConfigWebApplicationContext:专门为web应用准备的，适用于注解方式；</p>
+<p>⑤ XmlWebApplicationContext:从web应用下的一个或多个xml配置文件加载上下文定义，适用于xml配置方式。</p>
+<p>应用上下文准备就绪后，我们就可以调用上下文的 <code>getBean()</code> 方法从Spring容器中获取bean。</p>
+</blockquote>
+<h5 id="bean的生命周期"><a href="#bean的生命周期" class="headerlink" title="bean的生命周期"></a>bean的生命周期</h5><blockquote>
+<p>从BeanFactory或ApplicationContext取得的实例为Singleton，也就是预设为每一个Bean的别名只能维持一个实例，而不是每次都产生一个新的对象使用Singleton模式产生单一实例，在spring中，singleton属性默认是true，只有设定为false，则每次指定别名取得的Bean时都会产生一个新的实例，Spring只帮我们管理单例模式Bean的完整生命周期，对于prototype的bean，Spring在创建好交给使用者之后则不会再管理后续的生命周期。</p>
+<p>下图即为Spring的生命周期过程：</p>
+<p><img src="https://i.loli.net/2020/01/16/j7U5qbDm4B8Yhve.png" alt="捕获.PNG"></p>
+<p>正如你所见，在bean准备就绪之前，bean工厂执行了若干启动步骤：</p>
+<p>① 对bean进行实例化</p>
+<p>② 将值和引用注入到bean对应的属性中</p>
+<p>③ 检查bean所实现的aware接口，包含 <code>BeanNameAware</code> <code>BeanFactoryAware</code> <code>ApplicationContextAware</code> 三个接口</p>
+<p>④ 如果bean实现了 <code>BeanPostProcessor</code> 接口，Spring将调用它的 <code>post-ProcessBeforeInitialization()</code> 方法</p>
+<p>⑤ 检查 <code>InitializingBean</code> 接口，如果bean实现了该接口，将调用 <code>afterPropertiesSet()</code> 方法</p>
+<p>⑥ 检查若bean使用 <code>init-method</code> 声明了初始化方法，该方法也会被调用。</p>
+<p>⑦ 如果bean实现了 <code>BeanPostProcessor</code> 接口，Spring将调用它的 <code>post-ProcessAfterInitialization()</code> 方法</p>
+<p>⑧ 此时bean已经准备就绪，可以被应用程序所使用，他将一直驻留在应用上下文之中，直到应用上下文被销毁。</p>
+<p>⑨ 检查 <code>DisposableBean</code> 接口，如果实现了该接口，调用 <code>destroy()</code> 方法。如果bean使用 <code>destroy-method</code> 声明了销毁方法，该方法也会被调用。</p>
+</blockquote>
+<h4 id="第二章-装配Bean"><a href="#第二章-装配Bean" class="headerlink" title="第二章 装配Bean"></a>第二章 装配Bean</h4><h5 id="Spring配置的可选方案"><a href="#Spring配置的可选方案" class="headerlink" title="Spring配置的可选方案"></a>Spring配置的可选方案</h5><blockquote>
+<p>当描述bean如何装配时，Spring具有非常大的灵活性，它提供了三种主要的装配机制：</p>
+<p>① 在XML中进行显式配置</p>
+<p>② 在Java中进行显式配置</p>
+<p>③ 隐式的bean发现机制和自动装配</p>
+<p>推荐尽可能地使用自动配置的机制。当你必须要显式配置bean的时候，推荐类型安全并且比XML更强大的<code>JavaConfig</code>。最后只有当你想要使用便利的XML命名空间，并且在<code>JavaConfig</code>中没有同样的实现时，才应该使用XML。</p>
+</blockquote>
+<h5 id="自动化装配bean"><a href="#自动化装配bean" class="headerlink" title="自动化装配bean"></a>自动化装配bean</h5><blockquote>
+<p>Spring从两个角度实现自动化装配：</p>
+<p>① 组件扫描(component scanning)：Spring会自动发现应用上下文中所创建的bean。</p>
+<p>② 自动装配(autowiring)：Spring自动满足bean之间的依赖。</p>
+<p><strong>创建可被发现的bean：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CompactDisc</span> </span>&#123;</span><br><span class="line">    	<span class="function"><span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们还需要一个<code>CompactDisc</code>的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SgtPeppers</span> <span class="keyword">implements</span> <span class="title">CompactDisc</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> String title = <span class="string">"Sgt.Pepper's Lonely Hearts Club Band"</span>;</span><br><span class="line">    	<span class="keyword">private</span> String artist = <span class="string">"The Beatles"</span>;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	System.out.println(<span class="string">"Playing "</span> + title + <span class="string">"by "</span> + artist);</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们需要注意的是 <code>SgtPeppers</code> 类上使用了 <code>@Component</code> 注解。这个简单的注解表明该类会作为组件类，并告知 <code>Spring</code> 要为这个类创建bean。没有必要显示配置 <code>SgtPeppers</code> bean，因为这个类使用了上述组件，Spring会为你把事情处理妥当。</p>
+<p>不过组件扫描默认是不启用的。我们还需要显式配置一下Spring，从而命令它去寻找带有 <code>@Component</code> 注解的类。一下代码展示了完成这项任务最简洁的配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayerConfig</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>CDPlayerConfig</code> 类并没有显式地声明任何bean，只不过它使用了 <code>@ComponentScan</code> 注解，这个注解能够在Spring中启用组件扫描并扫描与配置类相同的包（默认情况下，可改变），查找带有 <code>@Component</code> 注解的类并自动为其创建一个bean。</p>
+<p><strong>为组件扫描地bean命名：</strong></p>
+<p>Spring应用上下文中所有地bean都会给定一个ID，默认情况下为类名且将类名的第一个字母变为小写，我们也可以手动设置，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span>(<span class="string">"lonelyHeartsClub"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置组件扫描的基础包：</strong></p>
+<p>如果我们想要将配置类放在单独的包里，使其与其他的应用代码区分开来。如果这样的话，那默认的基础包就不能满足要求了。我们可以采取一下方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//以下两种均可</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(<span class="string">"soundsystem"</span>)</span><br><span class="line"><span class="meta">@ComponentScan</span>(basePackages=<span class="string">"soundsystem"</span>)</span><br><span class="line"><span class="comment">//如果需要设置多个基础包</span></span><br><span class="line"><span class="meta">@ComponentScan</span>(basePackages=&#123;<span class="string">"soundsystem"</span>,<span class="string">"video"</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>除了指定基础包以外，我们还可以通过指定接口或类来实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ComponentScan</span>(basePackageClasses=&#123;CDPlayer.class, DVDPlayer.class&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>在你的应用程序中，如果所有的对象都是独立的，彼此之间没有任何依赖，那么你所需要做的可能就是组件扫描而已。但是很多对象会依赖其他的对象才能完成任务，这样的话我们就需要一种方法能够将组件扫描得到的bean和它们的依赖装配在一起。这时候就需要Spring的自动装配了。</p>
+<p><strong>通过为bean添加注解实现自动装配：</strong></p>
+<p>考虑以下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CDPlayer</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">private</span> CompactDisc cd;</span><br><span class="line">    </span><br><span class="line">    	<span class="meta">@Autowired</span></span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="title">CDPlayer</span><span class="params">(CompactDisc cd)</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">this</span>.cd = cd;</span><br><span class="line">    	&#125;</span><br><span class="line">    </span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        	cd.play();</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在其构造器上添加了 <code>@AutoWired</code> 注解，这表明当Spring创建 <code>CDPlayer</code> bean的时候，会通过这个构造器来进行实例化并且会传入一个可设置给 <code>CompactDisc</code> 类型的bean。</p>
+<p>实际上，<code>@Autowired</code> 注解可以用在类的任何方法上。不管是构造器还是其他方法，Spring都会尝试满足方法参数上所声明的依赖。假如有且只有一个bean的匹配依赖需求的话，那么这个bean将会被装配进来。</p>
+</blockquote>
+<h5 id="通过Java代码配置bean"><a href="#通过Java代码配置bean" class="headerlink" title="通过Java代码配置bean"></a>通过Java代码配置bean</h5><blockquote>
+<p>在一些情况下(例如你想要将第三方库中的组件装配到你的应用中)，是没有办法在它的类上添加注解的，因此就不能使用自动化装配的方案了，必须进行显式配置。</p>
+<p><strong>声明简单的bean</strong></p>
+<p>要在JavaConfig中声明bean，我们需要编写一个方法，这个方法会创建所需类型的实例，然后给这个方法添加 <code>@Bean</code> 注解。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> SgtPeppers();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@Bean</code> 注解会告诉Spring这个方法将会返回一个对象，该对象要注册为Spring应用上下文中的bean。默认情况下bean的id与方法名相同，当然也可以通过name属性指定。</p>
+<p><strong>借助JavaConfig实现注入</strong></p>
+<p>现在我们需要声明 <code>CDPlayer</code> bean，它依赖于 <code>CompactDisc</code>。我们需要在JavaConfig中将他们装配在一起。</p>
+<p>在JavaConfig中装配bean最简单的方式就是引用创建bean的方法，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CDPlayer <span class="title">cdPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>看起来，<code>CompactDisc</code> 是通过调用 <code>sgtPeppers()</code> 得到的，但情况并非完全如此，因为 <code>sgtPeppers()</code> 方法上添加了 <code>@Bean</code> 注解，Spring将会拦截所有对它的调用，并确保直接返回该方法所创建的bean，而不是每次都对其进行实际的调用。</p>
+<p>假设引入了一个其他的 <code>CDPlayer</code> bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CDPlayer <span class="title">anotherPlayer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(sgtPeppers());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，Spring中的bean都是单例的，我们并没有必要为第二个 <code>CDPlayer</code> 创建完全相同的 <code>SgtPeppers</code> 实例。所以，Spring会拦截对 <code>sgtPeppers()</code> 的调用并确保返回的是Spring所创建的bean，也就是Spring本身在调用 <code>sgtPeppers()</code> 时所创建的bean，因此两个 <code>CDPlayer</code> bean会得到相同的 <code>SgtPeppers</code> 实例。</p>
+<p>可以看到，通过调用方法来引入bean的方式有点令人困惑，其实还有一种理解起来更简单的方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CDPlayer <span class="title">cdPlayer</span><span class="params">(CompactDisc compactDisc)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> CDPlayer(compactDisc);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<p>Spring框架的核心是Spring容器。容器负责管理应用中组件的生命周期，它会创建这些组件并保证它们的依赖能够得到满足，这样的话，组件才能完成预定的任务。</p>
+<h4 id="第三章-高级装配"><a href="#第三章-高级装配" class="headerlink" title="第三章 高级装配"></a>第三章 高级装配</h4><h5 id="环境与profile"><a href="#环境与profile" class="headerlink" title="环境与profile"></a>环境与profile</h5><blockquote>
+<p>在日常的开发工作中，我们经常需要将程序部署到不同的环境，比如Dev开发环境，QA测试环境，Prod生产环境，这些环境下的一些配置肯定是不一样的，比如数据库配置，Redis配置，RabbitMQ配置。</p>
+<p>如果每次切换发布环境，都需要修改配置重新构建的话，那对程序员来说将是噩梦，针对这种场景，Spring提供了@Profile注解来实现按照不同的环境装配不同的bean，进而实现程序只需构建一次，但可以部署到多个环境。</p>
+<p><strong>配置profile bean</strong></p>
+<p>首先需要了解的是，<code>@Profile</code>注解是从Spring 3.1版本中开始引入的，并且在这个版本中，<code>@Profile</code>注解只能在类级别上使用。不过从Spring 3.2开始，<code>@Profile</code>注解可以与<code>@Bean</code>注解一起在方法级别上使用。因此我们可以创建类如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Profile</span>(<span class="string">"dev"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">devDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This is dev DataSource"</span>);</span><br><span class="line">        </span><br><span class="line">        BasicDataSource basicDataSource = <span class="keyword">new</span> BasicDataSource();</span><br><span class="line">        basicDataSource.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">        basicDataSource.setUrl(<span class="string">"jdbc:mysql://localhost:3306/mybatis_action_db"</span>);</span><br><span class="line">        basicDataSource.setUsername(<span class="string">"dev"</span>);</span><br><span class="line">        basicDataSource.setPassword(<span class="string">"dev"</span>);</span><br><span class="line">        <span class="keyword">return</span> basicDataSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Profile</span>(<span class="string">"qa"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">qaDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This is qa DataSource"</span>);</span><br><span class="line"></span><br><span class="line">        BasicDataSource basicDataSource = <span class="keyword">new</span> BasicDataSource();</span><br><span class="line">        basicDataSource.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">        basicDataSource.setUrl(<span class="string">"jdbc:mysql://localhost:3307/mybatis_action_db"</span>);</span><br><span class="line">        basicDataSource.setUsername(<span class="string">"qa"</span>);</span><br><span class="line">        basicDataSource.setPassword(<span class="string">"qa"</span>);</span><br><span class="line">        <span class="keyword">return</span> basicDataSource;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Profile</span>(<span class="string">"prod"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">prodDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This is prod DataSource"</span>);</span><br><span class="line"></span><br><span class="line">        BasicDataSource basicDataSource = <span class="keyword">new</span> BasicDataSource();</span><br><span class="line">        basicDataSource.setDriverClassName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">        basicDataSource.setUrl(<span class="string">"jdbc:mysql://localhost:3308/mybatis_action_db"</span>);</span><br><span class="line">        basicDataSource.setUsername(<span class="string">"prod"</span>);</span><br><span class="line">        basicDataSource.setPassword(<span class="string">"prod"</span>);</span><br><span class="line">        <span class="keyword">return</span> basicDataSource;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>只有当规定的profile激活时，相应的bean才会被创建，但是可能会有其他的bean并没有声明在一个给定的profile范围内。没有指定profile的bean始终都会被创建，与激活哪个profile没有关系。</p>
+<p>注：也可以在XML中配置bean</p>
+<p><strong>激活profile</strong></p>
+<p>截止目前，我们按照环境的维度创建了3个bean，但实际运行时，只会创建1个bean，具体创建哪个bean取决于处于激活状态的是哪个profile。</p>
+<p>Spring在确定激活哪个profile时，需要依赖2个属性：<code>spring.profiles.active</code> 与 <code>spring.profiles.default</code>，需要注意的是<code>spring.profiles.active</code>的优先级比<code>spring.profiles.default</code>高，即如果没有配置<code>spring.profiles.active</code>，就使用<code>spring.profiles.default</code>配置的值，如果配置了<code>spring.profiles.active</code>，就不会再使用<code>spring.profiles.default</code>配置的值。如果两者均未设置，那就没有激活的profile，只会创建那些没有定义在profile中的bean。</p>
+<p>相同的，可以通过代码方式与XML方式激活profile。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">           AnnotationConfigApplicationContext context = <span class="keyword">new</span> AnnotationConfigApplicationContext();</span><br><span class="line">        	context.getEnvironment().setActiveProfiles(<span class="string">"dev"</span>);</span><br><span class="line">        	context.register(DataSourceConfig.class);</span><br><span class="line">        	context.refresh();</span><br><span class="line">        	context.close();</span><br><span class="line">    	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此以外，你可以同时激活多个profile。Spring4.0中提供了一种更为通用的机制来实现条件化的bean定义，在这种机制中，条件完全由你来确定。</p>
+</blockquote>
+<h5 id="条件化的bean"><a href="#条件化的bean" class="headerlink" title="条件化的bean"></a>条件化的bean</h5><blockquote>
+<p>Spring4引入了一个新的 <code>@Conditional</code> 注解，他可以用到带有 <code>@Bean</code> 注解的方法上。如果给定的条件计算结果为 <code>true</code>，就会创建这个bean，否则这个bean将会被忽略。</p>
+<p>假设有一个名为 <code>MagicBean</code> 的类，我们希望只有设置了 <code>magic</code>环境属性的时候，Spring才会实例化这个类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">@Bean</span></span><br><span class="line">&gt;<span class="meta">@Conditional</span>(MagicExistsCondition.class)</span><br><span class="line">&gt;<span class="function">publuc MagicBean <span class="title">magicBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">return</span> <span class="keyword">new</span> MagicBean();</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@Condition</code> 将会通过 <code>Condition</code> 接口进行条件对比，设置给 <code>@Condition</code> 的类可以是任意实现了 <code>Condition</code> 接口的类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Condition</span> </span>&#123;</span><br><span class="line">   	<span class="function"><span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(ConditionContext ctxt, AnnotatedTypeMetadata metadata)</span></span>;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在本例中我们可以按照如下方式完成类 <code>MagicExistsCondition</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MagicExistsCondition</span> <span class="keyword">implements</span> <span class="title">Condition</span> </span>&#123;</span><br><span class="line">   	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">       		ConditionContext context, AnnotatedTypeMetadata metadata)</span> </span>&#123;</span><br><span class="line">       		Environment env = context.getEnvironment();</span><br><span class="line">       		<span class="keyword">return</span> env.containsProperty(<span class="string">"magic"</span>);    <span class="comment">//检查magic属性</span></span><br><span class="line">   	&#125;</span><br><span class="line">&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>ConditionContext</code> 与 <code>AnnotatedTypeMetadata</code> 都是接口，包含很多方法，具体可以参考《Spring 实战》P77。非常有意思的是，从Spring 4开始，<code>@Profile</code> 注解进行了重构，使其基于 <code>@Condition</code> 和 <code>Condition</code> 实现。</p>
+</blockquote>
+<h5 id="处理自动装配的歧义性"><a href="#处理自动装配的歧义性" class="headerlink" title="处理自动装配的歧义性"></a>处理自动装配的歧义性</h5><blockquote>
+<p>我们已经知道，仅有一个bean匹配所需的结果时，自动装配才是有效的。如果不只有一个bean能够匹配结果的话，这种歧义性会阻碍Spring自动装配属性、构造器参数或方法参数。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDessert</span><span class="params">(Dessert dessert)</span> </span>&#123;</span><br><span class="line"> 	<span class="keyword">this</span>.dessert = dessert;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>本例中 <code>Dessert</code> 是一个接口，若有三个类均实现了该接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cake</span> <span class="keyword">implements</span> <span class="title">Dessert</span> </span>&#123;...&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cookies</span> <span class="keyword">implements</span> <span class="title">Dessert</span> </span>&#123;...&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IceCream</span> <span class="keyword">implements</span> <span class="title">Dessert</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在Spring试图装配 <code>setDessert()</code> 的参数时，它并没有唯一的、无歧义的可选值，只好宣告失败并抛出异常。</p>
+<p>在实际中，自动装配的歧义性问题其实比你想象的更为罕见。但是当歧义性问题确实发生的时候，Spring提供了多种可选方案来解决这样的问题，例如设定首选(primary)的bean或者使用限定符(qualifier)。</p>
+<p><strong>标示首选的bean</strong></p>
+<p>下面的代码展示了如何将 <code>IceCream</code> 声明为首选的bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IceCream</span> <span class="keyword">implements</span> <span class="title">Dessert</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者通过Java显式地进行配置：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Dessert <span class="title">iceCream</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> IceCream();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是如果你声明了两个以上的首选bean，那么它就无法正常工作了。就解决歧义性问题而言，限定符是一种更为强大的机制。</p>
+<p><strong>限定自动装配的bean</strong></p>
+<p><code>@Qualifier</code> 注解是使用限定符的主要方式，例如我们想要确保将 <code>IceCream</code> 注入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"iceCream"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDessert</span><span class="params">(Dessert dessert)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.dessert = dessert;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是使用限定符最简单的例子。准确地讲，<code>@Qualifier(&quot;iceCream&quot;)</code> 所引用的bean要具有String类型的 <code>&quot;iceCream&quot;</code> 作为限定符。如果没有指定其他的限定符的话，所有的bean都会给定一个默认的限定符，这个限定符与bean的id相同，因此框架可以将 <code>IceCream</code> 注入。这里的问题是指定的限定符与要注入的bean的名称是紧耦合的，对类名称的任意改动都会导致限定符失效。</p>
+<p><strong>创建自定义的限定符</strong></p>
+<p>我们可以为bean设置自己的限定符，而不是依赖于将bean id作为限定符。在这里所需要做的就是在bean声明上添加 <code>@Qualifier</code> 注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"cold"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IceCream</span> <span class="keyword">implements</span> <span class="title">Dessert</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这种情况下，<code>cold</code> 限定符分配给了 <code>IceCream</code> bean，因为它没有耦合类名，因此你可以任意重构类名而不必担心破坏自动装配。在注入的地方引用限定符即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"cold"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDessert</span><span class="params">(Dessert dessert)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.dessert = dessert;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当要通过java配置显式定义的时候，<code>@Qualifier</code> 注解也可以与 <code>@Bean</code> 一起使用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"cold"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> Dessert <span class="title">iceCream</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">new</span> IceCream();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用自定义的限定符注解</strong></p>
+<p>我们可以创建自定义的限定符注解，借助这样的注解来表达bean所希望限定的特性。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.CONSTRUCTOR, ElementType.FIELD,</span><br><span class="line">        ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Qualifier</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Cold &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就创建了一个 <code>@Cold</code> 注解，最终在注入点，我们使用必要的限定符注解进行任意组合，从而将可选范围缩小到只有一个bean满足要求。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Cold</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDessert</span><span class="params">(Dessert dessert)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.dessert = dessert;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="bean的作用域"><a href="#bean的作用域" class="headerlink" title="bean的作用域"></a>bean的作用域</h5><blockquote>
+<p>默认情况下，Spring应用上下文中所有的bean都是作为以单例(singleton)的形式创建的。也就是说，不管给定的一个bean被注入到其他bean多少次，每次注入的都是同一个实例。但有时候你所使用的类是易变的，他们会保持一些状态，因此重用是不安全的。</p>
+<p>Spring定义了多种作用域，可以基于这些作用域定义bean：</p>
+<p>① 单例(Singleton)：在整个应用中，只创建一个bean的实例</p>
+<p>② 原型(Prototype)：每次注入或者通过Spring应用上下文获取时，都会创建一个新的bean实例</p>
+<p>③ 会话(Session)：在web应用中，为每个会话创建一个bean实例</p>
+<p>④ 请求(Session)：在web应用中，为每个请求创建一个bean实例</p>
+<p>单例是默认的作用域，如果选择其他作用域，要用 <code>@Scope</code> 注解，它可以与 <code>@Component</code> 或 <code>@Bean</code> 一起使用。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Scope</span>(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Notepad</span></span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里使用了<code>ConfigurableBeanFactory</code> 类的 <code>SCOPE_PROTOTYPE</code> 常量设置了原型作用域。这样所导致的结果就是每次操作都能得到自己的<code>Notepad</code>实例。</p>
+<p><strong>使用会话和请求作用域</strong></p>
+<p>例如在一个电商系统中，可能会有一个bean代表用户的购物车。如果购物车是单例的话，那么将会导致所有的用户都会向同一个购物车添加商品，这显然是不合适的；另一方面，如果购物车是原型的，那么在应用中某一个地方向购物车添加商品，在应用的另一个地方就不可用了。就购物车bean来说，会话作用域最为合适，因为他与用户关联性最大。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Scope</span>(value=WebApplicationContext.SCOPE_SESSION,</span><br><span class="line">   proxyMode=ScopedProxyMode.INTERFACES)</span><br><span class="line"><span class="function"><span class="keyword">public</span> ShoppingCart <span class="title">cart</span><span class="params">()</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们将value值设置成了 <code>WebApplicationContext</code> 中的 <code>SCOPE_SESSION</code> 常量。这会告诉Spring为Web应用中的每个会话创建一个 <code>ShoppingCart</code>。</p>
+<p>要注意的是，<code>@Scope</code> 同时还有一个 <code>proxyMode</code> 属性，他被设置成了 <code>ScopedProxyMode.INTERFACES</code>。这个属性解决了将会话或请求作用域的bean注入到单例bean中所遇到的问题。</p>
+<p>我们来看 <code>proxyMode</code> 所解决问题的场景：假设我们要将 <code>ShoppingCart</code> bean注入到单例 <code>StroeService</code> baen的 <code>Setter</code> 方法中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StroeService</span> </span>&#123;   </span><br><span class="line">    	<span class="meta">@Autowired</span></span><br><span class="line">    	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setShoppingCart</span><span class="params">(ShoppingCart shoppingCart)</span> </span>&#123;</span><br><span class="line">        	<span class="keyword">this</span>.shoppingCart = shoppingCart;</span><br><span class="line">    	&#125;</span><br><span class="line">    	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于 <code>StroeService</code> 是一个单例的bean，会在Spring应用上下文加载的时候创建。当他创建的时候，Spring会试图将 <code>ShoppingCart</code> bean注入到 <code>setShoppingCart()</code> 方法中。但是 <code>ShoppingCart</code> bean 是会话作用域的，此时并不存在，只有当某个用户进入系统创建会话之后，才会出现 <code>ShoppingCart</code> 实例。</p>
+<p>另外，系统中将会有多个 <code>ShoppingCart</code> 实例：每个用户一个。我们并不想让Spring注入某个固定的<code>ShoppingCart</code> 实例到 <code>StoreService</code> 中。我们希望的是当 <code>StoreService</code> 处理购物车功能时，它所使用的 <code>ShoppingCart</code> 实例恰好是当前会话所对应的那一个。</p>
+<p>Spring并不会将实际的 <code>ShoppingCart</code> bean注入到 <code>StoreService</code> 中。Spring会注入一个到<code>ShoppingCart</code> bean的代理。这个代理会暴露与 <code>ShoppingCart</code> 相同的方法，所以 <code>StoreService</code> 会认为它就是一个购物车。但是，当 <code>StoreService</code> 调用 <code>ShoppingCart</code> 的方法时，代理会对其进行懒解析并将调用委托给会话作用域内真正的 <code>ShoppingCart</code> bean。现在，我们带着对这个作用域的理解，讨论一下<code>proxyMode</code> 属性。如配置所示，<code>proxyMode</code> 属性被设置成了 <code>ScopedProxyMode.INTERFACES</code>，这表明这个代理要实现 <code>ShoppingCart</code> 接口，并将调用委托给实现bean。如果 <code>ShoppingCart</code> 是接口而不是类的话，这是可以的（也是最为理想的代理模式）。但如果 <code>ShoppingCart</code> 是一个具体的类的话，Spring就没有办法创建基于接口的代理了。此时，它必须使用 <code>CGLib</code> 来生成基于类的代理。所以，如果bean类型是具体类的话，我们必须要将 <code>proxyMode</code> 属性设置为 <code>ScopedProxyMode.TARGET_CLASS</code>，以此来表明要以生成目标类扩展的方式创建代理。</p>
+</blockquote>
+<h5 id="运行时值注入"><a href="#运行时值注入" class="headerlink" title="运行时值注入"></a>运行时值注入</h5><blockquote>
+<p>当讨论依赖注入的时候，我们通常所讨论的是将一个bean引用注入到另一个bean的属性或构造器参数中，即将一个对象与另一个对象进行关联。</p>
+<p>但是bean装配的另一个方面是将值注入到bean的属性或者构造器参数中。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> CompactDisc <span class="title">sgtPeppers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   	<span class="keyword">return</span> <span class="keyword">new</span> BlankDisc(<span class="string">"Sgt. Pepper's Lonely Hearts Club Band"</span>,<span class="string">"The Beatles"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它在装配的时候是将值硬编码在配置类当中的。有些时候，我们可能会希望避免硬编码，而是将这些值在运行时再确定。Spring提供了两种在运行时求值的方法：属性占位符(Property placeholder)与Spring表达式语言(SpEL)。</p>
+<p><strong>注入外部的值</strong></p>
+<p>在Spring中，处理外部值的最简单方式就是声明属性源并通过Spring的 <code>Environment</code> 来检索属性。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"classpath:/com/soundsystem/app.properties"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExpressiveConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    Environment env;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BlankDisc <span class="title">disc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BlankDisc(env.getProperty(<span class="string">"disc.title"</span>),</span><br><span class="line">                            env.getProperty(<span class="string">"disc.artist"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>@PropertySource</code> 引用了类路径中一个名为 <code>app.properties</code> 的文件，它大致会如下所示：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">disc.title</span> = <span class="string">Sgt. Pepper's Lonely Hearts Club Band</span></span><br><span class="line"><span class="meta">disc.artist</span> = <span class="string">The Beatles</span></span><br></pre></td></tr></table></figure>
+
+<p>这个属性文件会加载到Spring的 <code>Environment</code> 中，稍后可以从这里检索属性。</p>
+<p><strong>深入学习Spring的Environment</strong></p>
+<p><code>getProperty()</code> 方法有四个重载的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getProperty</span><span class="params">(String key)</span>  <span class="comment">//默认情况下属性不存在时返回null</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function"><span class="comment">//属性不存在时使用默认值</span></span></span><br><span class="line"><span class="function">String <span class="title">getProperty</span><span class="params">(String key, String DefaultValue)</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function"><span class="comment">//不会将所有值都视为String类型</span></span></span><br><span class="line"><span class="function">T <span class="title">getProperty</span><span class="params">(String key, Class&lt;T&gt; type)</span></span></span><br><span class="line"><span class="function">T <span class="title">getProperty</span><span class="params">(String key, Class&lt;T&gt; type, T defaultValue)</span></span></span><br></pre></td></tr></table></figure>
+
+<p><code>getRequiredProperty()</code> 在属性未定义的情况下抛出 <code>IllegalStateException</code> 异常。</p>
+<p>除了属性相关的功能外，Environment还提供了一些方法来检查哪些 <code>profile</code> 处于激活状态：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] getActiveProfiles();  <span class="comment">//返回激活profile名称的数组</span></span><br><span class="line">String[] getDefaultProfiles(); <span class="comment">//返回默认profile名称的数组</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">acceptsProfiles</span><span class="params">(String... profiles)</span></span>; <span class="comment">//如果environment支持给定profile，返回true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>解析属性占位符</strong></p>
+<p>Spring一直支持将属性定义到外部的属性文件中，并使用占位符值将其插入到Spring bean中。如果我们依赖于组件扫描和自动装配来创建和初始化应用组件，可以使用 <code>@value</code> 注解，例如在 <code>BlankDisc</code> 类中，构造器可以改写为如下形式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">BlankDisc</span> <span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    @Value(<span class="string">"$&#123;disc.title&#125;"</span>)</span> String title,</span></span><br><span class="line"><span class="function">    @<span class="title">Value</span><span class="params">(<span class="string">"$&#123;disc.artist&#125;"</span>)</span> String artist) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.title = title;</span><br><span class="line">    <span class="keyword">this</span>.artist = artist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了使用占位符，我们必须要配置一个 <code>PropertySourcesPlaceholderConfigurer</code> bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="title">PropertySourcesPlaceholderConfigurer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> PropertySourcesPlaceholderConfigurer();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解析外部属性能够降值的处理推迟到运行时，但是它的关注点在于根据名称解析来自于Spring Environment和属性源的属性。Spring 表达式语言提供了一种更通用的方式在运行时计算所要注入的值。</p>
+<p><strong>使用Spring表达式语言进行装配</strong></p>
+<p>Spring3 引入了Spring表达式语言，它能够以一种强大和简洁的方式将值装配到bean属性和构造器参数中，在这个过程中所使用的表达式会在运行时计算得到值。</p>
+<p>其实SpEL能够用在依赖注入以外的其他地方，例如 <code>Thymeleaf</code> 模板。</p>
+<p>我们先来看几个SpEL样例以及如何将其注入到bean中。</p>
+<p><strong>SpEL样例</strong></p>
+<p>需要了解的第一件事就是SpEL表达式需要放在 <code>&quot;#{...}&quot;</code> 之中，这与属性占位符有些类似。</p>
+<p>下面来看几个样例：</p>
+<p><code>#{1}</code> 这个表达式的计算结果就是常数1，非常显然。</p>
+<p><code>#{T(System).currentTimeMillis()}</code> 它的最终结果是计算表达式的那一刻当前时间的毫秒数。<code>T()</code> 表达式会将 <code>java.lang.System</code> 视为Java中对应的类型，因此可以调用其 <code>static</code> 修饰的方法。</p>
+<p><code>#{sgtPeppers.artist}</code> SpEL表达式也可以引用其他的bean或其他bean的属性。</p>
+<p><code>#{systemProperties[&#39;disc.title&#39;]}</code> SpEL表达式可以通过 <code>systemProperties</code> 对象引用系统属性。</p>
+<p>接下来我们来看在bean装配的时候如何使用这些表达式：如果通过组件扫面创建bean的话，在注入属性和构造器参数时，我们可以使用 <code>@Value</code> 注解，这与之前看到的属性占位符非常类似：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">BlankDisc</span><span class="params">(@Value(<span class="string">"#&#123;systemProperties['disc.title']&#125;"</span>)</span> String title,</span></span><br><span class="line"><span class="function">                @<span class="title">Value</span><span class="params">(<span class="string">"#&#123;systemProperties['disc.artist']&#125;"</span>)</span> String artist) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>,title = title;</span><br><span class="line">    <span class="keyword">this</span>.artist = artist;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于其他更为强大的SpEL表达式的使用方法，可以参考《Spring 实战》P94。</p>
+</blockquote>
+<h4 id="第四章-面向切面的Spring"><a href="#第四章-面向切面的Spring" class="headerlink" title="第四章 面向切面的Spring"></a>第四章 面向切面的Spring</h4><p>在软件开发中，散布于应用多处的功能被称为横切关注点。通常来讲，这些横切关注点从概念上是与应用的业务逻辑相分离的（但是往往会直接嵌入到应用的业务逻辑之中）。把这些横切关注点与业务逻辑相分离正是面向切面编程(AOP)所要解决的问题。</p>
+<h5 id="AOP的实现原理"><a href="#AOP的实现原理" class="headerlink" title="AOP的实现原理"></a>AOP的实现原理</h5><blockquote>
+<p>AOP（Aspect Orient Programming），指面向方面（切面）编程，作为面向对象的一种补充，用于处理系统中分布于各个模块的横切关注点，比如事务管理、日志、缓存等等。AOP实现的关键在于AOP框架自动创建的AOP代理，AOP代理主要分为静态代理和动态代理，静态代理的代表为AspectJ；而动态代理则以Spring AOP为代表。通常使用AspectJ的编译时增强实现AOP，AspectJ是静态代理的增强，所谓的静态代理就是AOP框架会在编译阶段生成AOP代理类，因此也称为编译时增强。  </p>
+<p>Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动态代理。JDK动态代理通过反射来接收被代理的类，并且要求被代理的类必须实现一个接口。JDK动态代理的核心是InvocationHandler接口和Proxy类。  </p>
+<p>如果目标类没有实现接口，那么Spring AOP会选择使用CGLIB来动态代理目标类。CGLIB（Code Generation Library），是一个代码生成的类库，可以在运行时动态的生成某个类的子类，注意，CGLIB是通过继承的方式做的动态代理，因此如果某个类被标记为final，那么它是无法使用CGLIB做动态代理的。 </p>
+</blockquote>
+<h5 id="什么是面向切面编程"><a href="#什么是面向切面编程" class="headerlink" title="什么是面向切面编程"></a>什么是面向切面编程</h5><blockquote>
+<p>简而言之，横切关注点可以被描述为影响应用多处的功能。每个模块的核心功能都是为特定业务领域提供服务，但是这些模块都需要类似的辅助功能，例如安全和事务管理。</p>
+<p>在AOP中，横切关注点可以被模块化为特殊的类，这些类被称为切面(aspect)。</p>
+<p><strong>定义AOP术语</strong></p>
+<p><strong>通知(Advice)</strong>：通知定义了切面是什么以及何时使用。除了切面要完成的工作，通知还解决了何时执行这个工作的问题。Spring切面可以应用5种类型的通知：</p>
+<p>① 前置通知(Before)：在目标方法被调用之前调用通知功能；</p>
+<p>② 后置通知(After)：在目标方法完成之后调用通知，此时不会关心方法的输出是什么；</p>
+<p>③ 返回通知(After-returning)：在目标方法成功执行之后调用通知；</p>
+<p>④ 异常通知(After-throwing)：在目标方法抛出异常之后调用通知；</p>
+<p>⑤环绕通知(Around)：通知包裹了被通知的方法，在被通知的方法调用之前和调用之后执行自定义的行为。</p>
+<p><strong>连接点(Join point)：</strong>连接点是在应用执行过程中能够插入切面的一个点。这个点可以是调用方法时、抛出异常时、甚至修改一个字段时。切面代码可以利用这些点插入到应用的正常流程之中，并添加新的行为。</p>
+<p><strong>切点(Pointcut)：</strong>如果说通知定义了切面的”什么“和”何时“的话，切点就定义了”何处“。切点的定义会匹配通知所要织入的一个或多个连接点。</p>
+<p>具体举个例子：比如开车经过一条高速公路，这条高速公路上有很多个出口（连接点），但是我们不会每个出口都会出去，只会选择我们需要的那个出口（切点）开出去。简单可以理解为，每个出口都是<strong>连接点</strong>，但是我们使用的那个出口才是<strong>切点</strong>。每个应用有多个位置适合织入通知，这些位置都是<strong>连接点</strong>。但是只有我们选择的那个具体的位置才是<strong>切点</strong>。</p>
+<p><strong>切面(Aspect)：</strong>切面是通知和切点的结合。</p>
+<p><strong>引入(Introduction)：</strong>引入允许我们向现有的类添加新方法或属性。</p>
+<p><strong>织入(Weaving)：</strong>织入是把切面应用到目标对象并创建新的代理对象的过程。在目标对象的生命周期里有多个点可以进行织入：</p>
+<p>① 编译期：切面在目标类编译时被织入，这种方式需要特殊的编译器。</p>
+<p>② 类加载期：切面在目标类加载到JVM时被织入，这种方式需要特殊的类加载器</p>
+<p>③运行期：切面在应用运行的某个时刻被织入。一般情况下，在织入切面时，AOP容器会为目标对象动态地创建一个代理对象。Spring AOP就是以这种方式织入切面的。</p>
+<p>以上就是基础的AOP术语，接下来我们再看看这些AOP的核心概念是如何在Spring中实现的。</p>
+<p><strong>Spring对AOP的支持</strong></p>
+<p>Spring 提供了4种类型的AOP支持：</p>
+<p>① 基于代理的经典AOP</p>
+<p>② 纯POJO切面</p>
+<p>③ @AspectJ注解驱动的切面</p>
+<p>④ 注入式AspectJ切面</p>
+<p>前三种都是Spring AOP实现的变体，Spring AOP构建在动态代理基础之上，因此Spring 对AOP的支持局限于方法拦截。接下来我们先了解一些 Spring AOP框架的关键知识：</p>
+<p><strong>Spring 通知是Java编写的</strong></p>
+<p>Spring 所创建的通知都是用标准的Java类编写的。这样的话，我们就可以使用与普通Java开发一样的IDE来开发切面。而且，定义通知所应用的切点通常会使用注解或在Spring配置文件里采用XML编写。</p>
+<p><strong>Spring在运行时通知对象</strong></p>
+<p>通过在代理类中包裹切面，Spring在运行期把切面织入到Spring管理的bean中。Spring的切面由包裹了目标对象的代理类实现。代理类处理方法的调用，执行额外的切面逻辑，并调用目标方法。</p>
+<p><strong>Spring只支持方法级别的连接点</strong></p>
+<p>这是因为Spring基于动态代理，但是方法拦截可以满足绝大部分的需求。</p>
+</blockquote>
+<h5 id="通过切点来选择连接点"><a href="#通过切点来选择连接点" class="headerlink" title="通过切点来选择连接点"></a>通过切点来选择连接点</h5><blockquote>
+<p>在Spring AOP中，要使用AspectJ的切点表达式来定义切点。关于Spring Aop的 <code>AspectJ</code> 切点，最重要的一点就是Spring仅支持 <code>AspectJ</code> 切点指示器的一个子集。让我们回顾下，Spring是基于代理的，而某些切点表达式是与基于代理的AOP无关的。下面是Spring AOP所支持的 <code>AspectJ</code> 切点指示器：</p>
+<p><code>arg()</code> <code>@args()</code> <code>execution()</code> <code>this()</code> <code>target()</code> <code>@target()</code> <code>within()</code> <code>@within()</code> <code>@annotation()</code> </p>
+<p>注意只有 <code>execution()</code> 是实际执行匹配的，其他的指示器都是用来限制匹配的。</p>
+<p><strong>编写切点</strong></p>
+<p>我们先定义一个 <code>Performance</code> 接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Performance</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">perform</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如下这个表达式能够设置当 <code>perform()</code> 方法执行时触发通知的调用：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(* concert.Performance.perform(..))</span><br></pre></td></tr></table></figure>
+
+<p>我们使用 <code>execution()</code> 指示器选择 <code>Performance</code> 的 <code>perform()</code> 方法。方法表达式以 <code>&#39;*&#39;</code> 开始，表示我们不关心方法返回值的类型。然后我们指定了全限定类名和方法名。对于方法参数列表，我们使用两个点号表明切点要选择任意的 <code>perform()</code> 方法，无论该方法的输入参数是什么。</p>
+<p>现在假设我们需要配置的切点仅匹配 <code>concert</code> 包。在此场景下，可以使用 <code>within()</code> 指示器来限制匹配：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(* concert.Performance.perform(..) &amp;&amp; within(concert.*))</span><br></pre></td></tr></table></figure>
+
+<p>我们使用了 <code>&amp;&amp;</code> 来表示与关系，同样也可以使用 <code>||</code> 来表示或关系，用 <code>!</code> 来表示非关系。在Spring的XML配置里面描述切点时，可以用 <code>and</code> <code>or</code> <code>not</code> 分别替代上述符号。</p>
+<p><strong>在切点中选择bean</strong></p>
+<p>除了上述的指示器外，Spring还引入了一个新的 <code>bean()</code> 指示器，它允许我们在切点表达式中使用bean的ID来标识bean。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(* concert.Performance.perform(..) <span class="function">and <span class="title">bean</span><span class="params">(<span class="string">'woodstock'</span>)</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>我们希望在执行 <code>perform()</code> 方法时应用通知，但限定bean的id为 <code>woodstock</code> 。</p>
+<p>同样我们还可以使用非操作为除了特定ID以外其他的bean应用通知：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(* concert.Performance.perform(..) and !bean(<span class="string">'woodstock'</span>))</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="使用注解创建切面"><a href="#使用注解创建切面" class="headerlink" title="使用注解创建切面"></a>使用注解创建切面</h5><blockquote>
+<p>定义切面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//表演前 手机静音</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">silenceCellPhones</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//表演前 就坐</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeSeats</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//表演成功-clap</span></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applause</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"clap clap clap"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//表演失败-退款</span></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demandRefund</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Audience</code> 类使用 <code>@Aspect</code> 注解进行了标注。该注解表明 <code>Audience</code> 类不仅仅是一个POJO，还是一个切面。<code>Audience</code> 类中的方法都使用注解来定义切面的具体行为。你可能已经注意到了，所有的这些注解都给定了一个切点表达式作为它的值，同时，这四个方法的切点表达式都是相同的。事实上他们可以设置为不同的切点表达式，但是在这里这个切点表达式就能满足所有通知方法的需求。</p>
+<p>相同的切点表达式我们重复了4遍，如果通知方法的数量更多，只会平白无故增加我们的工作量。事实上我们可以用 <code>@Pointcut</code> 注解在 <code>@AspectJ</code> 切面内定义可重用的切点：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performance</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="comment">//表演前 手机静音</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">silenceCellPhones</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//表演前 就坐</span></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">takeSeats</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//表演成功-clap</span></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">applause</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"clap clap clap"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//表演失败-退款</span></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demandRefund</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>performance()</code> 方法的实际内容并不重要，在这里它实际上应该是空的。其实该方法本身只是一个标识，供<code>@Pointcut</code> 注解依附。</p>
+<p>需要注意的是，除了注解和没有实际操作的 <code>performance()</code> 方法，<code>Audience</code> 类依然是一个POJO，我们能够像使用其他Java类那样调用它的方法。</p>
+<p>如果使用JavaConfig，可以在配置类的类级别上通过使用 <code>@EnableAspectJAutoProxy</code> 注解启用自动代理功能：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableAspectJAutoProxy</span></span><br><span class="line"><span class="meta">@ComponentScan</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcertConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Audience <span class="title">audience</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Audience();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>AspectJ</code> 自动代理会为使用 <code>@Aspect</code> 注解的bean创建一个代理，这个代理会围绕着所有该切面的切点所匹配的bean，本例中即为 <code>concert</code> bean。</p>
+<p><strong>创建环绕通知</strong></p>
+<p>环绕通知是最为强大的通知类型。它能够让你所编写的逻辑将被通知的目标方法完全包装起来。实际上就像在一个通知方法中同时编写前置通知和后置通知。</p>
+<p>我们重写 <code>Audience</code> 切面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Audience</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(** concert.Performance.perform(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">performance</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"performance()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">watchPerformance</span><span class="params">(ProceedingJoinPoint jp)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"Silencing cell phones"</span>);</span><br><span class="line">            System.out.println(<span class="string">"Taking seats"</span>);</span><br><span class="line">            jp.proceed();</span><br><span class="line">            System.out.println(<span class="string">"clap clap clap"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Demanding a refund"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这里，<code>@Around</code> 注解表明 <code>watchPerformance()</code> 方法会作为 <code>performance()</code> 切点的环绕通知。这个通知所达到的效果与之前的前置通知和后置通知是一样的。但是，现在它们位于同一个方法之中，而不像之前分散在四个不同的方法里面。</p>
+<p>关于这个新的通知方法，你首先注意到的可能是它接受 <code>ProceedingJoinPoint</code> 作为参数。这个对象是必须要有的，因为你要在通知中通过它来调用被通知的方法。通知方法中可以做任何的事情，当要将控制权交给被通知的方法时，它需要调用 <code>ProceedingJoinPoint</code> 的 <code>proceed()</code> 方法。</p>
+<p>需要注意的是，别忘记调用 <code>proceed()</code> 方法。如果不调这个方法的话，那么你的通知实际上会阻塞对被通知方法的调用。有可能这就是你想要的效果，但更多的情况是你希望在某个点上执行被通知的方法。有意思的是，你可以不调用 <code>proceed()</code> 方法，从而阻塞对被通知方法的访问，与之类似，你也可以在通知中对它进行多次调用。要这样做的一个场景就是实现重试逻辑，也就是在被通知方法失败后，进行重复尝试。</p>
+<p><strong>处理通知中的参数</strong></p>
+<p>现在假设切面所通知的方法确实有参数。例如对于 <code>BlankDisc</code> 样例，<code>play()</code> 方法会循环所有的磁道并调用 <code>playTrack()</code> 方法，但是我们也可以直接调用 <code>playTrack()</code> 方法来播放某一磁道的歌曲。（<code>playTrack()</code> 方法需要一个 <code>int</code> 型的参数）</p>
+<p>为了记录每个磁道所播放的次数，我们创建了 <code>TrackCounter</code> 类，他是通知 <code>playTrack()</code> 方法的一个切面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> soundsystem;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TrackCounter</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> HashMap&lt;Integer,Integer&gt; trackCounts = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* soundsystem.CompactDisc.playTrack(int))"</span> +</span><br><span class="line">              <span class="string">"&amp;&amp; args(trackNumber)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trackPlayed</span><span class="params">(<span class="keyword">int</span> trackNumber)</span> </span>&#123; &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"trackPlayed(trackNumber)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">countTrack</span><span class="params">(<span class="keyword">int</span> trackNumber)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> currentCount = getPlayCount(trackNumber);</span><br><span class="line">        trackCounts.put(trackNumber,currentCount + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPlayCount</span><span class="params">(<span class="keyword">int</span> trackNumber)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> trackCounts.containsKey(trackNumber) ? </span><br><span class="line">            trackCounts.get(trackNumber) : <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>我们需要关注的是 <code>args(trackNumber)</code> 限定符。它表明传递给 <code>playTrack()</code> 方法的 <code>int</code> 型参数也会传递到通知中去。参数的名称 <code>trackNumber</code> 也与切点方法签名中的参数相匹配。这个参数会传递到通知方法中，这个通知方法是通过 <code>@Before</code> 注解和命名切点 <code>trackPlayed(trackNumber)</code> 定义的。切点定义中的参数与切点方法中的参数名称是一样的，这样就完成了从命名切点到通知方法的参数转移。</p>
+<p><strong>通过注解引入新功能</strong></p>
+<p>Java并不是动态语言，类编译完成后，很难在为该类添加新的功能，但是利用被称为引入的AOP概念，我们可以利用切面为Spring Bean添加新的方法。回顾一下，在Spring中，切面只是实现了它们所包装bean相同接口的代理。如果除了实现这些接口，代理也能暴露新接口的话，看起来就像切面所通知的bean实现了新的接口。</p>
+<p>我们为所有的 <code>Performance</code> 实现引入下面的 <code>Encoreable</code> 接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Encoreable</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">performEncore</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在假设你能够访问 <code>Performance</code> 的所有实现，并对其进行修改，让它们都实现 <code>Encoreable</code> 接口。但是从设计的角度看，这并不是最好的做法，并不是所有的 <code>Performance</code> 都是具有 <code>Encoreable</code> 特性的。另外一方面，有可能无法修改所有的 <code>Performance</code> 实现，当使用第三方实现并且没有源码的情况下更是如此。</p>
+<p>借助于AOP的引入功能，我们可以不必在设计上有所妥协或者侵入地改变现有地实现。为了实现该功能，我们需要创建一个切面：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> concert;</span><br><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EncoreableIntroducer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@DeclareParents</span>(value=<span class="string">"concert.Performance+"</span>,</span><br><span class="line">                   defaultImpl=DefaultEncoreable.class)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Encoreable encoreable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>它与我们之前所创建的切面不同，它并没有提供前置、后置或者环绕通知，而是通过 <code>@DeclareParents</code> 注解，将 <code>Encoreable</code> 接口引入到 <code>performance</code> bean中。</p>
+<p><code>@DeclareParents</code> 注解由三部分组成：</p>
+<p>① <code>value</code> 属性指定了哪种类型的bean要引入该接口。在本例中，也就是所有实现 <code>Performance</code> 的类型。（标记符后面的加号表示是 <code>Performance</code> 的所有子类型，而不是 <code>Performance</code> 本身）</p>
+<p>② <code>defaultImpl</code> 属性指定了为引入功能提供实现的类。在这里，我们指定的是 <code>DefaultEncoreable</code> 提供实现。</p>
+<p>③ <code>@DeclareParents</code> 注解所标注的静态属性指明了要引入的接口。</p>
+<p>和其他切面一样，我们需要在Spring应用中将 <code>EncoreableIntroducer</code> 声明为一个bean。</p>
+<p><strong>注入AspectJ切面</strong></p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MVC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LISTENER</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">FILTER</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/11/day19/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/01/16/day20/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring入门(二)
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/01/06/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JVM学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -223,9 +734,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

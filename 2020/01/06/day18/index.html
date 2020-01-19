@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaEE day18 | th的个人博客</title>
+  <title>Maven与Spring Boot | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Maven 入门什么是Maven Maven 是专门用于构建和管理Java相关项目的工具。">
 <meta name="keywords" content="Maven, Spring Boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaEE day18">
+<meta property="og:title" content="Maven与Spring Boot">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;06&#x2F;day18&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
 <meta property="og:description" content="Maven 入门什么是Maven Maven 是专门用于构建和管理Java相关项目的工具。">
@@ -20,7 +20,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;10&#x2F;k5bADEciOt63JHe.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;10&#x2F;adBvp6zwcnju4xN.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;10&#x2F;rkLSNzAUnOdq8RV.png">
-<meta property="og:updated_time" content="2020-01-10T09:47:23.738Z">
+<meta property="og:updated_time" content="2020-01-19T02:12:38.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;06&#x2F;SOxmLvIcUle8pHB.png">
   
@@ -152,7 +152,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaEE day18
+      Maven与Spring Boot
     </h1>
   
 
@@ -261,6 +261,18 @@
 </blockquote>
 <h2 id="Spring-Boot-入门"><a href="#Spring-Boot-入门" class="headerlink" title="Spring Boot 入门"></a>Spring Boot 入门</h2><h5 id="什么是Spring-Boot"><a href="#什么是Spring-Boot" class="headerlink" title="什么是Spring Boot"></a>什么是Spring Boot</h5><blockquote>
 <p>Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用来简化新 Spring 应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是 Spring Boot 其实不是什么新的框架，它默认配置了很多框架的使用方式，就像 Maven 整合了所有的 Jar 包，Spring Boot 整合了所有的框架。</p>
+</blockquote>
+<h5 id="Spring-boot-特点"><a href="#Spring-boot-特点" class="headerlink" title="Spring boot 特点"></a>Spring boot 特点</h5><blockquote>
+<p>（1）快速开发spring应用的框架<br>（2）内嵌tomcat和jetty容器，不需要单独安装容器，jar包直接发布一个web应用<br>（3）简化maven配置，parent这种方式，一站式引入需要的各种依赖<br>（4）基于注解的零配置思想<br>（5）和各种流行框架，spring web mvc，mybatis，spring cloud无缝整合</p>
+</blockquote>
+<h5 id="Spring-boot启动流程"><a href="#Spring-boot启动流程" class="headerlink" title="Spring boot启动流程"></a>Spring boot启动流程</h5><blockquote>
+<p>Spring Boot程序有一个入口，就是main方法。main里面调用SpringApplication.run()启动整个Spring Boot程序，该方法所在类需要使用 <code>@SpringBootApplication</code> 注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReadingListApplication</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(ReadingListApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>SpringBootApplication</code> 包含了三个最重要的注解：<code>@EnableAutoConfiguration</code> <code>@ComponentScan</code> <code>@Configuration</code>。</p>
+<p>其中 <code>@Configuration</code> 我们都很熟悉了，就是标注自己是一个IoC容器的配置类。</p>
+<p><code>@EnableAutoConfiguration</code> 可以帮助SpringBoot应用将所有符合条件的 <code>@Configuration</code> 配置都加载到当前SpringBoot创建并使用的IoC容器。大白话说就是打开自动配置的功能。</p>
+<p><code>@ComponentScan</code> 我们也很熟悉了，就是组件扫描，可自动发现和装配Bean，功能其实就是自动扫描并加载符合条件的组件或者bean定义，最终将这些bean定义加载到IoC容器中。</p>
 </blockquote>
 <h5 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h5><blockquote>
 <p>在<a href="http://start.spring.io/" target="_blank" rel="noopener">Spring官网</a>下载相关项目所用资源包即可，并在Idea中导入</p>
@@ -601,18 +613,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/01/06/day17/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/01/06/JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JavaEE day17
+          JVM学习笔记
         
       </div>
     </a>
   
   
-    <a href="/2019/11/27/day16/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaEE day16</div>
+    <a href="/2020/01/06/day17/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java多线程基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -737,7 +749,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,11 +757,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,30 +774,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Maven, Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,6 +786,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">FILTER</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Maven, Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">

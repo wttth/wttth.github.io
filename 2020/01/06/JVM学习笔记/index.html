@@ -8,16 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>JVM学习笔记 | th的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一章 走近JavaJava 技术体系 JDK：我们可以把Java程序设计语言、Java虚拟机、Java API类库这三部分统称为JDK(Java Development Kit)(Kit 工具箱)，是用于支持Java程序开发的最小环境。 JRE：可以把Java API类库中的Java SE API子集和 Java虚拟机这两部分统称为JRE(Java Runtime Environment)，JR">
+  <meta name="description" content="《深入理解Java虚拟机》学习笔记第一章 走近Java">
 <meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM学习笔记">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;06&#x2F;JVM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="th的个人博客">
-<meta property="og:description" content="第一章 走近JavaJava 技术体系 JDK：我们可以把Java程序设计语言、Java虚拟机、Java API类库这三部分统称为JDK(Java Development Kit)(Kit 工具箱)，是用于支持Java程序开发的最小环境。 JRE：可以把Java API类库中的Java SE API子集和 Java虚拟机这两部分统称为JRE(Java Runtime Environment)，JR">
+<meta property="og:description" content="《深入理解Java虚拟机》学习笔记第一章 走近Java">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-07T01:46:41.274Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;10&#x2F;c5XLjEIV4yZgKsq.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;17&#x2F;3OsExwXJmaRQWqr.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;17&#x2F;6iFovEI5AJ72Oxk.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;18&#x2F;Qwd759RI2LepTiH.png">
+<meta property="og:updated_time" content="2020-01-19T02:17:39.176Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;i.loli.net&#x2F;2020&#x2F;01&#x2F;10&#x2F;c5XLjEIV4yZgKsq.png">
   
     <link rel="alternative" href="/atom.xml" title="th的个人博客" type="application/atom+xml">
   
@@ -160,7 +165,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="第一章-走近Java"><a href="#第一章-走近Java" class="headerlink" title="第一章 走近Java"></a>第一章 走近Java</h2><h5 id="Java-技术体系"><a href="#Java-技术体系" class="headerlink" title="Java 技术体系"></a>Java 技术体系</h5><blockquote>
+        <h2 id="《深入理解Java虚拟机》学习笔记"><a href="#《深入理解Java虚拟机》学习笔记" class="headerlink" title="《深入理解Java虚拟机》学习笔记"></a>《深入理解Java虚拟机》学习笔记</h2><h2 id="第一章-走近Java"><a href="#第一章-走近Java" class="headerlink" title="第一章 走近Java"></a>第一章 走近Java</h2><a id="more"></a>
+
+<h5 id="Java-技术体系"><a href="#Java-技术体系" class="headerlink" title="Java 技术体系"></a>Java 技术体系</h5><blockquote>
 <p>JDK：我们可以把Java程序设计语言、Java虚拟机、Java API类库这三部分统称为JDK(Java Development Kit)(Kit 工具箱)，是用于支持Java程序开发的最小环境。</p>
 <p>JRE：可以把Java API类库中的Java SE API子集和 Java虚拟机这两部分统称为JRE(Java Runtime Environment)，JRE是支持Java程序运行的标准环境。</p>
 <p>如果按照技术所服务的领域来划分，或者说按照Java技术关注的重点业务领域来划分，Java技术体系可以分为4个平台，分别为：</p>
@@ -168,6 +175,271 @@
 <p>Java Me(Micro Edition)：支持Java程序运行在移动终端（如手机、PDA）上的平台，对Java API有所精简，并加入了针对移动端的支持，这个版本以前称为J2ME。</p>
 <p>Java SE(Standard Edition)：支持面向桌面级应用（如Windows下的应用程序）的Java平台，提供了完整的Java核心API，这个版本以前称作J2SE。</p>
 <p>Java EE(Enterprise Edition)：支持使用多层架构的企业应用的Java平台，除了提供Java SE API外，还对其作了大量的扩充并提供了相关的部署支持，这个版本以前称作J2EE。(Enterprise 企业)</p>
+</blockquote>
+<h2 id="第二章-Java内存区域与内存溢出异常"><a href="#第二章-Java内存区域与内存溢出异常" class="headerlink" title="第二章 Java内存区域与内存溢出异常"></a>第二章 Java内存区域与内存溢出异常</h2><p>Java与C++之间有一堵由内存动态分配和垃圾收集技术所围成的”高墙“。</p>
+<h5 id="运行时数据区域"><a href="#运行时数据区域" class="headerlink" title="运行时数据区域"></a>运行时数据区域</h5><blockquote>
+<p><img src="https://i.loli.net/2020/01/10/c5XLjEIV4yZgKsq.png" alt="捕获.PNG"></p>
+<p><strong>程序计数器</strong>（Program Counter Register）可以看作是当前线程所执行的字节码的行号指示器。Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时间的方式来实现的，因此为了线程切换后能恢复到正确的执行位置，每条线程都需要一个独立的程序计数器。</p>
+<p><strong>Java虚拟机栈</strong>（Java Virtual Machine Stacks）也是线程私有的，生命周期与线程相同。每个方法在执行的同时会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等信息。每个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机中从入栈到出栈的过程。如果线程请求的栈深度大于虚拟机所允许的深度，将抛出<code>StackOverflowError</code>；如果虚拟机栈动态扩展时无法申请到足够的内存，就会抛出<code>OutOfMemmoryError</code>。</p>
+<p><strong>本地方法栈</strong>（Native Method Stack）与虚拟机栈所发挥的作用是非常相似的。它们之间的区别不过是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚拟机使用到的Native方法服务。部分虚拟机（如Sun HotSpot虚拟机）直接就把本地方法栈和虚拟机栈合二为一。</p>
+<p><strong>Java堆</strong>（Java Heap）是Java虚拟机所管理的内存中最大的一块。被所有线程共享，在虚拟机创建时启动。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。Java堆是垃圾收集器管理的主要区域，因此很多时候也被称作”GC堆“（Garbage Collected Heap）。从内存回收的角度看，由于现在收集器基本都采用分代收集算法，所以Java堆中还可细分为：新生代和老年代。</p>
+<p><strong>方法区</strong>（Method Area）也是各个线程共享的区域，用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等。</p>
+<p><strong>运行时常量池</strong>（Runtime Constant Pool）是方法区的一部分，常量池用于存放编译期生成的各种字面量和符号引用。运行时常量池相对于Class文件常量池的另外一个重要特征是具备动态性，Java语言并不要求常量一定只有编译期才能产生，运行期间也可能将新的常量放入池中，例如Sring类的 <code>intern()</code> 方法。</p>
+<p><strong>直接内存</strong>（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是java虚拟机规范中定义的内存区域。</p>
+</blockquote>
+<h5 id="HotSpot虚拟机对象探秘"><a href="#HotSpot虚拟机对象探秘" class="headerlink" title="HotSpot虚拟机对象探秘"></a>HotSpot虚拟机对象探秘</h5><blockquote>
+<p><strong>对象的创建</strong></p>
+<p>当虚拟机遇到一条new指令时，首先将去检查这个指令的参数能否在常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否被加载、解析和初始化过。如果没有，那必须先执行类的加载过程。</p>
+<p>在类加载检查通过后，接下来虚拟机将为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定。假设Java堆中内存是<strong>绝对规整</strong>的，有一个指针作为空闲内存与已经被使用的内存的分界线，那只要把指针向空闲的方向挪动一段与对象大小相等的距离即可，这种分配方式称为“指针碰撞”（Bump the Pointer）。</p>
+<p>如果堆中的内存<strong>并不是规整</strong>的，已使用的内存和空闲的内存相互交错，那就不能简单地进行指针碰撞了，虚拟机必须维护一个列表记录哪些内存块是可用的，在分配的时候从列表中找到一块足够大的内存空间划分给对象，并记录更新，这种分配方式称为“空闲列表”（Free List）。<strong>Java堆是否规整与所采用的垃圾收集器是否带有压缩整理功能有关</strong>。</p>
+<p>有一个需要考虑的问题是对象创建在虚拟机中是非常频繁的行为，即使是仅仅修改指针的位置，在并发情况下也并不是线程安全的，可能出现正在给A分配内存，还没来得及修改指针位置，对象B又同时使用了原来的指针位置来进行内存分配。解决这个问题有两种方法：一是对分配内存空间的动作进行同步处理，保证原子性；而是把内存分配的动作按照线程划分在不同的空间中进行，即每个线程在Java堆中预先分配一小块内存，称为本地线程分配缓冲（Thread Local Allocation Buffer,TLAB）,哪个线程要分配内存，就在哪个线程的TLAB上进行分配，只有TLAB用完并分配新的TLAB时，才需要同步锁定。</p>
+<p>内存分配完成后，虚拟机需要将分配到的内存空间初始化为零值，这一步操作保证了对象的实例字段在Java代码中可以不赋初值就直接使用（程序能访问到这些字段的数据类型所对应的零值）。</p>
+<p>接下来，虚拟机要对对象进行必要的设置，例如这个对象是哪个类的实例、如何才能找到类的元数据信息、对象的哈希码、对象的GC分代年龄等信息。</p>
+<p>在上面工作都完成之后，从虚拟机的角度看，一个新的对象已经诞生了，但从Java程序的角度看，对象创建才刚刚开始，一般来说执行new指令之后会接着执行init方法，把对象按照程序员的意愿进行初始化，这样一个真正可用的对象才算完全产生出来。</p>
+<p><strong>对象的内存布局</strong></p>
+<p>对象在内存中存储的布局可以分为三块区域：对象头(Header)、实例数据(Instance Data)和对齐填充(Padding)</p>
+<p>对象头包括两部分信息，一部分用于存储对象自身的运行时数据，例如哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等，官方称他为“Mark Word”。对象头的另一部分是类型指针，即对象指向它的类元数据的指针，虚拟机通过这个指针来确定这个对象是哪个类的实例。另外如果对象是一个数组，那在对象头中还必须有一块用于记录数组长度的数据。</p>
+<p>实例数据部分是对象真正存储的有效信息，也是在程序代码中所定义的各种类型的字段内容，无论是从父类继承还是子类定义的，都需要记录。这部分的存储顺序会受到虚拟机分配策略参数(FieldsAllocationStyle)和字段在Java源码中定义顺序的影响。</p>
+<p>第三部分对其填充并不是必然存在的，也没有特别的含义，仅仅起着占位符的作用。由于 HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍，而对象头正好是8字节的倍数，因此当对象实例部分没有对齐时，需要通过对齐填充来补全。</p>
+<p><strong>对象的访问定位</strong></p>
+<p>建立对象是为了使用对象，我们的Java程序需要通过栈上的 <code>reference</code> 数据来操作堆上的具体对象。由于 <code>reference</code> 类型在Java虚拟机规范中只规定了一个指向对象的引用，并没有定义这个引用应该通过何种方式去定位、访问堆中的对象的具体位置，所以对象访问方式也是取决于虚拟机实现的。主流的访问方式有使用句柄和直接指针两种：</p>
+<p>① 如果使用句柄访问的话，Java堆中将会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体信息地址。最大好处就是 <code>reference</code> 中存储的是稳定的句柄地址，在对象被移动时只会改变句柄中的实例数据指针，而 <code>reference</code> 本身不需要被修改。</p>
+<p>② 如果使用直接指针访问，那么Java堆对象的布局就必须考虑如何放置访问类型数据的相关信息，而<code>reference</code> 中存储的就是对象地址。最大的好处就是速度更快，节省了一次指针定位的时间开销。</p>
+</blockquote>
+<h5 id="实战：OutOfMemory异常"><a href="#实战：OutOfMemory异常" class="headerlink" title="实战：OutOfMemory异常"></a>实战：OutOfMemory异常</h5><blockquote>
+<p>除了程序计数器，虚拟机内存的其他几个运行时区域都有发生OutOfMemory异常（OOM异常）的可能。</p>
+<p><strong>Java堆溢出</strong></p>
+<p>Java堆用于存储对象实例，只要不断地创建对象，并且保证GC Roots到对象之间有可达路径来避免垃圾回收机制清除这些对象，那么在对象数量达到最大堆的容量限制后就会产生内存溢出异常。</p>
+<p>解释：一种垃圾回收算法的思路是将一系列被称为GC Roots的变量作为初始的存活对象合集，然后从该合集出发，所有能够被该集合引用到的对象，并将其加入到该集合中，而不能被该合集所引用到的对象，并可对其宣告死亡。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HeapOOM</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">OOMObject</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;OOMObject&gt; list = <span class="keyword">new</span> ArrayList&lt;OOMObject&gt;();</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            list.add(<span class="keyword">new</span> OOMObject());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>虚拟机栈和本地方法栈溢出</strong></p>
+<p>在HotSpot虚拟机中并不区分虚拟机栈和本地方法栈。关于虚拟机栈和本地方法栈，在Java虚拟机规范中描述了两种异常：</p>
+<p>① 线程请求的栈深度大于虚拟机所允许的最大深度：StackOverflowError异常</p>
+<p>② 虚拟机在扩展栈时无法申请到足够的内存：OutOfMemoryError异常</p>
+<p>把异常分为两种情况看似更加严谨，但却存在着一些相互重叠的地方：当栈空间无法继续分配时，到底是内存太小，还是已使用的栈空间太大，其本质上是对同一件事的两种描述而已。</p>
+<p>在实验中，将实验范围限制于单线程中的操作，尝试了两种方法均无法让虚拟机产生OutOfMemoryError异常，尝试的结果都是获得StackOverflowError异常：</p>
+<p>① 使用-Xss参数减少栈内存容量。结果：拋出StackOverflowError异常，异常出现时输出的堆栈深度相应缩小。</p>
+<p>② 定义了大量的本地变量，增大此方法帧中本地变量表的长度。结果：拋出StackOverflowError异常时输出的堆栈深度相应缩小。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackSOF</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> stackLength = <span class="number">1</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeak</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        stackLength++;</span><br><span class="line">        stackLeak();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        JavaVMStackSOF oom = <span class="keyword">new</span> JavaVMStackSOF();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            oom.stackLeak();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"stack length:"</span> + oom.stackLength);</span><br><span class="line">            <span class="keyword">throw</span> e;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>即在单个线程下，无论是由于栈帧太大还是虚拟机栈容量太小，当内存无法分配的时候，虚拟机抛出的都是StackOverflowError异常。</p>
+<p>如果测试时不限于单线程，通过不断地建立线程的方式倒是可以产生内存溢出异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaVMStackOOM</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">dontStop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">              <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">              &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stackLeakByThread</span><span class="params">()</span> </span>&#123;</span><br><span class="line">              <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                     Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                                   dontStop();</span><br><span class="line">                            &#125;</span><br><span class="line">                     &#125;);</span><br><span class="line">                     thread.start();</span><br><span class="line">              &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">              JavaVMStackOOM oom = <span class="keyword">new</span> JavaVMStackOOM();</span><br><span class="line">              oom.stackLeakByThread();</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这种情况下，为每个线程的栈分配的内存越大，反而越容易产生内存溢出异常。操作系统分配给每个进程的内存是有限制的，每个线程分配到的栈容量越大，可以建立的线程数量自然就越少，建立线程时就越容易把剩下的内存耗尽。如果是建立过多线程导致的内存溢出，在不能减少线程数或者更换64位虚拟机的情况下，就只能通过减少最大堆和减少栈容量来换取更多的线程。如果没有这方面的处理经验，这种通过“减少内存”的手段来解决内存溢出的方式会比较难以想到。</p>
+<p><strong>方法区和运行时常量池溢出</strong></p>
+<p>由于运行时常量池是方法区的一部分，因此这两个区域的溢出测试就放在一起进行。前面提到JDK 1.7开始逐步“去永久代”的事情,在此就以测试代码观察一下这件事对程序的实际影响。</p>
+<p>String.intern() 是一个Native方法，它的作用是：如果字符串常量池中已经包含一个等于此String对象的字符串，则返回代表池中这个字符串的String对象；否则，将此String对象包含的字符串添加到常量池中，并且返回此String对象的引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RuntimeConstantPoolOOM</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 使用List保持着常量池引用，避免Full GC回收常量池行为</span></span><br><span class="line">        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="comment">// 10MB的PermSize在integer范围内足够产生OOM了</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>; </span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            list.add(String.valueOf(i++).intern());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在JDK1.6及之前的版本中，运行上述代码将会得到OOM异常。而使用JDK 1.7运行这段程序就不会得到相同的结果，while循环将一直进行下去。</p>
+<p>方法区用于存放Class的相关信息，如类名、访问修饰符、常量池、字段描述、方法描述等。对于这些区域的测试，基本的思路是运行时产生大量的类去填满方法区，直到溢出。</p>
+<p><strong>本机内存直接溢出</strong></p>
+<p>下面代码越过了 DirectByteBuffer类，直接通过反射获取Unsafe实例进行内存分配(Unsafe类的getUnsafe() 方法限制了只有引导类加载器才会返回实例,也就是设计者希望只有rt.jar中的类才能使用Unsafe的功能)。因为虽然使用 DirectByteBuffer分配内存也会拋出内存溢由异常，但它抛出异常时并没有真正向操作系统申请分配内存，而是通过计算得知内存无法分配，于是手动拋出异常，真正申请分配内存的方法是unsafe.allocateMemory()。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DirectMemoryOOM</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> _1MB = <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Field unsafeField = Unsafe.class.getDeclaredFields()[<span class="number">0</span>];</span><br><span class="line">        unsafeField.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">        Unsafe unsafe = (Unsafe) unsafeField.get(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            unsafe.allocateMemory(_1MB);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="第三章-垃圾收集器与内存分配策略"><a href="#第三章-垃圾收集器与内存分配策略" class="headerlink" title="第三章 垃圾收集器与内存分配策略"></a>第三章 垃圾收集器与内存分配策略</h2><h5 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h5><blockquote>
+<p>内存运行时区域的各个部分中程序计数器、本地方法栈和虚拟机栈是随着线程的产生而产生，随着线程的消亡而消亡的；栈中的栈帧随着方法的进入和退出而有条不紊地执行着出栈和入栈地操作，每一个栈帧分配多少内存基本上是在类结构确定下来时就已知的。这几部分的内存分配和回收是确定好了的，随方法结束或线程结束时，内存就紧跟着回收了。而Java堆和方法区不一样。一个接口中多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也可能不一样，我们只有在运行期间才知道会创建哪些对象，故内存回收与分配重点关注的是<strong>堆内存</strong>和<strong>方法区内存</strong>。</p>
+</blockquote>
+<h5 id="对象已死吗"><a href="#对象已死吗" class="headerlink" title="对象已死吗"></a>对象已死吗</h5><blockquote>
+<p>在堆里面存放着Java世界中几乎所有的对象实例，垃圾收集器在对堆进行回收前，第一件事情就是确定这些对象之中那些还“存活”着，哪些已经“死去”。</p>
+<p><strong>引用计数法</strong></p>
+<p>给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器值为0的对象就是不可能再被使用的。</p>
+<p>引用计数法实现简单，判定效率也很高，在大部分情况下都是一个不错的算法。</p>
+<p>但是至少主流的Java虚拟机没有选用引用计数法来管理内存，最主要的原因是<strong>他很难解决对象之间相互循环引用的问题</strong>。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReferenceCountingGC</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Object instance = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> _1MB = <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">    <span class="comment">//下面这个属性的作用就是占点内存用来判断是否被回收过</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">byte</span>[] bigSize = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">2</span> * _1MB];</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">testGC</span><span class="params">()</span></span>&#123;</span><br><span class="line">        ReferenceCountingGC objA = <span class="keyword">new</span> ReferenceCountingGC();</span><br><span class="line">        ReferenceCountingGC objB = <span class="keyword">new</span> ReferenceCountingGC();</span><br><span class="line">        objA.instance = objB;</span><br><span class="line">        objB.instance = objA;</span><br><span class="line"></span><br><span class="line">        objA = <span class="keyword">null</span>;</span><br><span class="line">        objB = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中的objA与objB互相持有对方的引用，虽然计数器都不为0，实际上这两个对象已经不可能再被访问。</p>
+<p><strong>可达性分析算法</strong></p>
+<p>这个算法的基本思路就是通过一系列被称为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，所走过的路径被称为应用链（Reference Chain），当一个对象到GC Roots没有任何引用链时（用图论的说法就是这两个对象不可达），则证明此对象时不可达的。 主流的商用程序语言(Java，C#等)的主流实现中，都是通过可达性分析来判定对象是否存活的。</p>
+<p>在java语言中，可作为GC Roots的对象包括下面几种：</p>
+<ul>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区中类静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中JNI（即一般说的Native方法）引用的对象</li>
+</ul>
+<p><strong>再谈引用</strong></p>
+<p>JDK1.2之前，对引用的定义很传统：如果reference类型的数据中存储的数值代表的是另一块内存的起始地址，就称这块内存代表引用。这种定义无法描述一些“食之无味，弃之可惜”的对象，即那些如果内存空间足够，我们希望它留着，内存空间不够了，则可以被回收的对象。</p>
+<p>jdk1.2之后，引用被分为四种：强引用，软引用，弱引用，虚引用，强度依次减弱。</p>
+<p>① 强引用即代码中普遍存在的如“obj A = new obj（）”这类的引用，只要强引用仍然存在，垃圾回收器永远不会回收被引用的对象。</p>
+<p>② 软引用用来描述一些有用但非必需的对象，<strong>在系统即将发生内存溢出异常前，会将这些对象列入回收范围内进行第二次回收</strong>。如果这次回收没有足够的内存，才会抛出内存溢出异常，可以通过SoftReference类来实现软引用。  </p>
+<p>③ 弱引用也被用来描述非必需的对象，强度比软引用更弱，<strong>只能生存到下一次垃圾收集发生之前，垃圾收集器工作后不管内存空间是否足够都会回收掉这些弱引用关联的对象</strong>。可以使用WeekReference来实现弱引用。</p>
+<p>④ 虚引用又被称为幽灵引用或者幻影引用，是最弱的一种引用关系。虚引用不会对对象的生存时间产生影响，也无法通过这样的引用来获取对象实例，设置虚引用的唯一目的就是在对象被垃圾回收时收到一个通知。可以通过phantomReference来设置虚引用。</p>
+<p><strong>生存还是死亡</strong></p>
+<p>即使在可达性分析中不可达的对象，也并非是“非死不可”的，这时候它们暂时处于“缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程。如果对象在可达性分析中发现没有于GC Roots相连，会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行finalize()方法。当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，则视为“没有必要执行”。</p>
+<p>若判定为有必要执行，则将对象放入F-Queue队列中，放入队列之后，会由一个虚拟机自动建立的、低优先级的finalizer线程执行它。这里的执行，仅仅是触发这个方法但不保证等待其运行完成，这是为了防止程序运行缓慢或者崩溃导致整个队列无法继续运行。 如果对象想要在finalize()方法中拯救自己，只要重新与引用链上的任何一个对象建立关联即可，在第二次标记时将会被移除出“即将回收”集合；如果这时候对象还没有逃脱，那么基本上他就真的被回收了。</p>
+<p>需要注意的是，finalize()方法只会被系统调用一次，即不可能通过这种方法“拯救”一个对象两次。其次，它的运行代价高昂，不确定性大，无法保证各个对象的调用顺序，建议大家可以完全忘掉Java语言中这个方法的存在。</p>
+<p>以上为<strong>堆上</strong>的回收算法。</p>
+<p><strong>回收方法区</strong></p>
+<p><strong>堆=新生代+老年代，不包括永久代（方法区）。</strong></p>
+<p>方法区，即永久代中的垃圾收集是效率低下的，远低于新生代中一次性可以回收70%~95%的空间。</p>
+<p>永久代中的垃圾收集主要回收两部分内容：废弃常量与无用的类。  </p>
+<p>废弃常量的回收与java堆中类似，一个字符串如果进入了常量池，但是没有任何一个String对象引用了这个字符串，也没有其他地方引用了这个常量，如果发生了内存回收而且必要的话，此字符串就会被清理。常量池中的其他类（接口）、方法、字段的符号引用类似。</p>
+<p>而类，需要满足以下三个条件才会被回收：</p>
+<p>① 该类的所有实例已被回收；</p>
+<p>② 加载该类的classLoader已被回收；</p>
+<p>③ 该类对应的java.lang.class对象没有任何地方被引用，无法在任何地方通过反射访问该类的方法。 </p>
+<p> 满足以上条件的类<strong>可能</strong>被回收。（并不一定）</p>
+</blockquote>
+<h5 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h5><blockquote>
+<p><strong>标记-清除算法</strong></p>
+<p>最基础的收集算法，后续的收集算法都是基于这种思路并对其不足进行改进而得到的。</p>
+<p>标记过程在前一节讲述对象标记判定时已经介绍过了。</p>
+<p>不足之处主要有两个：</p>
+<p>① 效率问题，标记和清除两个过程的效率都不高。</p>
+<p>② 空间问题，标记清楚后会产生大量不连续的内存碎片，空间碎片太多可能会导致以后载程序运行过程中需要分配较大的对象时，无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。</p>
+<p><strong>复制算法</strong></p>
+<p>将可用内存划分为大小相等的两块，每次只使用其中的一块。当这块用完了，就将还存活的复制到另一块上，然后将这一块一次性清除。代价是将内存缩小为原来的一半。</p>
+<p>现在的商业虚拟机都是采用该方法来回收新生代，IBM公司的研究表明新生代98%都是朝生夕死的，因此并不需要按照1：1的比例来划分内存空间。将内存分为较大Eden和两个较小的survivor空间。每次使用其中一块Eden和survivor，回收时将存活的对象一次性地复制到另一块survivor中，再清理掉之前的。HotSpot虚拟机Eden与Survivor默认的大小比例为8:1:1，也就是每次新生代中可用的内存空间为整个新生代内存空间的90%。当survivor空间不够时，需要依赖其他内存（老年代）进行分配担保，即让对象进入老年代。</p>
+<p><strong>标记-整理算法</strong></p>
+<p>标记过程与“标记-清楚”算法相同，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉边界以外的内存。</p>
+<p><strong>分代收集算法</strong></p>
+<p>当前商用虚拟机的垃圾收集都采用“分代收集”算法，即根据对象存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，然后根据各个年代的特点采用最适当的收集算法。在新生代中每次垃圾收集都能发现大批对象已死，只有少量存活，因此选用复制算法，只需要付出少量存活对象的复制成本就可以完成收集。在老年代因为对象存活率高、没有额外空间对它进行分配担保，就必须采用<strong>“</strong>标记—清理<strong>”</strong>或<strong>“</strong>标记—整理<strong>”</strong>算法来进行回收，不必进行内存复制，且直接腾出空闲内存。</p>
+</blockquote>
+<h2 id="第七章-虚拟机类加载机制"><a href="#第七章-虚拟机类加载机制" class="headerlink" title="第七章 虚拟机类加载机制"></a>第七章 虚拟机类加载机制</h2><h5 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h5><blockquote>
+<p>虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。</p>
+<p>与那些在编译时需要进行连接工作的语言不同，在Java语言里面，类型的加载、连接和初始化过程都是在程序运行期间完成的，这种策略虽然会令类加载时稍微增加一些性能开销，但是会为Java应用程序提供高度的灵活性。</p>
+</blockquote>
+<h5 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h5><blockquote>
+<p>类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：加载、验证、准备、解析、初始化、使用和卸载七个阶段。其中验证、准备、解析三个部分统称为连接。如下图所示：</p>
+<p><img src="https://i.loli.net/2020/01/17/3OsExwXJmaRQWqr.png" alt="5vkrof7waf.png"></p>
+<p>其中加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的。而解析阶段不一定：它在某些情况下可以在初始化阶段之后再开始，这是为了支持java语言的运行时绑定。</p>
+<p>加载阶段在什么情况下进行，虚拟机规范中并没有强制约束，这点可以交个虚拟机的具体实现来自由把握。对于初始化阶段，虚拟机规范则是严格规定了<strong>有且只有</strong>五种情况必须立即对类进行”初始化”：</p>
+<p>① 遇到new、getstatic、putstatic或invokestatic这4条字节码指令时，如果类没有进行过初始化，则需要先触发其初始化。常见的场景为：new关键字实例化对象、读取或设置一个类的静态字段（被final修饰、已在编译期把结果放入常量池的静态字段除外）的时候、以及调用一个类的静态方法的时候。</p>
+<p>② 使用java.lang.reflect包的方法对类进行反射调用的时候，如果类没有进行初始化，则需要先触发其初始化。</p>
+<p>③ 当初始化一个类的时候，如果发现其父类还没有进行初始化，则需要先触发其父类的初始化。</p>
+<p>④ 当虚拟机启动时，用户需要指定一个要执行的主类（包含main()方法的那个类），虚拟机会先初始化这个主类。</p>
+<p>⑤ 当使用JDK1.7的动态语言支持时。。。</p>
+<p>这5种场景的行为称为对一个类进行<strong>主动引用</strong>， 除此以外所有引用类的方式都不会触发初始化，称为被动引用。被动引用的例子有：</p>
+<p>① 通过子类引用父类的静态字段，不会导致子类初始化</p>
+<p>② 通过数组定义来引用类，不会触发此类的初始化</p>
+<p>③ 常量在编译阶段会存入调用类的常量池中，本质上并没有直接引用到定义常量的类，因此不会触发定义常量的类的初始化。</p>
+<p>接口也有初始化过程，这点与类是一致的，但是区别在于前面讲述的5中主动引用中的第三种：当一个类初始化时，要求其父类全部都已经初始化过了，但是一个接口在初始化时，并不要求其父接口全部都完成了初始化，只有在真正使用到父接口的时候（如引用接口中定义的常量）才会初始化。</p>
+</blockquote>
+<h5 id="类加载的过程"><a href="#类加载的过程" class="headerlink" title="类加载的过程"></a>类加载的过程</h5><blockquote>
+<p><strong>加载</strong></p>
+<p>在加载阶段虚拟机需要完成以下3件事情：<br>① 通过一个类的全限定名来获取定义此类的二进制字节流。<br>② 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。<br>③ 在内存中生成一个代表这个类的java.lang.Class对象，作为这个类的各种数据的访问入口。</p>
+<p>虚拟机规范这三点并不具体，因此虚拟机实现与具体应用的灵活度都是相当大的。通过使用不同的类加载器，可以从不同来源加载类的二进制数据，通常有如下几种来源：</p>
+<p>① 从本地文件系统加载class文件，这是前面绝大部分示例程序的类加载方式。</p>
+<p>② 从JAR包加载class文件，这种方式也是很常见的，前面介绍JDBC编程时用到的数据库驱动类就放在JAR文件中，JVM可以从JAR文件中直接加载该class文件。</p>
+<p>③ 通过网络加载class文件。</p>
+<p>。。。。</p>
+<p>加载完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区中，方法区中的数据存储格式由虚拟机实现自行定义，虚拟机规范未规定此区域的具体数据结构。然后再Java堆中实例化一个java.lang.Class类的对象，这个对象将作为程序访问方法区中的这些类型数据的外部接口。</p>
+<p>加载阶段与连接阶段的部分内容（如一部分字节码文件格式验证动作）是交叉进行的，加载阶段尚未完成，连接阶段可能已经开始，但这些夹在加载阶段之中进行的动作，仍然属于连接阶段的内容，这两个阶段开始时间仍然保持着固定的先后顺序。</p>
+<p><strong>验证</strong></p>
+<p>验证是连接阶段的第一步，这一阶段目的是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身安全。</p>
+<p>验证阶段是非常重要的，这个阶段是否严谨直接决定了Java虚拟机是否能承受恶意代码的攻击，从执行性能的角度上讲，验证阶段的工作量在虚拟机的类加载子系统中又占了相当大的一部分。从整体上看，验证阶段大致上会完成下面4个阶段的检验动作：文件格式验证、元数据验证、字节码验证、符号引用验证。</p>
+<p>① 文件格式验证</p>
+<p>第一阶段要验证字节流是否符合Class文件格式的规范，并且能被当前版本的虚拟机处理。该验证阶段的主要目的是保证输入的字节流能正确的解析并存储于方法区之内，格式上符合描述一个Java类型的信息的要求。这阶段的验证是基于二进制字节流进行的，经过这个阶段的验证之后，字节流才会进入内存的方法区进行存储，所以后面三个验证阶段全部是基于方法区的存储结构进行的，不会再直接操作字节流。</p>
+<p>② 元数据验证</p>
+<p>第二阶段是对字节码描述的信息进行语义分析，以保证其描述的信息符合Java语言的规范要求，这个阶段可能包括的验证点如下：</p>
+<ul>
+<li><p>这个类是否有父类（除了java.lang.Object之外，所有的类应当有父类）</p>
+</li>
+<li><p>这个类的父类是否继承了不允许被继承的类（被final修饰）</p>
+</li>
+<li><p>如果这个类不是抽象类，是否实现了其父类或接口之中要求实现的所有方法。</p>
+</li>
+<li><p>类中的字段、方法是否与父类产生了矛盾</p>
+<p>。。。。</p>
+</li>
+</ul>
+<p>③ 字节码验证</p>
+<p>第三个阶段是验证过程中最复杂的一个，其主要工作是进行数据流和控制流分析。第二阶段对元数据信息中的数据类型做完校验后，这阶段将对类的方法体进行校验分析。这阶段的任务是保证被校验类的方法在运行时不会做出危害虚拟机安全的行为，例如：</p>
+<ul>
+<li><p>保证任意时刻操作数栈的数据类型与指令代码序列都能配合工作，例如不会出现类似这种情况：在操作栈中放置了一个int类型的数据，使用时却按long类型来加载入本地变量表中。</p>
+</li>
+<li><p>保证跳转指令不会跳转到方法体以外的字节码指令上。</p>
+</li>
+<li><p>保证方法体中的类型转换是有效的，例如可以把一个子类对象赋值给父类数据类型，这是安全的，反之不合法。</p>
+<p>。。。。</p>
+</li>
+</ul>
+<p>④ 符号引用验证</p>
+<p>最后一个阶段的校验发生在虚拟机将符号引用转化为直接引用的时候，这个转化动作将在连接的第三个阶段——解析阶段中发生。符号引用验证可以看做是对类自身以外的信息进行匹配性的校验，通常需要校验以下内容：</p>
+<ul>
+<li>符号引用中通过字符串描述的全限定名是否能找到对应的类。</li>
+<li>在指定类中是否存在符合方法的字段描述符以及简单名称所描述的方法和字段。</li>
+<li>符号引用中的类、字段和方法的访问性（private、protected、public、default）是否可被当前类访问。</li>
+<li>。。。。。。</li>
+</ul>
+<p>符号引用验证的目的是确保解析动作能正常执行，如果无法通过符号引用验证，将会抛出一个java.lang.IncompatibleClassChangeError异常的子类，如java.lang.IllegalAccessError、java.lang.NoSuchFieldError、java.lang.NoSuchMethodError等。</p>
+<p>对于虚拟机的类加载机制来说，验证阶段是一个非常重要的、但不一定必要（对程序运行期没有任何影响）的阶段。</p>
+<p><strong>准备</strong></p>
+<p>准备阶段是正式为类变量分配内存并设置类变量初始值得阶段，这些内存都将在方法区中进行分配。这个阶段中有两个容易产生混淆的概念需要强调一下，首先是这时候进行内存分配的仅包括类变量（被static修饰的变量），而不包括实例变量，实例变量将会在对象实例化时随着对象一起分配在Java堆中。其次是这里所说的初始值“通常情况下”是数据类型的零值。</p>
+<p>  public static int value=123；</p>
+<p>此时value初始化为0，而不是123。如果类字段的字段属性表中存在ConstantValue属性，那在准备阶段变量value就会被初始化为ConstantValue属性所指定的值，如：</p>
+<p>  public static final int value = 123；</p>
+<p>编译时Javac将会为value生成ConstantValue属性，在准备阶段虚拟机就会根据ConstantValue的设置将value赋值为123。</p>
+<p><strong>解析</strong></p>
+<p>解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程。</p>
+<p>符号引用(Symbolic References)：符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。符号引用于虚拟机实现的内存布局无关，引用的目标不一定已经加载到内存中。</p>
+<p>直接引用(Direct References)：直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄，直接引用是与虚拟机实现的内存布局相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同，如果有了直接引用，那引用的目标必定已经在内存中存在。</p>
+<p>解析动作主要针对类或接口、字段、类方法、接口方法四类符号引用进行。</p>
+<p><strong>初始化</strong></p>
+<p>直到初始化才真正开始执行类中定义的Java程序代码。</p>
+<p>在准备阶段，变量已经赋过一次系统要求的初始值，而在初始化阶段，则根据程序员通过程序制定的主观计划去初始化类变量和其他资源，或者可以从另外一个角度来表达：初始化阶段是执行类构造器&lt;clinit&gt;()方法的过程。</p>
+</blockquote>
+<h5 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h5><blockquote>
+<p>虚拟机设计团队把类加载阶段中的”通过一个类的全限定名来获取描述此类的二进制字节流”这个动作放到 Java 虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块称为”类加载器”。</p>
+<p>类加载器可以说是Java语言的一项创新，也是Java语言流行的重要原因之一。</p>
+<p><strong>类与类加载器</strong></p>
+<p>对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在 Java 虚拟机的唯一性，每个类加载器都拥有一个独立的类名称空间。也就是说：比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来源于同一个 Class 文件，被同一个虚拟机加载，只要加载它们的类加载器不同，那这两个类就必定不相等。</p>
+<p>这里说的相等，包括equals()方法、isAssignableForm()方法、isInstance()方法的返回结果，也包括使用instanceof关键字做对象所属关系判定等情况。</p>
+<p><strong>双亲委派模型</strong></p>
+<p>从 Java 虚拟机的角度来讲，只存在两种不同的类加载器：一种是启动类加载器（Bootstrap ClassLoader），这个类加载器使用 C++ 来实现，是虚拟机自身的一部分；另一种就是所有其他的类加载器，这些类加载器都由 Java 来实现，独立于虚拟机外部，并且全都继承自抽象类java.lang.ClassLoader。</p>
+<p>从 Java 开发人员的角度来看，类加载器还可以划分的更细致一些：</p>
+<p>① 启动类加载器：前面已经介绍过，这个类加载器负责将存放在 &lt;java_home&gt;\lib 目录中的类库加载到虚拟机内存中。启动类加载器无法被 Java 程序直接引用，用户在编写自定义类加载器时，如果需要把加载请求委派给启动类加载器，那直接使用 null 代替即可；</p>
+<p>② 扩展类加载器：这个类加载器由 <code>sun.misc.Launcher$ExtClassLoader</code>实现，它负责加载 &lt;java_home&gt;\lib\ext 目录中的，或者被 java.ext.dirs 系统变量所指定的路径中的所有类库，开发者可以直接使用扩展类加载器；</p>
+<p>③ 应用程序类加载器：这个类加载器由 <code>sun.misc.Launcher$App-ClassLoader</code> 实现。<code>getSystemClassLoader()</code> 方法返回的就是这个类加载器，因此也被称为系统类加载器。它负责加载用户类路径（ClassPath）上所指定的类库。开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</p>
+<p>我们的应用程序都是由这 3 种类加载器互相配合进行加载的，在必要时还可以加入自己定义的类加载器。它们的关系如下图所示：</p>
+<p><img src="https://i.loli.net/2020/01/17/6iFovEI5AJ72Oxk.png" alt="捕获.PNG"></p>
+<p>上图中所呈现出的这种层次关系，称为类加载器的双亲委派模型。双亲委派模型要求除了顶层的启动类加载器以外，其余的类加载器都应当有自己的父类加载器。</p>
+<p>双亲委派模型的工作过程是这样的：如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到顶层的启动类加载器中，只有当父类加载器反馈自己无法完成这个类加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会尝试自己去加载。</p>
+<p>这样做的好处就是 Java 类随着它的类加载器一起具备了一种带有优先级的层次关系。例如java.lang.Object，它放在rt.jar中，无论哪一个类加载器要加载这个类，最终都是委派给处于模型顶端的启动类加载器来加载，因此Object类在程序的各种类加载器环境中都是同一个类。相反，如果没有使用双亲委派模型，由各个类加载器自行去加载的话，如果用户自己编写了一个称为 java.lang.Object 的类，并放在程序的 ClassPath 中，那系统中将会出现多个不同的Object类，Java 类型体系中最基本的行为也就无法保证了。</p>
+<p>双亲委派模型对于保证 Java 程序运行的稳定性很重要，但它的实现很简单：先检查是否已经被加载过，若没有则调用父类加载器的 loadClass() 方法，若父加载器为空则默认使用启动类加载器作为父加载器。如果父类加载失败，抛出 ClassNotFoundException 异常后，再调用自己的 findClass() 方法进行加载。</p>
+</blockquote>
+<h2 id="第十二章-Java内存模型与线程"><a href="#第十二章-Java内存模型与线程" class="headerlink" title="第十二章 Java内存模型与线程"></a>第十二章 Java内存模型与线程</h2><h5 id="概述-2"><a href="#概述-2" class="headerlink" title="概述"></a>概述</h5><blockquote>
+<p>在很多情况下，让计算机同时去做几件事情，不仅是因为计算机的运算能力强大了，还有一个很重要的原因是计算机的运行速度与它的存储和通信子系统速度的差距太大，大量的时间都花费在磁盘I/O、网络通信或者数据库访问上。</p>
+</blockquote>
+<h5 id="硬件的效率与一致性"><a href="#硬件的效率与一致性" class="headerlink" title="硬件的效率与一致性"></a>硬件的效率与一致性</h5><blockquote>
+</blockquote>
+<h5 id="Java内存模型"><a href="#Java内存模型" class="headerlink" title="Java内存模型"></a>Java内存模型</h5><blockquote>
+<p>Java虚拟机规范中试图定义一种Java内存模型(Java Memory Model,JMM)来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。</p>
+<p><strong>主内存与工作内存</strong></p>
+<p>Java内存模型规定了所有的变量都存储在主内存中。每个线程还有自己的工作内存，线程的工作内存中保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存中的变量。不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量值的传递都要通过主内存来完成。</p>
+<p><strong>内存间交互操作</strong></p>
+<p><strong>对于volatile型变量的特殊规则</strong></p>
+<p>当一个变量定义为volatile之后，他将具备两种特性，第一是保证此变量对所有线程的可见性，这里的“可见性”是指当一条线程修改了这个变量的值，新值对于其他线程来说是可以立即得知的。</p>
+<p>关于volatile变量的可见性，这里会有一个误解：volatile变量对所有线程是立刻可见的，对volatile变量所有的写操作都能立刻反应到其他线程中，所以基于volatile变量的运算在并发下是安全的。这句话的论据部分没有错，但其论据并不能推导出“基于volatile变量的运算在并发下是安全的”这一结论。实际上volatile变量在所有线程一致的原因在于其每次使用之前都会刷新，执行引擎看不到不一致的情况，但是Java里面的运算并不是原子的，所以并发下进行运算一样是不安全的。比如两个线程对volatile x = 1开始进行x++操作，A线程读取了x，放入栈的本地变量表，这个时候B线程完成了x++操作，x变成了2。虽然A线程知道x变成了2，但是其运算是从局部变量表中获取原本的值1，而没有重新获取，这个时候执行下去就产生了问题，结果变成了2，实际上要是3才是正确的。</p>
+<p>volatile变量的第二个语义是禁止指令重排序优化，普通变量只保证执行过程中所有依赖赋值结果的地方能够获得正确的结果，不保证赋值操作的顺序与代码中的执行顺序一致。因为在一个线程的方法执行过程中无法感知到这点，这就是所说的“线程内表现为串行语义”。</p>
+<p>我们在volatile与锁之中选择的唯一依据仅仅是volatile的语义能否满足场景的需求。</p>
+<p><strong>原子性、可见性与有序性</strong></p>
+<p>Java内存模型是围绕着在并发过程中如何处理原子性、可见性与有序性三个特征来建立的。</p>
+<p>原子性：由Java内存模型来直接保证的原子性变量操作包括read、load、assign、use、store和write。我们大致可以认为基本数据类型的访问读写是具备原子性的。除此以外，synchronized块间的操作也具备原子性。</p>
+<p>可见性：可见性是指当一个线程修改了共享变量的值，其他线程能够立即得知这个修改。Java内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值这种依赖主内存作为传递媒介的方式来实现可见性的，无论是普通变量还是volatile变量都是如此，区别在于volatile的特殊规则保证了新值能立即同步到主内存，以及每次使用前立即从主内存刷新。</p>
+<p>有序性：Java程序中天然的有序性可以总结为一句话：如果在本线程内观察，所有的操作都是有序的；如果在一个线程中观察另一个线程，所有的操作都是无序的。前半句是指“县城内表现为串行的语义”，后半句是指“指令重排序”现象和“工作内存与主内存同步延迟”现象。Java语言提供了volatile和synchronized两个关键字来保证操作之间的有序性。</p>
+<p><strong>先行发生原则（happens-before）</strong></p>
+<p>先行发生是Java内存模型中定义的两项操作之间的偏序关系，如果说操作A先行发生于操作B，其实就是说在发生操作B之前，操作A发生的影响能被操作B观察到，“影响”包括了修改内存中共享变量的值、发送了消息、调用了方法等。</p>
+<p>Java内存模型存在一些“天然的”先行发生关系，这些先行发生关系无须任何同步器协助就已经存在，可以在编码中直接使用。如果两个操作之间的关系不在此列，并且无法从下列规则推导出来的话，他们就没有顺序性保障，虚拟机可以对他们随意地进行排序：程序次序规则、管程锁定规则、volatile变量规则、线程启动规则、线程终止规则、线程中断规则、对象终结规则、传递性。</p>
+<p>注意“时间上的先发生”不代表这个操作会是先行发生。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> value = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.value = value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个线程A先（时间上的先后）调用setValue，然后另一个线程 B调用getValue。那么线程B收到的返回值是什么？我们依次考虑先行发生原则，显然不符合程序次序规则；没有同步块，自然就不会发生Lock和unlock操作，所以管程锁定规则不适用；由于value变量没有被volatile关键字修饰，所以volatile变量规则不适用；后面的线程启动、终止、中断和对象的终结规则和这里完全没有关系。没有适用先行发生的规则，所以传递性就无从谈起，所以这里的操作不是线程安全的。</p>
+</blockquote>
+<h5 id="Java与线程"><a href="#Java与线程" class="headerlink" title="Java与线程"></a>Java与线程</h5><blockquote>
+<p><strong>线程的实现</strong></p>
+<p>线程是比进程更轻量级的调度单位(线程是CPU调度的基本单位)。Java语言中每个已经执行start()方法且还未结束的java.lang.Thread类的实例就是一个线程。Thread类中所有关键方法都是Native的，在Java API中，一个Native方法往往意味着这个方法没有使用或无法使用与平台无关的手段来实现。</p>
+<p>实现线程主要有三种方式：使用内核线程实现、使用用户线程实现和使用用户线程加轻量级进程混合实现。</p>
+<p>Java线程的实现：线程模型基于操作系统原生线程模式来实现。因此在目前的JDK版本中，操作系统支持怎样的线程模型，在很大程度上决定了Java虚拟机的线程是怎样映射的，这点在不同的平台上没法达成一致。线程模型只对线程的并发规模和操作成本产生影响，对Java程序的编码和运行过程来说，这些差异都是透明的。对于Sun JDK来说，它的Windows版和Linux版都是使用一对一线程模型实现的。</p>
+<p><strong>Java线程调度</strong></p>
+<p>主要的调度方式有两种：协同式线程调度和抢占式线程调度。</p>
+<p>对于协同式线程调度，线程的执行时间由线程本身控制，线程执行完之后主动通知系统切换到另一个线程上。实现简单，但问题在于线程执行时间不可控，甚至如果一个线程编写有问题，一直不告诉系统进行线程切换，那么程序就会一直阻塞在那里。</p>
+<p>Java使用的调度方式就是抢占式调度。在这种线程调度下，线程的执行时间是系统可控的，也不会有一个线程导致整个进程阻塞的问题。虽然Java线程调度是系统自动完成的，但我们还是可以“建议”系统给某些线程多分配一点执行时间–设置线程优先级。</p>
+<p><strong>状态转换</strong></p>
+<p><img src="https://i.loli.net/2020/01/18/Qwd759RI2LepTiH.png" alt="捕获.PNG"></p>
 </blockquote>
 
       
@@ -283,9 +555,18 @@
   
 <nav id="article-nav">
   
+    <a href="/2020/01/11/day19/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Spring入门(一)
+        
+      </div>
+    </a>
   
-    <a href="/2020/01/06/day17/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaEE day17</div>
+  
+    <a href="/2020/01/06/day18/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Maven与Spring Boot</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,7 +691,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -418,11 +699,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,30 +716,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Servlet</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Maven, Spring Boot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,6 +728,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">FILTER</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Maven, Spring Boot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JSP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
               </li>
              
               <li class="article-tag-list-item">
